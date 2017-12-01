@@ -36,8 +36,8 @@ class CardView: UIView {
         addSubview(desclabel)
         desclabel.snp.makeConstraints{ make in
             make.width.centerX.equalTo(imgView)
-            make.top.equalTo(imgView.snp.bottom)
-            make.bottom.equalTo(self)
+            make.top.equalTo(imgView.snp.bottom).offset(4)
+            make.height.equalTo(28)
         }
         
     }
@@ -56,7 +56,6 @@ class CardView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 }
-
 
 
 
