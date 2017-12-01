@@ -83,7 +83,7 @@ class MainpageTableViewController: UITableViewController {
     @objc func buttonClick(_ sender: UIButton) {
         switch sender.tag {
         case 1001:
-            let a = PostTableViewController()
+            let a = DistributeController()
             self.present(a, animated: true, completion: {
             })
         case 1002:

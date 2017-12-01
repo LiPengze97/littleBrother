@@ -21,7 +21,6 @@
 		070CE5041FBC4579004DD912 /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5031FBC4579004DD912 /* ItemsController.swift */; };
 		070CE5091FBC53D9004DD912 /* MyReleaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5081FBC53D9004DD912 /* MyReleaseController.swift */; };
 		070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE50B1FBC5F68004DD912 /* UserProtocolController.swift */; };
-		070CE5111FBC82D5004DD912 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5101FBC82D5004DD912 /* CardView.swift */; };
 		070CE5191FBD7A70004DD912 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5181FBD7A70004DD912 /* Extensions.swift */; };
 		070CE51B1FBD7BED004DD912 /* MainpageTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE51A1FBD7BED004DD912 /* MainpageTableViewController.swift */; };
 		070CE51C1FBD7C45004DD912 /* RecomController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE4F71FBC1E6C004DD912 /* RecomController.swift */; };
@@ -30,6 +29,8 @@
 		070CE5231FBD7CF3004DD912 /* AuthenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE50E1FBC7FD8004DD912 /* AuthenController.swift */; };
 		070CE5241FBD7D18004DD912 /* ReflectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE4FA1FBC1EF9004DD912 /* ReflectController.swift */; };
 		070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5251FBD7D72004DD912 /* RightItemCell.swift */; };
+		07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CD51FD183A60067DF7E /* DistributeController.swift */; };
+		07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDA1FD184F90067DF7E /* CardView.swift */; };
 		87A18B6F774E4DF6286AB1A2 /* Pods_LittleBrother.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */; };
 		8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */; };
 		8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */; };
@@ -45,7 +46,6 @@
 		8E8982661FBB326D0083C05D /* LoopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8982641FBB326C0083C05D /* LoopTableViewCell.xib */; };
 		8E8982691FBB35EC0083C05D /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8982671FBB35EC0083C05D /* ButtonsTableViewCell.swift */; };
 		8E89826A1FBB35EC0083C05D /* ButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8982681FBB35EC0083C05D /* ButtonsTableViewCell.xib */; };
-		8EED8CFB1FBEF202000B3892 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED8CFA1FBEF202000B3892 /* PostTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,11 +67,12 @@
 		070CE5081FBC53D9004DD912 /* MyReleaseController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyReleaseController.swift; sourceTree = "<group>"; };
 		070CE50B1FBC5F68004DD912 /* UserProtocolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserProtocolController.swift; sourceTree = "<group>"; };
 		070CE50E1FBC7FD8004DD912 /* AuthenController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthenController.swift; sourceTree = "<group>"; };
-		070CE5101FBC82D5004DD912 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		070CE5141FBD3FBD004DD912 /* EditPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonController.swift; sourceTree = "<group>"; };
 		070CE5181FBD7A70004DD912 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		070CE51A1FBD7BED004DD912 /* MainpageTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainpageTableViewController.swift; sourceTree = "<group>"; };
 		070CE5251FBD7D72004DD912 /* RightItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightItemCell.swift; sourceTree = "<group>"; };
+		07831CD51FD183A60067DF7E /* DistributeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributeController.swift; sourceTree = "<group>"; };
+		07831CDA1FD184F90067DF7E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		8D5BC0D104F25B66905FFE09 /* Pods-LittleBrother.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1EF0D91FBA80C1004C8023 /* LittleBrother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleBrother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -90,7 +91,6 @@
 		8E8982641FBB326C0083C05D /* LoopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoopTableViewCell.xib; sourceTree = "<group>"; };
 		8E8982671FBB35EC0083C05D /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		8E8982681FBB35EC0083C05D /* ButtonsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsTableViewCell.xib; sourceTree = "<group>"; };
-		8EED8CFA1FBEF202000B3892 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		AEC45B8C582AB75B2299FE1E /* Pods-LittleBrother.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.release.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.release.xcconfig"; sourceTree = "<group>"; };
 		BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleBrother.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -228,7 +228,7 @@
 			isa = PBXGroup;
 			children = (
 				070CE50E1FBC7FD8004DD912 /* AuthenController.swift */,
-				070CE5101FBC82D5004DD912 /* CardView.swift */,
+				07831CDA1FD184F90067DF7E /* CardView.swift */,
 				070CE5251FBD7D72004DD912 /* RightItemCell.swift */,
 			);
 			path = Authentication;
@@ -304,7 +304,7 @@
 				070CE51A1FBD7BED004DD912 /* MainpageTableViewController.swift */,
 				8E543BC21FBC18E700C63671 /* MissionDetailViewController.xib */,
 				8E37F9D31FBD6F53004EA88A /* UniverSelectTableViewController.swift */,
-				8EED8CFA1FBEF202000B3892 /* PostTableViewController.swift */,
+				07831CD51FD183A60067DF7E /* DistributeController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -455,7 +455,6 @@
 				070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
-				8EED8CFB1FBEF202000B3892 /* PostTableViewController.swift in Sources */,
 				070CE51B1FBD7BED004DD912 /* MainpageTableViewController.swift in Sources */,
 				070CE4ED1FBC044A004DD912 /* Test1.swift in Sources */,
 				070CE4F41FBC1C2C004DD912 /* ContactUsController.swift in Sources */,
@@ -473,13 +472,14 @@
 				8E543BCA1FBC31AC00C63671 /* CircleLoopView.swift in Sources */,
 				8E37F9D41FBD6F53004EA88A /* UniverSelectTableViewController.swift in Sources */,
 				8E556E4C1FBBDFA9007B964D /* MissionInfoTableViewCell.swift in Sources */,
+				07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */,
 				8E543BC31FBC18E700C63671 /* MissionDetailViewController.swift in Sources */,
 				070CE5241FBD7D18004DD912 /* ReflectController.swift in Sources */,
 				070CE5211FBD7CCB004DD912 /* LoopTableViewCell.swift in Sources */,
 				070CE5191FBD7A70004DD912 /* Extensions.swift in Sources */,
 				8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */,
 				070CE5041FBC4579004DD912 /* ItemsController.swift in Sources */,
-				070CE5111FBC82D5004DD912 /* CardView.swift in Sources */,
+				07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */,
 				07047F861FBB173900A5B266 /* WalletView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

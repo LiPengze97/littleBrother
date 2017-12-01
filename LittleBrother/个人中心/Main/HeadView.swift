@@ -13,7 +13,7 @@ import SnapKit
 ///1501*790
 class HeadView: UIView {
     
-    let headImageSize: CGFloat = 70
+    let headImageSize: CGFloat = 78
     let authenticHeight: CGFloat = 28
     var belowButtonHeight: CGFloat = 0
     
@@ -26,10 +26,10 @@ class HeadView: UIView {
     var myUpLoad: UIButton?
     var myBill: UIButton?
     
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
-
+        
         initBasic()
         initHeadImage()
         initNameLabel()
@@ -134,17 +134,17 @@ class HeadView: UIView {
             make.width.equalTo(0.5)
             make.left.centerY.equalTo(myBill!)
         }
-  /*
-        let seperator2 = UIView()
-        seperator2.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
-        addSubview(seperator2)
-        seperator2.snp.makeConstraints { make in
-            make.height.equalTo(0.5)
-            make.width.equalTo(ScreenWidth)
-            make.bottom.centerX.equalTo(self)
-        }
-        seperator2.isHidden = true
-*/
+        /*
+         let seperator2 = UIView()
+         seperator2.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
+         addSubview(seperator2)
+         seperator2.snp.makeConstraints { make in
+         make.height.equalTo(0.5)
+         make.width.equalTo(ScreenWidth)
+         make.bottom.centerX.equalTo(self)
+         }
+         seperator2.isHidden = true
+         */
     }
     
     required init?(coder aDecoder: NSCoder) {

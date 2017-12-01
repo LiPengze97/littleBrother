@@ -32,6 +32,8 @@ enum Identifier {
     static let settingCellId = "fcservswerwaefq"
     static let carryOnCellId = "dawefawew"
     static let finishedCellId = "dqwefqwfq"
+    static let distributeCellId = "dasefaqfaew"
+
 }
 
 

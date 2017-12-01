@@ -16,8 +16,11 @@ class AuthenController: UITableViewController, UITextFieldDelegate {
     var card2: CardView!
     
     var submit: UIButton!
-   
-    let headerHeight: CGFloat = 260
+    
+    let headerHeight: CGFloat = 220
+    let top: CGFloat = 39
+    let left: CGFloat = 19
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "校园认证"
@@ -25,10 +28,8 @@ class AuthenController: UITableViewController, UITextFieldDelegate {
         tableView.tableHeaderView = header
         footer = UIView(frame: Rect(0, 0, ScreenWidth, 200))
         tableView.tableFooterView = footer
+        tableView.rowHeight = 49
         
-        let top: CGFloat = 30
-        let left: CGFloat = 22
-    
         card1 = CardView()
         header.addSubview(card1)
         card1.initial(isPositive: true)
@@ -63,23 +64,24 @@ class AuthenController: UITableViewController, UITextFieldDelegate {
         
         //1080*186
         let vi = UIView()
+        vi.backgroundColor = UIColor.white
         vi.layer.contents = #imageLiteral(resourceName: "textHolder").cgImage
         vi.layer.contentsGravity = kCAGravityResizeAspectFill
+        vi.layer.contentsRect = Rect(-0.05, 0.00, 0.95, 1)
         footer.addSubview(vi)
-        let left2: CGFloat = 5
+        
         vi.snp.makeConstraints{ make in
-            make.left.equalTo(left2)
-            make.right.equalTo(-left2)
+            make.left.equalTo(0)
+            make.right.equalTo(0)
             make.top.equalTo(submit.snp.bottom).offset(18)
-            make.height.equalTo((ScreenWidth-2*left2)*186/1080)
+            make.height.equalTo(ScreenWidth*186/1080)
         }
         
         
         
     }
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        view.endEditing(true)
-//    }
+    
+    
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         view.endEditing(true)
         return true
@@ -103,7 +105,7 @@ class AuthenController: UITableViewController, UITextFieldDelegate {
             let cell = RightTextFieldCell()
             cell.setLeftText("身份证号")
             cell.txfld.delegate = self
-            cell.setRightArgs("输入身份证号", width: ScreenWidth*2.2/3)
+            cell.setRightArgs("输入身份证号", width: ScreenWidth*1.9/3)
             return cell
         }
         let cell = RightLabelCell()
@@ -113,7 +115,7 @@ class AuthenController: UITableViewController, UITextFieldDelegate {
     }
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         if indexPath.row == 2 {
-            
+            tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
         }
     }
     

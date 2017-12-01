@@ -13,7 +13,7 @@ class ViewController: UITabBarController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let vc1 = UINavigationController(rootViewController: PostTableViewController())
+        let vc1 = UINavigationController(rootViewController: DistributeController())
         let vc2 = UINavigationController(rootViewController: Test2())
         let vc3 = UINavigationController(rootViewController: PersonViewController())
        
