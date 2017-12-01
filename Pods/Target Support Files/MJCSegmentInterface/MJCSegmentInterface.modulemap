@@ -1,0 +1,6 @@
+framework module MJCSegmentInterface {
+  umbrella header "MJCSegmentInterface-umbrella.h"
+
+  export *
+  module * { export * }
+}

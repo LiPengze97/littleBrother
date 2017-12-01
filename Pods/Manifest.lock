@@ -1,0 +1,24 @@
+PODS:
+  - Alamofire (4.5.1)
+  - MJCSegmentInterface (1.9.0)
+  - MJRefresh (3.1.15)
+  - SnapKit (4.0.0)
+  - SwiftyJSON (4.0.0)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.5.1)
+  - MJCSegmentInterface
+  - MJRefresh (~> 3.1.15)
+  - SnapKit (~> 4.0.0)
+  - SwiftyJSON
+
+SPEC CHECKSUMS:
+  Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
+  MJCSegmentInterface: a3b45730b68a0ae66fc329ed69771c14841d1876
+  MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  SnapKit: a42d492c16e80209130a3379f73596c3454b7694
+  SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
+
+PODFILE CHECKSUM: ef28803b6dd69839d0132119bd812f3dc9f0ad5a
+
+COCOAPODS: 1.3.1
