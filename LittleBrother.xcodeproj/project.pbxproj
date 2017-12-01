@@ -31,6 +31,9 @@
 		070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5251FBD7D72004DD912 /* RightItemCell.swift */; };
 		07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CD51FD183A60067DF7E /* DistributeController.swift */; };
 		07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDA1FD184F90067DF7E /* CardView.swift */; };
+		07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDE1FD1930F0067DF7E /* DetailViewController.swift */; };
+		07831CE11FD19A130067DF7E /* PersonInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CE01FD19A130067DF7E /* PersonInfoView.swift */; };
+		07831CE31FD19AEC0067DF7E /* MissionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CE21FD19AEC0067DF7E /* MissionInfoView.swift */; };
 		87A18B6F774E4DF6286AB1A2 /* Pods_LittleBrother.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */; };
 		8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */; };
 		8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */; };
@@ -38,8 +41,6 @@
 		8E1EF0E41FBA80C1004C8023 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8E1EF0E31FBA80C1004C8023 /* Assets.xcassets */; };
 		8E1EF0E71FBA80C1004C8023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E1EF0E51FBA80C1004C8023 /* LaunchScreen.storyboard */; };
 		8E37F9D41FBD6F53004EA88A /* UniverSelectTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E37F9D31FBD6F53004EA88A /* UniverSelectTableViewController.swift */; };
-		8E543BC31FBC18E700C63671 /* MissionDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E543BC11FBC18E700C63671 /* MissionDetailViewController.swift */; };
-		8E543BC41FBC18E700C63671 /* MissionDetailViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E543BC21FBC18E700C63671 /* MissionDetailViewController.xib */; };
 		8E543BCA1FBC31AC00C63671 /* CircleLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */; };
 		8E556E4C1FBBDFA9007B964D /* MissionInfoTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E556E4A1FBBDFA9007B964D /* MissionInfoTableViewCell.swift */; };
 		8E556E4D1FBBDFA9007B964D /* MissionInfoTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E556E4B1FBBDFA9007B964D /* MissionInfoTableViewCell.xib */; };
@@ -73,6 +74,9 @@
 		070CE5251FBD7D72004DD912 /* RightItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightItemCell.swift; sourceTree = "<group>"; };
 		07831CD51FD183A60067DF7E /* DistributeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributeController.swift; sourceTree = "<group>"; };
 		07831CDA1FD184F90067DF7E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		07831CDE1FD1930F0067DF7E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		07831CE01FD19A130067DF7E /* PersonInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoView.swift; sourceTree = "<group>"; };
+		07831CE21FD19AEC0067DF7E /* MissionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionInfoView.swift; sourceTree = "<group>"; };
 		8D5BC0D104F25B66905FFE09 /* Pods-LittleBrother.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1EF0D91FBA80C1004C8023 /* LittleBrother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleBrother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -82,8 +86,6 @@
 		8E1EF0E61FBA80C1004C8023 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8E1EF0E81FBA80C1004C8023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E37F9D31FBD6F53004EA88A /* UniverSelectTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniverSelectTableViewController.swift; sourceTree = "<group>"; };
-		8E543BC11FBC18E700C63671 /* MissionDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionDetailViewController.swift; sourceTree = "<group>"; };
-		8E543BC21FBC18E700C63671 /* MissionDetailViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionDetailViewController.xib; sourceTree = "<group>"; };
 		8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLoopView.swift; sourceTree = "<group>"; };
 		8E556E4A1FBBDFA9007B964D /* MissionInfoTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionInfoTableViewCell.swift; sourceTree = "<group>"; };
 		8E556E4B1FBBDFA9007B964D /* MissionInfoTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MissionInfoTableViewCell.xib; sourceTree = "<group>"; };
@@ -163,9 +165,10 @@
 		07047F791FBB0CEA00A5B266 /* 首页系列 */ = {
 			isa = PBXGroup;
 			children = (
+				07831CDD1FD192F70067DF7E /* 详情 */,
+				07831CDC1FD192D90067DF7E /* 发布 */,
 				8E8982601FBB2F560083C05D /* C */,
 				8E89825F1FBB2F520083C05D /* V */,
-				070CE4EB1FBC03BB004DD912 /* M */,
 				070CE4EC1FBC044A004DD912 /* Test1.swift */,
 			);
 			path = "首页系列";
@@ -194,13 +197,6 @@
 				07047F851FBB173900A5B266 /* WalletView.swift */,
 			);
 			path = Wallet;
-			sourceTree = "<group>";
-		};
-		070CE4EB1FBC03BB004DD912 /* M */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = M;
 			sourceTree = "<group>";
 		};
 		070CE5071FBC53C2004DD912 /* Order&Release */ = {
@@ -232,6 +228,24 @@
 				070CE5251FBD7D72004DD912 /* RightItemCell.swift */,
 			);
 			path = Authentication;
+			sourceTree = "<group>";
+		};
+		07831CDC1FD192D90067DF7E /* 发布 */ = {
+			isa = PBXGroup;
+			children = (
+				07831CD51FD183A60067DF7E /* DistributeController.swift */,
+			);
+			path = "发布";
+			sourceTree = "<group>";
+		};
+		07831CDD1FD192F70067DF7E /* 详情 */ = {
+			isa = PBXGroup;
+			children = (
+				07831CDE1FD1930F0067DF7E /* DetailViewController.swift */,
+				07831CE01FD19A130067DF7E /* PersonInfoView.swift */,
+				07831CE21FD19AEC0067DF7E /* MissionInfoView.swift */,
+			);
+			path = "详情";
 			sourceTree = "<group>";
 		};
 		33C65A0DF8EE74C0B5497362 /* Frameworks */ = {
@@ -300,11 +314,8 @@
 		8E8982601FBB2F560083C05D /* C */ = {
 			isa = PBXGroup;
 			children = (
-				8E543BC11FBC18E700C63671 /* MissionDetailViewController.swift */,
 				070CE51A1FBD7BED004DD912 /* MainpageTableViewController.swift */,
-				8E543BC21FBC18E700C63671 /* MissionDetailViewController.xib */,
 				8E37F9D31FBD6F53004EA88A /* UniverSelectTableViewController.swift */,
-				07831CD51FD183A60067DF7E /* DistributeController.swift */,
 			);
 			path = C;
 			sourceTree = "<group>";
@@ -372,7 +383,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E1EF0E71FBA80C1004C8023 /* LaunchScreen.storyboard in Resources */,
-				8E543BC41FBC18E700C63671 /* MissionDetailViewController.xib in Resources */,
 				8E1EF0E41FBA80C1004C8023 /* Assets.xcassets in Resources */,
 				8E1EF0E21FBA80C1004C8023 /* Main.storyboard in Resources */,
 				8E8982661FBB326D0083C05D /* LoopTableViewCell.xib in Resources */,
@@ -457,6 +467,7 @@
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
 				070CE51B1FBD7BED004DD912 /* MainpageTableViewController.swift in Sources */,
 				070CE4ED1FBC044A004DD912 /* Test1.swift in Sources */,
+				07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */,
 				070CE4F41FBC1C2C004DD912 /* ContactUsController.swift in Sources */,
 				07047F841FBB15D900A5B266 /* WalletController.swift in Sources */,
 				070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */,
@@ -472,9 +483,10 @@
 				8E543BCA1FBC31AC00C63671 /* CircleLoopView.swift in Sources */,
 				8E37F9D41FBD6F53004EA88A /* UniverSelectTableViewController.swift in Sources */,
 				8E556E4C1FBBDFA9007B964D /* MissionInfoTableViewCell.swift in Sources */,
+				07831CE11FD19A130067DF7E /* PersonInfoView.swift in Sources */,
 				07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */,
-				8E543BC31FBC18E700C63671 /* MissionDetailViewController.swift in Sources */,
 				070CE5241FBD7D18004DD912 /* ReflectController.swift in Sources */,
+				07831CE31FD19AEC0067DF7E /* MissionInfoView.swift in Sources */,
 				070CE5211FBD7CCB004DD912 /* LoopTableViewCell.swift in Sources */,
 				070CE5191FBD7A70004DD912 /* Extensions.swift in Sources */,
 				8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */,
