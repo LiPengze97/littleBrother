@@ -18,10 +18,13 @@ extension UIViewController {
 
 extension UILabel {
     ///使用此方法的前提：已经 make width constraints
-    func el_setAutoWidthText(_ str: String, fontSize: CGFloat) {
-        let w = autoSize(str, size: fontSize).width
+    func el_setAutoWidthText(_ str: String, fontSize: CGFloat, max: CGSize = Size(200, 25)) {
+        let s = autoSize(str, size: fontSize, maxSize: max)
+        let w = s.width
+        let h = s.height
         snp.updateConstraints{ make in
-            make.width.equalTo(w+5)
+            make.width.equalTo(w+3)
+            make.height.equalTo(h+3)
         }
         text = str;
         font = UIFont.systemFont(ofSize: fontSize)

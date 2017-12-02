@@ -23,6 +23,9 @@ func Color(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, alpha: CGFloat = 1
 func myRange(_ location: Int, _ length: Int) -> NSRange {
     return NSRange(location: location, length: length)
 }
+func Size(_ width: CGFloat, _ height: CGFloat) -> CGSize {
+    return CGSize(width: width, height: height)
+}
 
 ///返回一段文字的自适应 CGSize
 /// - Parameters:
@@ -30,7 +33,7 @@ func myRange(_ location: Int, _ length: Int) -> NSRange {
 ///   - size: 字号
 ///   - maxSize: 所能容忍的最大尺寸 默认 200, 25
 ///   - lineSpace: 其实这个行距参数该直接换成 NSMutableParaStyle，便于拓展。不过现在先算了
-func autoSize(_ txt: String, size fontSize: CGFloat, maxSize: CGSize = CGSize(width: 200, height: 25), lineSpace: CGFloat = 0) -> CGSize {
+func autoSize(_ txt: String, size fontSize: CGFloat, maxSize: CGSize = Size(200, 25), lineSpace: CGFloat = 0) -> CGSize {
     let para = NSMutableParagraphStyle()
     para.lineBreakMode = .byWordWrapping
     if lineSpace != 0 {
@@ -73,7 +76,7 @@ enum Identifier {
     static let carryOnCellId = "dawefawew"
     static let finishedCellId = "dqwefqwfq"
     static let distributeCellId = "dasefaqfaew"
-
+    static let mainTableCellId = "dafesaeffcasea"
 }
 
 

@@ -44,6 +44,7 @@ class CircleLoopView: UIView,UIScrollViewDelegate {
         timer?.invalidate()
         timer = nil
     }
+       
     func setImgNames(_ imgsNameArray:[String] ){
         imgNames=imgsNameArray
         if(imgNames.count < 3){

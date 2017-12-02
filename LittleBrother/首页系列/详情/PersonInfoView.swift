@@ -35,10 +35,10 @@ class PersonInfoView: UIView {
             make.centerY.equalTo(self)
             make.width.height.equalTo(headImgHeight+2*borderW)
         }
-        head.wc_setImage(#imageLiteral(resourceName: "headPlaceholder"))
+        head.el_setImage(#imageLiteral(resourceName: "headPlaceholder"))
         
         nameLabel = UILabel()
-        nameLabel.text = "NULL"
+        nameLabel.text = "NO"
         nameLabel.textColor = UIColor.black
         nameLabel.font = UIFont.systemFont(ofSize: nameFontSize, weight: .medium)
         addSubview(nameLabel)
@@ -48,7 +48,7 @@ class PersonInfoView: UIView {
             make.height.equalTo(25)
             make.top.equalTo(head).offset(5)
         }
-        nameLabel.el_setAutoWidthText("NULL", fontSize: 18.5)
+        //nameLabel.el_setAutoWidthText("NULL", fontSize: 18.5)
         
         genderImg = UIImageView()
         genderImg.backgroundColor = UIColor.clear
@@ -62,7 +62,7 @@ class PersonInfoView: UIView {
         genderImg.image = #imageLiteral(resourceName: "boy_1")
         
         universityLabel = UILabel()
-        universityLabel.textColor = UIColor.darkGray.withAlphaComponent(0.77)
+        universityLabel.textColor = UIColor.darkGray.withAlphaComponent(0.9)
         universityLabel.font = UIFont.systemFont(ofSize: 16)
         addSubview(universityLabel)
         universityLabel.textAlignment = .left
@@ -120,7 +120,7 @@ class WhiteCircleImageView: UIView {
         layer.cornerRadius = headImgHeight*0.5+border
     }
     
-    func wc_setImage(_ img: UIImage) {
+    func el_setImage(_ img: UIImage) {
         imgView.image = img
     }
     

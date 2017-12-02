@@ -15,24 +15,24 @@ class DetailViewController: UIViewController {
     var getButton: UIButton!
     var msgButton: UIButton!
     
+    let buttonHeight: CGFloat = 50
+    let buttonBottom: CGFloat = 22
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "任务详情"
     
-        let buttonHeight: CGFloat = 50
-        let buttonBottom: CGFloat = 22
+       
         personInfoView = PersonInfoView()
         view.addSubview(personInfoView)
         personInfoView.snp.makeConstraints{ make in
             make.left.equalTo(0)
             make.width.equalTo(ScreenWidth)
             make.height.equalTo(headImgHeight+2)
-            make.top.equalTo(10)
+            make.top.equalTo(20)
         }
-         
-     
-    
+        
         getButton = UIButton()
         msgButton = UIButton()
         view.addSubview(getButton)
@@ -60,7 +60,6 @@ class DetailViewController: UIViewController {
         msgButton.layer.borderWidth = 1
         getButton.backgroundColor = Config.themeColor
         
-        
         missionInfoView = MissionInfoView()
         view.addSubview(missionInfoView)
         missionInfoView.snp.makeConstraints { make in
@@ -69,11 +68,16 @@ class DetailViewController: UIViewController {
             make.bottom.equalTo(getButton.snp.top).offset(-17)
         }
         
-        
+        if false {
+            getButton.isHidden = true
+            msgButton.isHidden = true
+        }
         
     }
     
-    
+    func initButtomButtons() {
+        
+    }
     
     
     

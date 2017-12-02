@@ -59,6 +59,7 @@ class MissionInfoView: UIView {
         
         missionTitleLabel = UILabel()
         addSubview(missionTitleLabel)
+        missionTitleLabel.font = UIFont.systemFont(ofSize: 17, weight: .semibold)
         missionTitleLabel.textAlignment = .center
         missionTitleLabel.snp.makeConstraints{ make in
             make.width.equalTo(ScreenWidth)
@@ -71,10 +72,10 @@ class MissionInfoView: UIView {
         let aLabel = UILabel()
         aLabel.textAlignment = .left
         aLabel.text = "任务详情"
-        aLabel.font = UIFont.systemFont(ofSize: 16, weight: .medium)
+        aLabel.font = UIFont.systemFont(ofSize: 15)
         addSubview(aLabel)
         aLabel.snp.makeConstraints{ make in
-            make.left.equalTo(25)
+            make.left.equalTo(20)
             make.width.equalTo(120)
             make.height.equalTo(28)
             make.top.equalTo(missionTitleLabel.snp.bottom).offset(5)
@@ -86,7 +87,7 @@ class MissionInfoView: UIView {
         missionDetailLabel.font = UIFont.systemFont(ofSize: 17)
         addSubview(missionDetailLabel)
         missionDetailLabel.snp.makeConstraints{ make in
-            make.left.equalTo(aLabel)
+            make.left.equalTo(27)
             make.width.equalTo(ScreenWidth-50)
             make.top.equalTo(aLabel.snp.bottom).offset(3)
             make.bottom.equalTo(self).offset(-5)
