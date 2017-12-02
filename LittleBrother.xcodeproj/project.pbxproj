@@ -45,6 +45,8 @@
 		8E8982661FBB326D0083C05D /* LoopTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8982641FBB326C0083C05D /* LoopTableViewCell.xib */; };
 		8E8982691FBB35EC0083C05D /* ButtonsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E8982671FBB35EC0083C05D /* ButtonsTableViewCell.swift */; };
 		8E89826A1FBB35EC0083C05D /* ButtonsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E8982681FBB35EC0083C05D /* ButtonsTableViewCell.xib */; };
+		8EA89CE91FD18F390011150B /* UserManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89CE81FD18F390011150B /* UserManager.swift */; };
+		8EA89CEB1FD192C70011150B /* Notifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA89CEA1FD192C70011150B /* Notifier.swift */; };
 		8EED8CFB1FBEF202000B3892 /* PostTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EED8CFA1FBEF202000B3892 /* PostTableViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -90,6 +92,8 @@
 		8E8982641FBB326C0083C05D /* LoopTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoopTableViewCell.xib; sourceTree = "<group>"; };
 		8E8982671FBB35EC0083C05D /* ButtonsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ButtonsTableViewCell.swift; sourceTree = "<group>"; };
 		8E8982681FBB35EC0083C05D /* ButtonsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ButtonsTableViewCell.xib; sourceTree = "<group>"; };
+		8EA89CE81FD18F390011150B /* UserManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserManager.swift; sourceTree = "<group>"; };
+		8EA89CEA1FD192C70011150B /* Notifier.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Notifier.swift; sourceTree = "<group>"; };
 		8EED8CFA1FBEF202000B3892 /* PostTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostTableViewController.swift; sourceTree = "<group>"; };
 		AEC45B8C582AB75B2299FE1E /* Pods-LittleBrother.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.release.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.release.xcconfig"; sourceTree = "<group>"; };
 		BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleBrother.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -135,10 +139,12 @@
 		07047F6A1FBAC82200A5B266 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				8EA89CEA1FD192C70011150B /* Notifier.swift */,
 				07047F6D1FBAC85D00A5B266 /* Common.swift */,
 				07047F6B1FBAC84400A5B266 /* Router.swift */,
 				8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */,
 				070CE5181FBD7A70004DD912 /* Extensions.swift */,
+				8EA89CE81FD18F390011150B /* UserManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -451,11 +457,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				07047F811FBB15B100A5B266 /* SettingController.swift in Sources */,
+				8EA89CEB1FD192C70011150B /* Notifier.swift in Sources */,
 				07047F6C1FBAC84400A5B266 /* Router.swift in Sources */,
 				070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
 				8EED8CFB1FBEF202000B3892 /* PostTableViewController.swift in Sources */,
+				8EA89CE91FD18F390011150B /* UserManager.swift in Sources */,
 				070CE51B1FBD7BED004DD912 /* MainpageTableViewController.swift in Sources */,
 				070CE4ED1FBC044A004DD912 /* Test1.swift in Sources */,
 				070CE4F41FBC1C2C004DD912 /* ContactUsController.swift in Sources */,
