@@ -129,10 +129,12 @@
 		07047F6A1FBAC82200A5B266 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				8EA89CEA1FD192C70011150B /* Notifier.swift */,
 				07047F6D1FBAC85D00A5B266 /* Common.swift */,
 				07047F6B1FBAC84400A5B266 /* Router.swift */,
 				8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */,
 				070CE5181FBD7A70004DD912 /* Extensions.swift */,
+				8EA89CE81FD18F390011150B /* UserManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -446,6 +448,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07047F811FBB15B100A5B266 /* SettingController.swift in Sources */,
+				8EA89CEB1FD192C70011150B /* Notifier.swift in Sources */,
 				07047F6C1FBAC84400A5B266 /* Router.swift in Sources */,
 				070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
