@@ -13,7 +13,7 @@ class PersonViewController: UIViewController {
     var tableView: UITableView!
     var headerView: HeadView!
     let dataArr = ["我的钱包", "推荐有奖", "意见反馈", "联系我们", "设置"]
-    let imgArr = [#imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder")]
+    let imgArr = [#imageLiteral(resourceName: "qianbao"), #imageLiteral(resourceName: "tuijian"), #imageLiteral(resourceName: "yijian"), #imageLiteral(resourceName: "lianxi"), #imageLiteral(resourceName: "shezhi")]
     
     
     
