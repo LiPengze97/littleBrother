@@ -22,6 +22,9 @@ class PersonInfoView: UIView {
     
     let nameFontSize: CGFloat = 18
     
+     
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         let borderW: CGFloat = 1.5

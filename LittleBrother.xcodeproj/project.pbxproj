@@ -15,6 +15,7 @@
 		07047F811FBB15B100A5B266 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F801FBB15B100A5B266 /* SettingController.swift */; };
 		07047F841FBB15D900A5B266 /* WalletController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F831FBB15D900A5B266 /* WalletController.swift */; };
 		07047F861FBB173900A5B266 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F851FBB173900A5B266 /* WalletView.swift */; };
+		0708259C1FD2D09500775C1F /* SelectSchoolController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0708259B1FD2D09500775C1F /* SelectSchoolController.swift */; };
 		070CE4F41FBC1C2C004DD912 /* ContactUsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE4F31FBC1C2C004DD912 /* ContactUsController.swift */; };
 		070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5011FBC44FF004DD912 /* MyOrdersController.swift */; };
 		070CE5041FBC4579004DD912 /* ItemsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5031FBC4579004DD912 /* ItemsController.swift */; };
@@ -54,6 +55,7 @@
 		07047F801FBB15B100A5B266 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
 		07047F831FBB15D900A5B266 /* WalletController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletController.swift; sourceTree = "<group>"; };
 		07047F851FBB173900A5B266 /* WalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletView.swift; sourceTree = "<group>"; };
+		0708259B1FD2D09500775C1F /* SelectSchoolController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectSchoolController.swift; sourceTree = "<group>"; };
 		070CE4F31FBC1C2C004DD912 /* ContactUsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContactUsController.swift; sourceTree = "<group>"; };
 		070CE4F71FBC1E6C004DD912 /* RecomController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecomController.swift; sourceTree = "<group>"; };
 		070CE4FA1FBC1EF9004DD912 /* ReflectController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReflectController.swift; sourceTree = "<group>"; };
@@ -115,9 +117,9 @@
 		07047F671FBAC77A00A5B266 /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				07047F731FBAE83000A5B266 /* Main */,
 				070CE50D1FBC7FA6004DD912 /* Authentication */,
 				070CE5071FBC53C2004DD912 /* Order&Release */,
-				07047F731FBAE83000A5B266 /* Main */,
 				07047F741FBAE83E00A5B266 /* PersonInfo */,
 				07047F821FBB15C700A5B266 /* Wallet */,
 				07047F7F1FBB158C00A5B266 /* Setting */,
@@ -129,12 +131,10 @@
 		07047F6A1FBAC82200A5B266 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				8EA89CEA1FD192C70011150B /* Notifier.swift */,
 				07047F6D1FBAC85D00A5B266 /* Common.swift */,
 				07047F6B1FBAC84400A5B266 /* Router.swift */,
 				8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */,
 				070CE5181FBD7A70004DD912 /* Extensions.swift */,
-				8EA89CE81FD18F390011150B /* UserManager.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -244,6 +244,7 @@
 			isa = PBXGroup;
 			children = (
 				07C1AD8C1FD25B4400CA252F /* MainViewController.swift */,
+				0708259B1FD2D09500775C1F /* SelectSchoolController.swift */,
 				07C1AD921FD286FA00CA252F /* View */,
 			);
 			path = "主界面";
@@ -408,6 +409,7 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/YUChineseSorting/YUChineseSorting.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -416,6 +418,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YUChineseSorting.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -448,7 +451,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				07047F811FBB15B100A5B266 /* SettingController.swift in Sources */,
-				8EA89CEB1FD192C70011150B /* Notifier.swift in Sources */,
 				07047F6C1FBAC84400A5B266 /* Router.swift in Sources */,
 				070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
@@ -478,6 +480,7 @@
 				8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */,
 				07C1AD911FD2641B00CA252F /* MainViewCell.swift in Sources */,
 				070CE5041FBC4579004DD912 /* ItemsController.swift in Sources */,
+				0708259C1FD2D09500775C1F /* SelectSchoolController.swift in Sources */,
 				07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */,
 				07047F861FBB173900A5B266 /* WalletView.swift in Sources */,
 			);

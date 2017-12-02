@@ -23,7 +23,26 @@ class DetailViewController: UIViewController {
         view.backgroundColor = .white
         title = "任务详情"
     
-       
+        initPersonView()
+        
+        initButtomButtons()
+
+        initMissionView()
+        
+        //MARK: - 如果自己看到，就为true
+        let isSelf = false
+        getButton.isHidden = isSelf
+        msgButton.isHidden = isSelf
+        
+    }
+}
+
+
+
+//View:
+extension DetailViewController {
+    
+    func initPersonView() {
         personInfoView = PersonInfoView()
         view.addSubview(personInfoView)
         personInfoView.snp.makeConstraints{ make in
@@ -32,7 +51,19 @@ class DetailViewController: UIViewController {
             make.height.equalTo(headImgHeight+2)
             make.top.equalTo(20)
         }
-        
+    }
+    
+    func initMissionView() {
+        missionInfoView = MissionInfoView()
+        view.addSubview(missionInfoView)
+        missionInfoView.snp.makeConstraints { make in
+            make.left.width.equalTo(personInfoView)
+            make.top.equalTo(personInfoView.snp.bottom).offset(17)
+            make.bottom.equalTo(getButton.snp.top).offset(-17)
+        }
+    }
+    
+    func initButtomButtons() {
         getButton = UIButton()
         msgButton = UIButton()
         view.addSubview(getButton)
@@ -59,24 +90,6 @@ class DetailViewController: UIViewController {
         msgButton.layer.borderColor = Config.themeColor.cgColor
         msgButton.layer.borderWidth = 1
         getButton.backgroundColor = Config.themeColor
-        
-        missionInfoView = MissionInfoView()
-        view.addSubview(missionInfoView)
-        missionInfoView.snp.makeConstraints { make in
-            make.left.width.equalTo(personInfoView)
-            make.top.equalTo(personInfoView.snp.bottom).offset(17)
-            make.bottom.equalTo(getButton.snp.top).offset(-17)
-        }
-        
-        if false {
-            getButton.isHidden = true
-            msgButton.isHidden = true
-        }
-        
-    }
-    
-    func initButtomButtons() {
-        
     }
     
     
@@ -87,6 +100,7 @@ class DetailViewController: UIViewController {
         view1.showsVerticalScrollIndicator = false
         view = view1
     }
+    
 }
 
 

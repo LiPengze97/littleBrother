@@ -11,6 +11,14 @@ import UIKit
 
 let ScreenWidth = UIScreen.main.bounds.width;
 let ScreenHeigh = UIScreen.main.bounds.height;
+let UI_IPAD = UIDevice.current.userInterfaceIdiom == .pad
+let IPHONE = UIDevice.current.userInterfaceIdiom == .phone
+let IPHONE4 = IPHONE && ScreenHeigh < 568.0
+let IPHONE5 = IPHONE && ScreenHeigh == 568.0
+let IPHONE6 = IPHONE && ScreenHeigh == 667.0
+let IPHONE6P = IPHONE && ScreenHeigh == 736.0 || ScreenWidth == 736.0
+
+
 
 func Rect(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> CGRect {
     return CGRect(x: x, y: y, width: w, height: h)
@@ -63,6 +71,12 @@ func getAttributed(_ str: String, lineSpac: CGFloat) -> NSAttributedString {
     return atStr
 }
 
+func v(_ i5: CGFloat, _ i6: CGFloat, _ i6P: CGFloat) -> CGFloat {
+    if IPHONE5 { return i5 }
+    if IPHONE6 { return i6 }
+    return i6P
+}
+
 enum Config {
     
     static let themeColor = UIColor(red: 255/255, green: 226/255, blue: 33/255, alpha: 1)
@@ -72,11 +86,12 @@ enum Config {
 
 enum Identifier {
     static let personCellId = "fdajswdlr"
-    static let settingCellId = "fcservswerwaefq"
+    static let systemStyleCellId = "fcservswerwaefq"
     static let carryOnCellId = "dawefawew"
     static let finishedCellId = "dqwefqwfq"
     static let distributeCellId = "dasefaqfaew"
     static let mainTableCellId = "dafesaeffcasea"
+    static let tableheaderViewId = "dfasefwserw"
 }
 
 
@@ -86,7 +101,6 @@ enum Authen: String {
     case YES = "已认证"
     case NO = "未认证"
 }
-
 
 
 

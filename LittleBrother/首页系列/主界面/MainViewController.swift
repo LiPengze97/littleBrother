@@ -30,17 +30,18 @@ class MainViewController: UIViewController {
     func initNaviBar() {
         view.backgroundColor = UIColor.white
         navigationItem.titleView = UIView(frame: Rect(0, 0, ScreenWidth, 44))
-       
-  
-        
-        
         let w = navTitleHeight*463/63+58
         naviContentView = UniversityView(frame: Rect((ScreenWidth-w)/2, 30, w, navTitleHeight))
         DispatchQueue.main.async {
             self.naviContentView.frame = (self.view.window?.convert(self.naviContentView.frame, to: self.navigationItem.titleView))!
             self.navigationItem.titleView?.addSubview(self.naviContentView)
         }
-     
+        naviContentView.button.addTarget(self, action: #selector(selectSchool), for: .touchUpInside)
+    }
+    
+    @objc func selectSchool() {
+        //TODO: - 此处应该有代理传值。或者获得self引用，直接设选择的大学
+        pushWithoutTabBar(SelectSchoolController())
     }
  
     

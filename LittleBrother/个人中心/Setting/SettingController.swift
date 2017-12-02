@@ -27,7 +27,7 @@ class SettingController: UIViewController {
     
     func initTable() {
         tableView = UITableView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh), style: .grouped)
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.settingCellId)
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.systemStyleCellId)
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = 63
@@ -70,7 +70,7 @@ extension SettingController: UITableViewDelegate, UITableViewDataSource {
         return 5
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = UITableViewCell(style: .default, reuseIdentifier: Identifier.settingCellId)
+        let cell = UITableViewCell(style: .default, reuseIdentifier: Identifier.systemStyleCellId)
         cell.accessoryType = .disclosureIndicator
         cell.textLabel?.text = dataArr[indexPath.row]
         cell.textLabel?.font = UIFont.systemFont(ofSize: 18.5)

@@ -47,7 +47,7 @@ class ThreeButtonView: UIView {
         let v1 = UIView(frame: Rect(ScreenWidth*2/3, 6, 0.5, threeButtonHeight-12))
         v1.backgroundColor = UIColor.lightGray.withAlphaComponent(0.77)
         addSubview(v1)
-        let v2 = UIView(frame: Rect(10, threeButtonHeight-0.5, ScreenWidth-20, 0.5))
+        let v2 = UIView(frame: Rect(ScreenWidth/3, threeButtonHeight-0.5, ScreenWidth*2/3-10, 0.5))
         v2.backgroundColor = UIColor.lightGray.withAlphaComponent(0.7)
         addSubview(v2)
         

@@ -7,4 +7,5 @@ pod 'SwiftyJSON'
 pod 'SnapKit', '~> 4.0.0'
 pod 'MJRefresh', '~> 3.1.15'
 pod 'MJCSegmentInterface'
+pod 'YUChineseSorting'
 end
