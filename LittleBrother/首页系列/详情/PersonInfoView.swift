@@ -46,8 +46,9 @@ class PersonInfoView: UIView {
             make.left.equalTo(head.snp.right).offset(leftD-3)
             make.width.equalTo(20)
             make.height.equalTo(25)
-            make.top.equalTo(head)
+            make.top.equalTo(head).offset(5)
         }
+        nameLabel.el_setAutoWidthText("NULL", fontSize: 18.5)
         
         genderImg = UIImageView()
         genderImg.backgroundColor = UIColor.clear
@@ -83,7 +84,7 @@ class PersonInfoView: UIView {
         //            make.width.equalTo(20)
         //            make.height.equalTo(30)
         //        }
-        
+     
     }
     
     required init?(coder aDecoder: NSCoder) {

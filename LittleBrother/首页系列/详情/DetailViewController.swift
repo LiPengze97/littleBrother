@@ -17,6 +17,9 @@ class DetailViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = .white
+        title = "任务详情"
+    
         let buttonHeight: CGFloat = 50
         let buttonBottom: CGFloat = 22
         personInfoView = PersonInfoView()
@@ -25,29 +28,24 @@ class DetailViewController: UIViewController {
             make.left.equalTo(0)
             make.width.equalTo(ScreenWidth)
             make.height.equalTo(headImgHeight+2)
-            make.top.equalTo(0)
+            make.top.equalTo(10)
         }
-        
-        missionInfoView = MissionInfoView()
-        missionInfoView.snp.makeConstraints { make in
-            make.left.width.equalTo(personInfoView)
-            make.top.equalTo(personInfoView.snp.bottom)
-            make.bottom.equalTo(-buttonBottom*2-buttonHeight+5)
-        }
-        
+         
+     
+    
         getButton = UIButton()
         msgButton = UIButton()
         view.addSubview(getButton)
         getButton.snp.makeConstraints{ make in
             make.centerX.equalTo(ScreenWidth*0.25)
-            make.bottom.equalTo(view).offset(-buttonBottom)
+            make.bottom.equalTo(ScreenHeigh-buttonBottom-90)
             make.width.equalTo(ScreenWidth*0.365)
             make.height.equalTo(buttonHeight)
         }
         view.addSubview(msgButton)
         msgButton.snp.makeConstraints{ make in
             make.centerX.equalTo(ScreenWidth*0.75)
-            make.top.size.equalTo(getButton)
+            make.bottom.size.equalTo(getButton)
         }
         
         getButton.setTitle("抢单", for: .normal)
@@ -61,6 +59,17 @@ class DetailViewController: UIViewController {
         msgButton.layer.borderColor = Config.themeColor.cgColor
         msgButton.layer.borderWidth = 1
         getButton.backgroundColor = Config.themeColor
+        
+        
+        missionInfoView = MissionInfoView()
+        view.addSubview(missionInfoView)
+        missionInfoView.snp.makeConstraints { make in
+            make.left.width.equalTo(personInfoView)
+            make.top.equalTo(personInfoView.snp.bottom).offset(17)
+            make.bottom.equalTo(getButton.snp.top).offset(-17)
+        }
+        
+        
         
     }
     

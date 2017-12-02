@@ -28,36 +28,37 @@ class MissionInfoView: UIView {
         moneyImg.snp.makeConstraints{ make in
             make.width.height.equalTo(35)
             make.top.equalTo(self).offset(10)
-            make.right.equalTo(-ScreenWidth*0.75)
+            make.right.equalTo(-ScreenWidth*0.78)
         }
         
         moneyLabel = UILabel()
         addSubview(moneyLabel)
         moneyLabel.textAlignment = .left
         moneyLabel.snp.makeConstraints { maek in
-            maek.left.equalTo(0.25*ScreenWidth).offset(4)
+            maek.left.equalTo(moneyImg.snp.right).offset(2)
             maek.height.equalTo(23)
             maek.centerY.equalTo(moneyImg)
-            maek.width.equalTo(0.25*ScreenWidth)
+            maek.width.equalTo(0.24*ScreenWidth)
         }
-        moneyLabel.text = "0000"
-        
+        moneyLabel.text = "0000元"
+       
         addSubview(timeImg)
         timeImg.snp.makeConstraints{ make in
-            make.right.equalTo(-0.25*ScreenWidth)
+            make.right.equalTo(-0.29*ScreenWidth)
             make.size.centerY.equalTo(moneyImg)
         }
-        
+    
         timeLabel = UILabel()
         addSubview(timeLabel)
         timeLabel.textAlignment = .left
         timeLabel.snp.makeConstraints{ maek in
-            maek.left.equalTo(0.75*ScreenWidth).offset(5)
+            maek.left.equalTo(timeImg.snp.right).offset(5)
             maek.size.centerY.equalTo(moneyLabel)
         }
         timeLabel.text = "abcdeFGH"
         
         missionTitleLabel = UILabel()
+        addSubview(missionTitleLabel)
         missionTitleLabel.textAlignment = .center
         missionTitleLabel.snp.makeConstraints{ make in
             make.width.equalTo(ScreenWidth)
@@ -90,7 +91,7 @@ class MissionInfoView: UIView {
             make.top.equalTo(aLabel.snp.bottom).offset(3)
             make.bottom.equalTo(self).offset(-5)
         }
-        
+        missionDetailLabel.text = "测试文字"
         
     }
     
