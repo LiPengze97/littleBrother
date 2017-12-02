@@ -93,7 +93,7 @@ class MainViewCell: UITableViewCell {
         contentLabel.font = UIFont.systemFont(ofSize: contentFontSize)
         addSubview(contentLabel)
         contentLabel.textAlignment = .left
-        let w1 = ScreenWidth-headImgHeight*2
+        let w1 = ScreenWidth-headImgHeight*1.7
         contentLabel.snp.makeConstraints { make in
             make.left.equalTo(nameLabel)
             make.top.equalTo(nameLabel.snp.bottom).offset(1)

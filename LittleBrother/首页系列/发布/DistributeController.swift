@@ -28,7 +28,7 @@ class DistributeController: UIViewController {
     
     func initTable() {
         
-        tableView = UITableView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh), style: .grouped)
+        tableView = UITableView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh), style: .plain)
         tableView.register(RightTextFieldCell.self, forCellReuseIdentifier: Identifier.distributeCellId)
         tableView.delegate = self
         tableView.dataSource = self
