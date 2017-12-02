@@ -8,9 +8,9 @@
 
 import Foundation
 import UIKit
-class EditPersonController: UIViewController {
+class EditPersonController: UIViewController, UIScrollViewDelegate {
     
-    let headSize: CGFloat = 74
+    let headSize: CGFloat = 105
     
     var headButton: UIButton!
     var textfield: UITextField!
@@ -18,6 +18,8 @@ class EditPersonController: UIViewController {
     var boyButton: RoundButton!
     var collegeButton: UIButton!
     var submit: UIButton!
+    var headmask: UIView!
+    
     
     let getButton = { (height: CGFloat) -> UIButton in
         let b = UIButton()
@@ -41,23 +43,34 @@ class EditPersonController: UIViewController {
         //头像按钮
         headButton = getButton(headSize)
         headButton.layer.borderWidth = 1
-        headButton.setImage(#imageLiteral(resourceName: "camera"), for: .normal)
-        headButton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        //headButton.setImage(#imageLiteral(resourceName: "camera"), for: .normal)
+        headButton.imageView?.contentMode = .scaleAspectFill
+        //headButton.imageEdgeInsets = UIEdgeInsets(top: 12, left: 12, bottom: 12, right: 12)
+        
+        headmask = UIView()
+        headmask.layer.contents = #imageLiteral(resourceName: "camera").cgImage
+        headmask.layer.contentsGravity = kCAGravityResizeAspectFill
+        view.addSubview(headmask)
+        headmask.snp.makeConstraints{ make in
+            make.centerX.equalTo(view)
+            make.size.equalTo(45)
+            make.top.equalTo(58)
+        }
+        
         view.addSubview(headButton)
         headButton.snp.makeConstraints{ make in
             make.centerX.equalTo(view)
-            make.height.width.equalTo(headSize)
-            make.top.equalTo(33)
+            make.size.equalTo(headSize)
+            make.top.equalTo(28)
         }
-        
         //头像文字提示
         let label1 = UILabel()
         label1.text = "设置头像"
-        label1.textColor = UIColor.black
+        label1.textColor = UIColor.lightGray
         label1.textAlignment = .center
         view.addSubview(label1)
         label1.snp.makeConstraints{ make in
-            make.top.equalTo(headButton.snp.bottom).offset(20)
+            make.top.equalTo(headButton.snp.bottom).offset(14)
             make.width.equalTo(78)
             make.height.equalTo(25)
             make.centerX.equalTo(headButton)
@@ -70,7 +83,7 @@ class EditPersonController: UIViewController {
             make.left.equalTo(left)
             make.height.equalTo(30)
             make.width.equalTo(110)
-            make.top.equalTo(label1.snp.bottom).offset(22)
+            make.top.equalTo(label1.snp.bottom).offset(14)
         }
         //昵称输入
         textfield = UITextField()
@@ -78,7 +91,7 @@ class EditPersonController: UIViewController {
         view.addSubview(textfield)
         textfield.snp.makeConstraints{ make in
             make.left.equalTo(left)
-            make.top.equalTo(label2.snp.bottom).offset(15)
+            make.top.equalTo(label2.snp.bottom).offset(2)
             make.width.equalTo(ScreenWidth-2*left)
             make.height.equalTo(44)
         }
@@ -97,34 +110,35 @@ class EditPersonController: UIViewController {
         view.addSubview(label3)
         label3.snp.makeConstraints{ make in
             make.left.width.height.equalTo(label2)
-            make.top.equalTo(textfield.snp.bottom).offset(30)
+            make.top.equalTo(textfield.snp.bottom).offset(18)
         }
         //男女button
         girlButton = RoundButton()
-        girlButton.fillImage(corner: 3, borderColor: Config.themeColor, borderW: 1.5, img: #imageLiteral(resourceName: "girl_1"))
+        girlButton.fillImage(corner: 6, borderW: 1.5, img: #imageLiteral(resourceName: "girl_1"))
         view.addSubview(girlButton)
-        let left3: CGFloat = 30
+        let left3: CGFloat = 40
         girlButton.snp.makeConstraints{ make in
             make.left.equalTo(left3)
-            make.top.equalTo(label3.snp.bottom).offset(5)
+            make.top.equalTo(label3.snp.bottom).offset(15)
             make.size.equalTo(ScreenWidth/2-2*left3)
         }
         boyButton = RoundButton()
-        boyButton.fillImage(corner: 3, borderColor: Config.themeColor, borderW: 1.5, img: #imageLiteral(resourceName: "boy_1"))
+        boyButton.fillImage(corner: 6, borderW: 1.5, img: #imageLiteral(resourceName: "boy_1"))
         view.addSubview(boyButton)
         boyButton.snp.makeConstraints{ make in
-            make.right.equalTo(-left3)
-            make.top.size.equalTo(girlButton)
+            make.left.equalTo(ScreenWidth/2+left3)
+            make.top.equalTo(label3.snp.bottom).offset(15)
+            make.size.equalTo(ScreenWidth/2-2*left3)
         }
         //学校选择
         let label4 = getLabel("学校选择")
         view.addSubview(label4)
         label4.snp.makeConstraints{ make in
             make.left.width.height.equalTo(label3)
-            make.top.equalTo(girlButton.snp.bottom).offset(9)
+            make.top.equalTo(girlButton.snp.bottom).offset(19)
         }
         //学校选择按钮
-        let collegeHeight: CGFloat = 46
+        let collegeHeight: CGFloat = 43
         collegeButton = getButton(collegeHeight)
         collegeButton.layer.borderWidth = 2
         collegeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 44)
@@ -135,41 +149,35 @@ class EditPersonController: UIViewController {
             make.left.equalTo(left+2)
             make.width.equalTo(ScreenWidth*0.45)
             make.height.equalTo(collegeHeight)
-            make.top.equalTo(label4.snp.bottom).offset(15)
+            make.top.equalTo(label4.snp.bottom).offset(5)
         }
         let downView = UIView()
         downView.layer.contents = #imageLiteral(resourceName: "down").cgImage
         downView.layer.contentsGravity = kCAGravityResizeAspectFill
         collegeButton.addSubview(downView)
         downView.snp.makeConstraints{ make in
-            make.right.equalTo(collegeButton).offset(-5)
+            make.right.equalTo(collegeButton).offset(-15)
             make.centerY.equalTo(collegeButton)
-            make.width.equalTo(30)
-            make.height.equalTo(15)
+            make.width.equalTo(16)
+            make.height.equalTo(8)
         }
         
-        submit = getButton(48)
+        submit = getButton(44)
         submit.setTitleColor(.white, for: .normal)
         submit.backgroundColor = Config.themeColor
         submit.setTitle("完成", for: .normal)
         view.addSubview(submit)
         submit.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.height.equalTo(48)
-            make.width.equalTo(120)
-            make.bottom.equalTo(view).offset(-60)
+            make.height.equalTo(44)
+            make.width.equalTo(130)
+            make.bottom.equalTo(ScreenHeigh-79)
         }
         
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        view.endEditing(true)
+    }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -183,6 +191,7 @@ class EditPersonController: UIViewController {
     override func loadView() {
         let view1 = UIScrollView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh))
         view1.alwaysBounceVertical = true
+        view1.delegate = self
         view1.showsVerticalScrollIndicator = false
         view = view1
     }
@@ -195,31 +204,22 @@ class RoundButton: UIButton {
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
-        
     }
     
-    func fillImage(corner: CGFloat, borderColor: UIColor, borderW: CGFloat = 2, img: UIImage) {
+    func fillImage(corner: CGFloat, borderW: CGFloat = 2, img: UIImage) {
         layer.cornerRadius = corner
-        layer.borderColor = borderColor.cgColor
+        layer.borderColor = UIColor.clear.cgColor
         layer.borderWidth = borderW
         setImage(img, for: .normal)
-        
     }
     
-    func changeStatus(_ hasImage: Bool = false) {
+    func changeStatus() {
         status = !status
         if !status {
-            setTitleColor(UIColor.lightGray, for: .normal)
-            if hasImage {
-                layer.borderColor = UIColor.clear.cgColor
-            }else {
-                layer.borderColor = UIColor.lightGray.cgColor
-            }
-            tintColor = UIColor.lightGray
+            layer.borderColor = UIColor.clear.cgColor
         }else{
             layer.borderColor = Config.themeColor.cgColor
             setTitleColor(Config.themeColor, for: .normal)
-            tintColor = Config.themeColor
         }
     }
     

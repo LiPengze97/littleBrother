@@ -59,7 +59,7 @@ class RightTextFieldCell: UITableViewCell {
             m.width.equalTo(110)
         }
     }
-    ///black, 18 by default
+    ///black, 18, 110 by default
     func setRightArgs(_ plhd: String, width: CGFloat = 0, size: CGFloat = 18, color: UIColor = .black) {
         txfld.placeholder = plhd
         txfld.font = UIFont.systemFont(ofSize: size)

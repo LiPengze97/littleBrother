@@ -8,7 +8,7 @@
 
 import UIKit
 
-let CirecleLoopViewTimeInterval = 2.0
+let CirecleLoopViewTimeInterval = 2.7
 
 @objc protocol CircleLoopViewDelegate: class{
     @objc optional

@@ -15,7 +15,7 @@ class PersonViewController: UIViewController {
     let dataArr = ["我的钱包", "推荐有奖", "意见反馈", "联系我们", "设置"]
     let imgArr = [#imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder"), #imageLiteral(resourceName: "tablecellholder")]
     
-  
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,7 +49,7 @@ class PersonViewController: UIViewController {
         tableView.estimatedRowHeight = 0
         tableView.rowHeight = 60
         view.addSubview(tableView)
-      
+        
     }
     @objc func labelTap() {
         pushWithoutTabBar(EditPersonController())
@@ -62,10 +62,10 @@ class PersonViewController: UIViewController {
         case 1001:
             pushWithoutTabBar(MyReleaseController())
         case 1002:
-            pushWithoutTabBar(AuthenController())
+            pushWithoutTabBar(AuthenController(style: .grouped))
         default: break
         }
-
+        
     }
 }
 
@@ -113,7 +113,7 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
             pushWithoutTabBar(ContactController())
         default: break;
         }
-
+        
         
     }
     
