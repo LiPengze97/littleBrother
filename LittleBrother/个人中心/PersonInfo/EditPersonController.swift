@@ -10,10 +10,11 @@ import Foundation
 import UIKit
 class EditPersonController: UIViewController, UIScrollViewDelegate {
     
-    let headSize: CGFloat = 105
+    let headSize: CGFloat = 95
     
     var headButton: UIButton!
     var textfield: UITextField!
+    var inviteTxtfld: UITextField!
     var girlButton: RoundButton!
     var boyButton: RoundButton!
     var collegeButton: UIButton!
@@ -32,7 +33,7 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         let l = UILabel()
         l.textColor = Config.themeColor
         l.text = str
-        l.font = UIFont.systemFont(ofSize: 19, weight: .semibold)
+        l.font = UIFont.systemFont(ofSize: 17.5, weight: .semibold)
         return l
     }
     
@@ -54,14 +55,13 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         headmask.snp.makeConstraints{ make in
             make.centerX.equalTo(view)
             make.size.equalTo(45)
-            make.top.equalTo(58)
+            make.top.equalTo(44)
         }
         
         view.addSubview(headButton)
         headButton.snp.makeConstraints{ make in
-            make.centerX.equalTo(view)
+            make.center.equalTo(headmask)
             make.size.equalTo(headSize)
-            make.top.equalTo(28)
         }
         //头像文字提示
         let label1 = UILabel()
@@ -70,9 +70,9 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         label1.textAlignment = .center
         view.addSubview(label1)
         label1.snp.makeConstraints{ make in
-            make.top.equalTo(headButton.snp.bottom).offset(14)
+            make.top.equalTo(headButton.snp.bottom).offset(10)
             make.width.equalTo(78)
-            make.height.equalTo(25)
+            make.height.equalTo(24)
             make.centerX.equalTo(headButton)
         }
         //昵称文字
@@ -81,9 +81,9 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         view.addSubview(label2)
         label2.snp.makeConstraints{ make in
             make.left.equalTo(left)
-            make.height.equalTo(30)
+            make.height.equalTo(25)
             make.width.equalTo(110)
-            make.top.equalTo(label1.snp.bottom).offset(14)
+            make.top.equalTo(label1.snp.bottom).offset(10)
         }
         //昵称输入
         textfield = UITextField()
@@ -91,54 +91,53 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         view.addSubview(textfield)
         textfield.snp.makeConstraints{ make in
             make.left.equalTo(left)
-            make.top.equalTo(label2.snp.bottom).offset(2)
+            make.top.equalTo(label2.snp.bottom).offset(-2)
             make.width.equalTo(ScreenWidth-2*left)
-            make.height.equalTo(44)
+            make.height.equalTo(40)
         }
         //横线
         let line = UIView()
-        line.backgroundColor = Config.themeColor
+        line.backgroundColor = UIColor.lightGray
         textfield.addSubview(line)
         line.snp.makeConstraints{ make in
             make.left.equalTo(-3)
             make.right.equalTo(-20)
             make.height.equalTo(0.5)
-            make.bottom.equalTo(textfield).offset(2)
+            make.bottom.equalTo(textfield)
         }
         //性别文字
         let label3 = getLabel("性别")
         view.addSubview(label3)
         label3.snp.makeConstraints{ make in
             make.left.width.height.equalTo(label2)
-            make.top.equalTo(textfield.snp.bottom).offset(18)
+            make.top.equalTo(textfield.snp.bottom).offset(9)
         }
         //男女button
         girlButton = RoundButton()
         girlButton.fillImage(corner: 6, borderW: 1.5, img: #imageLiteral(resourceName: "girl_1"))
         view.addSubview(girlButton)
-        let left3: CGFloat = 40
+        
         girlButton.snp.makeConstraints{ make in
-            make.left.equalTo(left3)
-            make.top.equalTo(label3.snp.bottom).offset(15)
-            make.size.equalTo(ScreenWidth/2-2*left3)
+            make.centerX.equalTo(ScreenWidth*0.3)
+            make.top.equalTo(label3.snp.bottom).offset(8)
+            make.size.equalTo(45)
         }
         boyButton = RoundButton()
         boyButton.fillImage(corner: 6, borderW: 1.5, img: #imageLiteral(resourceName: "boy_1"))
         view.addSubview(boyButton)
         boyButton.snp.makeConstraints{ make in
-            make.left.equalTo(ScreenWidth/2+left3)
-            make.top.equalTo(label3.snp.bottom).offset(15)
-            make.size.equalTo(ScreenWidth/2-2*left3)
+            make.centerX.equalTo(ScreenWidth*0.7)
+            make.top.size.equalTo(girlButton)
         }
         //学校选择
         let label4 = getLabel("学校选择")
         view.addSubview(label4)
         label4.snp.makeConstraints{ make in
             make.left.width.height.equalTo(label3)
-            make.top.equalTo(girlButton.snp.bottom).offset(19)
+            make.top.equalTo(girlButton.snp.bottom).offset(14)
         }
         //学校选择按钮
-        let collegeHeight: CGFloat = 43
+        let collegeHeight: CGFloat = 40
         collegeButton = getButton(collegeHeight)
         collegeButton.layer.borderWidth = 2
         collegeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 44)
@@ -146,10 +145,10 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         collegeButton.setTitleColor(UIColor.black, for: .normal)
         view.addSubview(collegeButton)
         collegeButton.snp.makeConstraints{ make in
-            make.left.equalTo(left+2)
+            make.left.equalTo(label4).offset(2)
             make.width.equalTo(ScreenWidth*0.45)
             make.height.equalTo(collegeHeight)
-            make.top.equalTo(label4.snp.bottom).offset(5)
+            make.top.equalTo(label4.snp.bottom).offset(8)
         }
         let downView = UIView()
         downView.layer.contents = #imageLiteral(resourceName: "down").cgImage
@@ -162,6 +161,42 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
             make.height.equalTo(8)
         }
         
+        //邀请码文字
+        let label5 = getLabel("邀请码 (选填)")
+        view.addSubview(label5)
+        label5.snp.makeConstraints{ make in
+            make.left.equalTo(left)
+            make.height.equalTo(25)
+            make.width.equalTo(180)
+            make.top.equalTo(collegeButton.snp.bottom).offset(15)
+        }
+        //昵称输入
+        inviteTxtfld = UITextField()
+        inviteTxtfld.font = UIFont.systemFont(ofSize: 18.5)
+        view.addSubview(inviteTxtfld)
+        inviteTxtfld.snp.makeConstraints{ make in
+            make.left.equalTo(left)
+            make.top.equalTo(label5.snp.bottom).offset(-2)
+            make.width.equalTo(ScreenWidth-2*left)
+            make.height.equalTo(40)
+        }
+        //横线
+        let line2 = UIView()
+        line2.backgroundColor = UIColor.lightGray
+        inviteTxtfld.addSubview(line2)
+        line2.snp.makeConstraints{ make in
+            make.left.equalTo(-3)
+            make.right.equalTo(-20)
+            make.height.equalTo(0.5)
+            make.bottom.equalTo(inviteTxtfld)
+        }
+        
+        
+        
+        
+        
+        
+        
         submit = getButton(44)
         submit.setTitleColor(.white, for: .normal)
         submit.backgroundColor = Config.themeColor
@@ -169,12 +204,13 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         view.addSubview(submit)
         submit.snp.makeConstraints { make in
             make.centerX.equalTo(view)
-            make.height.equalTo(44)
-            make.width.equalTo(130)
-            make.bottom.equalTo(ScreenHeigh-79)
+            make.height.equalTo(46)
+            make.width.equalTo(136)
+            make.bottom.equalTo(ScreenHeigh-89)
         }
         
     }
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
     }

@@ -9,10 +9,22 @@
 import Foundation
 import UIKit
 let navTitleHeight: CGFloat = 18
+///初始化和获取数据后调用 fillContents
 class UniversityView: UIView {
     
     var button: UIButton!
- 
+    var university: String!
+    
+    ///参数： String
+    func fillContents(_ contents: Any?) {
+        university = contents as? String ?? "未选择"
+        let w = autoSize(university, size: 13).width
+        button.snp.updateConstraints{ make in
+            make.width.equalTo(w)
+        }
+        button.setTitle(university, for: .normal)
+    }
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -35,11 +47,11 @@ class UniversityView: UIView {
         //button.contentMode = .bottomLeft
         button.snp.makeConstraints{ make in
             make.left.equalTo(univerView.snp.right).offset(1)
-            make.width.equalTo(55)
+            make.width.equalTo(50)
             make.bottom.equalTo(self)
             make.height.equalTo(18)
         }
-        button.setTitle("西南大学", for: .normal)
+        
         //13*9
         let downArrow = UIView()
         downArrow.layer.contents = #imageLiteral(resourceName: "downArr").cgImage
