@@ -34,8 +34,11 @@ extension UILabel {
 
 
 extension UIView {
-    func fillContents(_ contents: Any?) {
-        
+
+    func addTapGest(target: Any?, action: Selector?) {
+        isUserInteractionEnabled = true
+        let ges = UITapGestureRecognizer(target: target, action: action)
+        addGestureRecognizer(ges)
     }
 }
 

@@ -33,6 +33,7 @@ class MainViewController: UIViewController {
         navigationItem.titleView = UIView(frame: Rect(0, 0, ScreenWidth, 44))
         let w = navTitleHeight*463/63+58
         naviContentView = UniversityView(frame: Rect((ScreenWidth-w)/2, 30, w, navTitleHeight))
+        naviContentView.fillContents(nil)
         DispatchQueue.main.async {
             self.naviContentView.frame = (self.view.window?.convert(self.naviContentView.frame, to: self.navigationItem.titleView))!
             self.navigationItem.titleView?.addSubview(self.naviContentView)
