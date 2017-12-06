@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 let threeButtonHeight: CGFloat = 50
 class MainViewController: UIViewController {
-
+    var isLogin = 0
     var tableView: UITableView!
     var naviContentView: UniversityView!
     var loopView: CircleLoopView!
@@ -26,6 +26,7 @@ class MainViewController: UIViewController {
         initHeader()
         
     }
+    
     
     func initNaviBar() {
         view.backgroundColor = UIColor.white
@@ -108,6 +109,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
         navigationController?.navigationBar.isHidden = false
     }
     

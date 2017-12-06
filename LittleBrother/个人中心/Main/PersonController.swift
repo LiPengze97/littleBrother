@@ -9,7 +9,7 @@
 import Foundation
 import UIKit
 class PersonViewController: UIViewController {
-    
+    var isLogin:Int = 0
     var tableView: UITableView!
     var headerView: HeadView!
     let dataArr = ["我的钱包", "推荐有奖", "意见反馈", "联系我们", "设置"]
@@ -21,6 +21,10 @@ class PersonViewController: UIViewController {
         super.viewDidLoad()
         initTableView()
         initHeaderView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
     }
     
     func initHeaderView() {
@@ -52,10 +56,16 @@ class PersonViewController: UIViewController {
         
     }
     @objc func labelTap() {
+        if isLogin == 0 {
+            pushWithoutTabBar(PhoneRegisterViewController())
+        }
         pushWithoutTabBar(EditPersonController())
     }
     
     @objc func buttonClick(_ sender: UIButton) {
+        if isLogin == 0 {
+            pushWithoutTabBar(PhoneRegisterViewController())
+        }
         switch sender.tag {
         case 1000:
             pushWithoutTabBar(MyOrdersController())
@@ -99,6 +109,9 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.isSelected = false
+        if isLogin == 0 {
+            pushWithoutTabBar(PhoneRegisterViewController())
+        }
         if indexPath.section == 1 {
             pushWithoutTabBar(SettingController()); return
         }

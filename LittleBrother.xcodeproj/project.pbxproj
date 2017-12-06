@@ -48,6 +48,7 @@
 		8E58BA101FD6923A008F04C6 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58BA0F1FD6923A008F04C6 /* Log.swift */; };
 		8E58BA131FD694F6008F04C6 /* identifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */; };
 		8E58BA141FD694F6008F04C6 /* identifyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */; };
+		8EA8BAC61FD81FE6005581A9 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */; };
 		8EAA05861FD57558003A3C14 /* PhoneRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */; };
 		8EAA05871FD57558003A3C14 /* PhoneRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA05851FD57558003A3C14 /* PhoneRegisterViewController.xib */; };
 		8EAA058B1FD57D49003A3C14 /* chargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA05891FD57D49003A3C14 /* chargeViewController.swift */; };
@@ -102,6 +103,7 @@
 		8E58BA0F1FD6923A008F04C6 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifyCodeViewController.swift; sourceTree = "<group>"; };
 		8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = identifyCodeViewController.xib; sourceTree = "<group>"; };
+		8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
 		8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneRegisterViewController.swift; sourceTree = "<group>"; };
 		8EAA05851FD57558003A3C14 /* PhoneRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneRegisterViewController.xib; sourceTree = "<group>"; };
 		8EAA05891FD57D49003A3C14 /* chargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargeViewController.swift; sourceTree = "<group>"; };
@@ -229,6 +231,7 @@
 		070CE50A1FBC5F32004DD912 /* 杂七杂八 */ = {
 			isa = PBXGroup;
 			children = (
+				8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */,
 				070CE4FA1FBC1EF9004DD912 /* ReflectController.swift */,
 				070CE4F71FBC1E6C004DD912 /* RecomController.swift */,
 				070CE4F31FBC1C2C004DD912 /* ContactUsController.swift */,
@@ -507,6 +510,7 @@
 				07047F811FBB15B100A5B266 /* SettingController.swift in Sources */,
 				07047F6C1FBAC84400A5B266 /* Router.swift in Sources */,
 				070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */,
+				8EA8BAC61FD81FE6005581A9 /* SwiftNotice.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
 				07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */,

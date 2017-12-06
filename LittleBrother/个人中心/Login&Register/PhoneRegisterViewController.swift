@@ -28,10 +28,25 @@ class PhoneRegisterViewController: UIViewController {
     
     @IBAction func nextstep(_ sender: Any) {
         //TODO: 加输入验证
+        if(self.phoneinput.text == ""){
+            self.view.noticeError("手机号码为空")
+            return
+        }
      
 
-        Alamofire.request(Router.getIdentifyCode("18340018998")).responseJSON { (response) in
+        Alamofire.request(Router.getIdentifyCode(self.phoneinput.text!)).responseJSON { (response) in
             print(response.result.value!)
+            guard let value = response.result.value else{
+                log("response.result.value is nil", .error)
+                return
+            }
+            let json = JSON(value)
+            if(json["code"] == 0){
+                let vc = identifyCodeViewController()
+                vc.phone = self.phoneinput.text!
+                self.navigationController?.pushViewController(vc, animated: true)
+            }
+            debugPrint("📺",json)
         }
         
     }

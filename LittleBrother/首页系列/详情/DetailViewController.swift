@@ -10,7 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 class DetailViewController: UIViewController {
-    
+    var isLogin = 0
     var personInfoView: PersonInfoView!
     var missionInfoView: MissionInfoView!
     var getButton: UIButton!
@@ -37,6 +37,10 @@ class DetailViewController: UIViewController {
         getButton.isHidden = isSelf
         msgButton.isHidden = isSelf
 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
     }
     
     func loadData() {
@@ -100,8 +104,24 @@ extension DetailViewController {
         msgButton.layer.borderColor = Config.themeColor.cgColor
         msgButton.layer.borderWidth = 1
         getButton.backgroundColor = Config.themeColor
+        
+        getButton.addTarget(self, action: #selector(DetailViewController.getJob), for: .touchUpInside)
+        msgButton.addTarget(self, action: #selector(DetailViewController.sendMsg), for: .touchUpInside)
     }
     
+    @objc func getJob(){
+        if isLogin == 0 {
+            self.present(PhoneRegisterViewController(), animated: true, completion: {
+                
+            })
+        }
+    }
+    
+    @objc func sendMsg(){
+        if isLogin == 0 {
+            pushWithoutTabBar(PhoneRegisterViewController())
+        }
+    }
     
     
     override func loadView() {
