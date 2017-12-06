@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="chargeViewController" customModule="LittleBrother" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="充值金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pbh-rd-BK2">
+                    <rect key="frame" x="41" y="53" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择支付方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FWi-5G-rU2">
+                    <rect key="frame" x="41" y="353" width="104" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NSW-aH-c9s">
+                    <rect key="frame" x="27" y="97" width="143" height="87"/>
+                    <state key="normal" image="100selected"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qZr-y3-btj">
+                    <rect key="frame" x="189" y="222" width="143" height="87"/>
+                    <state key="normal" image="100selected"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MCW-sW-dbM">
+                    <rect key="frame" x="189" y="97" width="143" height="87"/>
+                    <state key="normal" image="100selected"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uR7-2S-xki">
+                    <rect key="frame" x="27" y="222" width="143" height="87"/>
+                    <state key="normal" image="100selected"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Qd-Rw-eRf">
+                    <rect key="frame" x="230" y="394" width="60" height="60"/>
+                    <state key="normal" image="weixin"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SWr-xl-81W">
+                    <rect key="frame" x="68" y="394" width="60" height="60"/>
+                    <state key="normal" image="zhifubao"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xlk-wh-R3i">
+                    <rect key="frame" x="88" y="529" width="199" height="55"/>
+                    <state key="normal" image="chargebtn"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="uR7-2S-xki" firstAttribute="top" secondItem="qZr-y3-btj" secondAttribute="top" id="38R-iM-TZB"/>
+                <constraint firstItem="xlk-wh-R3i" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="F7x-v7-shs"/>
+                <constraint firstItem="FWi-5G-rU2" firstAttribute="top" secondItem="uR7-2S-xki" secondAttribute="bottom" constant="44" id="FGK-Vr-HgJ"/>
+                <constraint firstItem="pbh-rd-BK2" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="41" id="GYS-sH-rmh"/>
+                <constraint firstItem="MCW-sW-dbM" firstAttribute="leading" secondItem="NSW-aH-c9s" secondAttribute="trailing" constant="19" id="KaB-Tn-av6"/>
+                <constraint firstItem="xlk-wh-R3i" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="88" id="LcK-id-Th5"/>
+                <constraint firstItem="pbh-rd-BK2" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="33" id="NWy-KK-0Nj"/>
+                <constraint firstItem="SWr-xl-81W" firstAttribute="top" secondItem="FWi-5G-rU2" secondAttribute="bottom" constant="20" id="Rgn-gN-yY9"/>
+                <constraint firstItem="MCW-sW-dbM" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="77" id="cHw-FH-aaZ"/>
+                <constraint firstItem="qZr-y3-btj" firstAttribute="centerX" secondItem="0Qd-Rw-eRf" secondAttribute="centerX" id="cqp-Rx-3WP"/>
+                <constraint firstItem="NSW-aH-c9s" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="dWT-SP-Bro"/>
+                <constraint firstItem="NSW-aH-c9s" firstAttribute="leading" secondItem="uR7-2S-xki" secondAttribute="leading" id="jhi-K1-o7S"/>
+                <constraint firstItem="SWr-xl-81W" firstAttribute="top" secondItem="0Qd-Rw-eRf" secondAttribute="top" id="kWV-5s-qwE"/>
+                <constraint firstItem="SWr-xl-81W" firstAttribute="bottom" secondItem="0Qd-Rw-eRf" secondAttribute="bottom" id="ro9-5a-Auh"/>
+                <constraint firstItem="uR7-2S-xki" firstAttribute="centerX" secondItem="SWr-xl-81W" secondAttribute="centerX" id="rqf-9n-FDl"/>
+                <constraint firstItem="xlk-wh-R3i" firstAttribute="top" secondItem="SWr-xl-81W" secondAttribute="bottom" constant="75" id="s0d-g4-moS"/>
+                <constraint firstItem="NSW-aH-c9s" firstAttribute="top" secondItem="MCW-sW-dbM" secondAttribute="top" id="sIG-jA-cpT"/>
+                <constraint firstItem="pbh-rd-BK2" firstAttribute="leading" secondItem="FWi-5G-rU2" secondAttribute="leading" id="vpc-pE-ATg"/>
+                <constraint firstItem="MCW-sW-dbM" firstAttribute="leading" secondItem="qZr-y3-btj" secondAttribute="leading" id="wQx-lJ-7oF"/>
+                <constraint firstItem="uR7-2S-xki" firstAttribute="top" secondItem="NSW-aH-c9s" secondAttribute="bottom" constant="38" id="zbP-Zx-Tar"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="26.5" y="51.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="100selected" width="143" height="87"/>
+        <image name="chargebtn" width="192" height="55"/>
+        <image name="weixin" width="60" height="54"/>
+        <image name="zhifubao" width="60" height="60"/>
+    </resources>
+</document>

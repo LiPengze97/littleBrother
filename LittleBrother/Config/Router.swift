@@ -11,7 +11,7 @@ import Alamofire
 
 enum Router: URLRequestConvertible {
     
-    static let baseURLString =  "http://suqingfa.win:8080"
+    static let baseURLString =  "http://ischool.suqingfa.win:8080/"
     
     // MARK: - 用户模块
     
@@ -53,8 +53,14 @@ enum Router: URLRequestConvertible {
     //意见反馈
     case addFeedback(String)
     
-    //获取验证码
+    //获取邀请码
     case getInvitationCode()
+    
+    //获取验证码
+    case getIdentifyCode(String)
+    
+    //获取学校
+    case getSchools()
 
     
     
@@ -100,6 +106,10 @@ enum Router: URLRequestConvertible {
             return .get
         case .addFeedback:
             return .post
+        case .getSchools:
+            return .get
+        case .getIdentifyCode:
+            return .post
         }
     }
     
@@ -110,7 +120,7 @@ enum Router: URLRequestConvertible {
         case .signUp:
             return "/api/account/register"
         case .logIn:
-            return "/common/login"
+            return "/api/account/login"
         case .getUserOwnInfo:
             return "/api/account/getUserInfo"
         case .getOtherUserInfo:
@@ -145,6 +155,10 @@ enum Router: URLRequestConvertible {
             return "api/mission/nearby"
         case .addFeedback:
             return "api/feedback/add"
+        case .getSchools:
+            return "api/common/school"
+        case .getIdentifyCode:
+            return "api/common/sendSms"
         }
     }
     
@@ -164,7 +178,7 @@ enum Router: URLRequestConvertible {
                           "school":school, "invitationCode":invitationCode]
             return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
         case .logIn(let tel, let password):
-            let params = ["id": tel, "password": password]
+            let params = ["username": tel, "password": password]
             return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
         case .getUserOwnInfo():
             return try Alamofire.URLEncoding.default.encode(urlRequest, with: nil)
@@ -213,6 +227,11 @@ enum Router: URLRequestConvertible {
             return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
         case .getUserAvatar(let id):
             let params = ["id":id]
+            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+        case .getSchools():
+             return try Alamofire.URLEncoding.default.encode(urlRequest, with: nil)
+        case .getIdentifyCode(let phone):
+            let params = ["mobile": phone, "Content-Type":"application/x-www-form-urlencoded;charset=utf-8"]
             return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
         }
     }

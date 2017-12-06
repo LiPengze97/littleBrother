@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13527"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="withdrawViewController" customModule="LittleBrother" customModuleProvider="target">
+            <connections>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+                <outlet property="withdrawBtn" destination="JP5-Di-4oD" id="I2p-t1-7OK"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rs8-2r-xC4">
+                    <rect key="frame" x="27" y="43" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现方式" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3d-iz-TW9">
+                    <rect key="frame" x="27" y="190" width="70" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="xHL-D2-kDk">
+                    <rect key="frame" x="27" y="111" width="121" height="30"/>
+                    <nil key="textColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits"/>
+                </textField>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="P1K-MP-opA">
+                    <rect key="frame" x="88" y="271" width="60" height="60"/>
+                    <state key="normal" image="zhifubao"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hhk-ey-XWQ">
+                    <rect key="frame" x="230" y="271" width="60" height="60"/>
+                    <state key="normal" image="weixin"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JP5-Di-4oD">
+                    <rect key="frame" x="119" y="459" width="171" height="61"/>
+                    <color key="backgroundColor" red="0.99245578050000005" green="0.8397273421" blue="0.42459905149999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="61" id="5lS-j5-ogv"/>
+                    </constraints>
+                    <state key="normal" title="提现">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </state>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="hhk-ey-XWQ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="251" id="9e2-ei-8BC"/>
+                <constraint firstItem="P1K-MP-opA" firstAttribute="top" secondItem="hhk-ey-XWQ" secondAttribute="top" id="ECM-TR-jdR"/>
+                <constraint firstItem="P1K-MP-opA" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="88" id="EKv-2r-cXS"/>
+                <constraint firstItem="xHL-D2-kDk" firstAttribute="trailing" secondItem="P1K-MP-opA" secondAttribute="trailing" id="ITY-Q6-aRj"/>
+                <constraint firstItem="rs8-2r-xC4" firstAttribute="leading" secondItem="xHL-D2-kDk" secondAttribute="leading" id="JXa-cF-ff4"/>
+                <constraint firstItem="xHL-D2-kDk" firstAttribute="top" secondItem="rs8-2r-xC4" secondAttribute="bottom" constant="47" id="Xhl-ca-LNO"/>
+                <constraint firstItem="JP5-Di-4oD" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="119" id="cZt-Gk-Tah"/>
+                <constraint firstItem="d3d-iz-TW9" firstAttribute="top" secondItem="xHL-D2-kDk" secondAttribute="bottom" constant="49" id="eu7-rd-586"/>
+                <constraint firstItem="hhk-ey-XWQ" firstAttribute="trailing" secondItem="JP5-Di-4oD" secondAttribute="trailing" id="exq-Az-I65"/>
+                <constraint firstItem="hhk-ey-XWQ" firstAttribute="leading" secondItem="P1K-MP-opA" secondAttribute="trailing" constant="82" id="g2f-Pr-8ik"/>
+                <constraint firstItem="xHL-D2-kDk" firstAttribute="leading" secondItem="d3d-iz-TW9" secondAttribute="leading" id="nvT-4W-7Ef"/>
+                <constraint firstItem="P1K-MP-opA" firstAttribute="bottom" secondItem="hhk-ey-XWQ" secondAttribute="bottom" id="skD-aX-nuf"/>
+                <constraint firstItem="rs8-2r-xC4" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="27" id="xLl-eQ-S6W"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="JP5-Di-4oD" secondAttribute="bottom" constant="147" id="xdp-wu-Nrp"/>
+                <constraint firstItem="rs8-2r-xC4" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="23" id="zoM-KQ-2eQ"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
+            <point key="canvasLocation" x="23" y="52"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="weixin" width="60" height="54"/>
+        <image name="zhifubao" width="60" height="60"/>
+    </resources>
+</document>

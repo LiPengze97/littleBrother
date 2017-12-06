@@ -9,6 +9,10 @@
 import Foundation
 import UIKit
 import YUChineseSorting
+import Alamofire
+import SwiftyJSON
+
+
 class SelectSchoolController: UITableViewController {
     
     ///原始数据
@@ -23,6 +27,24 @@ class SelectSchoolController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Alamofire.request(Router.getSchools()).responseJSON { (response) in
+            switch response.result{
+            case .success:
+                guard let value = response.result.value else{
+                    log("response.result.value is nil", .error)
+                    return
+                }
+                let json = JSON(value)
+                print("📺",json)
+                
+                
+                return
+            case .failure(let error):
+                log(error, .error)
+                return
+            }
+        }
+        
         title = "选择学校"
         ///结果是：D，X，Z
         indexArr = ChineseString.indexArray(schools)
