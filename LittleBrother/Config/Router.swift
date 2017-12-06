@@ -167,72 +167,78 @@ enum Router: URLRequestConvertible {
         var urlRequest = URLRequest(url: url.appendingPathComponent(path))
         urlRequest.httpMethod = method.rawValue
         
+        ///有特殊情况的，在下面case里写setValue方法，替换为下面俩格式之一：
+        ///application/x-www-form-urlencoded
+        ///application/json
+        urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+        
         switch self {
         case .exists(let tel):
             let params = ["id": tel]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .signUp(let username, let password, let mobile,
                      let idCard, let name, let sex, let school, let invitationCode):
             let params = ["username": username, "password": password,
                           "mobile":mobile, "idCard":idCard, "name":name, "sex":sex,
                           "school":school, "invitationCode":invitationCode]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .logIn(let tel, let password):
+            urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             let params = ["username": tel, "password": password]
             return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
         case .getUserOwnInfo():
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: nil)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: nil)
         case .getOtherUserInfo(let id):
                 let params = ["id": id]
-                return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+                return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .setUserInfo(let username, let location):
             let params = ["username": username, "location": location]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .setUserAvatar():
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: nil)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: nil)
         case .getInvitationCode():
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: nil)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: nil)
         case .addAddr(let addr):
             let params = ["address": addr]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .deleteAddr(let id):
             let params = ["id": id]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .updateAddr(let id, let addr):
             let params = ["id": id,"address": addr]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .getAddrList():
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: nil)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: nil)
         case .releaseTask(let title, let description, let address, let price):
             let params = ["title":title,"description":description,
             "address":address,"price":price]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .endTask(let id):
             let params = ["id": id]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .acceptTask(let id):
             let params = ["id": id]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .cancelTask(let id):
             let params = ["id": id]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .myTaskList(let status, let page):
             let params = ["status": status, "page":page]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .nerbyTask(let page):
             let params = ["page": page]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .addFeedback(let feedback):
             let params = ["feedback": feedback]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .getUserAvatar(let id):
             let params = ["id":id]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         case .getSchools():
-             return try Alamofire.URLEncoding.default.encode(urlRequest, with: nil)
+             return try Alamofire.JSONEncoding.default.encode(urlRequest, with: nil)
         case .getIdentifyCode(let phone):
-            let params = ["mobile": phone, "Content-Type":"application/x-www-form-urlencoded;charset=utf-8"]
-            return try Alamofire.URLEncoding.default.encode(urlRequest, with: params)
+            let params = ["mobile": phone ]
+            return try Alamofire.JSONEncoding.default.encode(urlRequest, with: params)
         }
     }
 }

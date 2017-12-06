@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 class DetailViewController: UIViewController {
     
     var personInfoView: PersonInfoView!
@@ -29,12 +30,21 @@ class DetailViewController: UIViewController {
 
         initMissionView()
         
+        loadData()
+        
         //MARK: - 如果自己看到，就为true
         let isSelf = false
         getButton.isHidden = isSelf
         msgButton.isHidden = isSelf
-        
+
     }
+    
+    func loadData() {
+        Alamofire.request(Router.getUserOwnInfo()).responseJSON { (re) in
+            print(re.result.value!)
+        }
+    }
+    
 }
 
 

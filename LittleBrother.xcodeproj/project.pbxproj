@@ -139,9 +139,9 @@
 		07047F671FBAC77A00A5B266 /* 个人中心 */ = {
 			isa = PBXGroup;
 			children = (
+				07047F731FBAE83000A5B266 /* Main */,
 				8EAA05881FD57D24003A3C14 /* MoneyInfo */,
 				8EAA05831FD57504003A3C14 /* Login&Register */,
-				07047F731FBAE83000A5B266 /* Main */,
 				070CE50D1FBC7FA6004DD912 /* Authentication */,
 				070CE5071FBC53C2004DD912 /* Order&Release */,
 				07047F741FBAE83E00A5B266 /* PersonInfo */,

@@ -28,12 +28,16 @@ class PhoneRegisterViewController: UIViewController {
     
     @IBAction func nextstep(_ sender: Any) {
         //TODO: 加输入验证
+     
+
         Alamofire.request(Router.getIdentifyCode("18340018998")).responseJSON { (response) in
-            print(response.result.value)
+            print(response.result.value!)
         }
         
     }
-    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        view.endEditing(true)
+    }
     /*
     // MARK: - Navigation
 
