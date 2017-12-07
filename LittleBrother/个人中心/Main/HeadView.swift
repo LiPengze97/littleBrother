@@ -26,6 +26,12 @@ class HeadView: UIView {
     var myUpLoad: UIButton?
     var myBill: UIButton?
     
+    func fillContents(_ content: Any?) {
+        let person = content as? Person
+        nameLabel?.text = person?.userName
+        authentic?.setTitle(person?.authenStatus.rawValue, for: .normal)
+        
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -134,17 +140,7 @@ class HeadView: UIView {
             make.width.equalTo(0.5)
             make.left.centerY.equalTo(myBill!)
         }
-        /*
-         let seperator2 = UIView()
-         seperator2.backgroundColor = UIColor.lightGray.withAlphaComponent(0.75)
-         addSubview(seperator2)
-         seperator2.snp.makeConstraints { make in
-         make.height.equalTo(0.5)
-         make.width.equalTo(ScreenWidth)
-         make.bottom.centerX.equalTo(self)
-         }
-         seperator2.isHidden = true
-         */
+    
     }
     
     required init?(coder aDecoder: NSCoder) {

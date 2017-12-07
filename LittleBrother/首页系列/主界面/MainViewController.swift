@@ -50,8 +50,15 @@ class MainViewController: UIViewController {
     }
     
     @objc func selectSchool() {
-        //TODO: - 此处应该有代理传值。或者获得self引用，直接设选择的大学
-        pushWithoutTabBar(SelectSchoolController())
+        if userDefault.bool(forKey: kIsSignedIn) {
+            //TODO: - 此处应该有代理传值。或者获得self引用，直接设选择的大学
+            pushWithoutTabBar(SelectSchoolController())
+        } else {
+            let signin = UINavigationController(rootViewController: SignInViewController())
+            present(signin, animated: true)
+            
+        }
+        
     }
  
     
@@ -118,7 +125,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
+        self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
         navigationController?.navigationBar.isHidden = false
     }
     

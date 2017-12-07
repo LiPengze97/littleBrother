@@ -37,6 +37,11 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
         return l
     }
     
+    @objc func submitInfo() {
+        navigationController?.dismiss(animated: true)
+        
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         title = "完善信息"
@@ -190,17 +195,12 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
             make.height.equalTo(0.5)
             make.bottom.equalTo(inviteTxtfld)
         }
-        
-        
-        
-        
-        
-        
-        
+
         submit = getButton(44)
         submit.setTitleColor(.white, for: .normal)
         submit.backgroundColor = Config.themeColor
         submit.setTitle("完成", for: .normal)
+        submit.addTarget(self, action: #selector(submitInfo), for: .touchUpInside)
         view.addSubview(submit)
         submit.snp.makeConstraints { make in
             make.centerX.equalTo(view)

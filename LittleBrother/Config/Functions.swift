@@ -9,23 +9,30 @@
 import Foundation
 import UIKit
 
-let ScreenWidth = UIScreen.main.bounds.width;
-let ScreenHeigh = UIScreen.main.bounds.height;
-let UI_IPAD = UIDevice.current.userInterfaceIdiom == .pad
-let IPHONE = UIDevice.current.userInterfaceIdiom == .phone
-let IPHONE4 = IPHONE && ScreenHeigh < 568.0
-let IPHONE5 = IPHONE && ScreenHeigh == 568.0
-let IPHONE6 = IPHONE && ScreenHeigh == 667.0
-let IPHONE6P = IPHONE && ScreenHeigh == 736.0 || ScreenWidth == 736.0
+func log<T>(_ message: T, _ type: LogType = .ln, file: String = #file, method: String = #function, line: Int = #line) {
+    #if DEBUG
+        print("\(type.rawValue) \((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
+    #endif
+}
 
-
+///返回不同屏幕大小适配的 CGFloat，比如 let size = v(20, 22, 25)
+/// - Parameters:
+///   - i5: 4寸
+///   - i6: 4.7寸
+///   - i6P: 5.5寸
+/// - Return: CGFloat
+func v(_ i5: CGFloat, _ i6: CGFloat, _ i6P: CGFloat) -> CGFloat {
+    if IPHONE5 { return i5 }
+    if IPHONE6 { return i6 }
+    return i6P
+}
 
 func Rect(_ x: CGFloat, _ y: CGFloat, _ w: CGFloat, _ h: CGFloat) -> CGRect {
     return CGRect(x: x, y: y, width: w, height: h)
 }
 
 func Color(_ red: CGFloat, _ green: CGFloat, _ blue: CGFloat, alpha: CGFloat = 1 ) -> UIColor {
-    return UIColor(red: red, green: green, blue: blue, alpha: alpha)
+    return UIColor(red: red/255, green: green/255, blue: blue/255, alpha: alpha)
 }
 
 func myRange(_ location: Int, _ length: Int) -> NSRange {
@@ -71,47 +78,7 @@ func getAttributed(_ str: String, lineSpac: CGFloat) -> NSAttributedString {
     return atStr
 }
 
-func v(_ i5: CGFloat, _ i6: CGFloat, _ i6P: CGFloat) -> CGFloat {
-    if IPHONE5 { return i5 }
-    if IPHONE6 { return i6 }
-    return i6P
-}
-
-enum Config {
-    
-    static let themeColor = UIColor(red: 255/255, green: 226/255, blue: 33/255, alpha: 1)
-    static let themeFontColor = UIColor.brown
-    //static let themeFont =
-}
-
-enum Identifier {
-    static let personCellId = "fdajswdlr"
-    static let systemStyleCellId = "fcservswerwaefq"
-    static let carryOnCellId = "dawefawew"
-    static let finishedCellId = "dqwefqwfq"
-    static let distributeCellId = "dasefaqfaew"
-    static let mainTableCellId = "dafesaeffcasea"
-    static let tableheaderViewId = "dfasefwserw"
-}
-
-
-
-///是否已认证
-enum Authen: String {
-    case YES = "已认证"
-    case NO = "未认证"
-}
-
-
-
-
-
-
-
-
-
-
-
+ 
 //Aspect Fill：保持长宽比 使图片[充满容器]
 //Aspect Fit：保持长宽比 使图片在容器内[完整显示]出来 [不一定充满容器]
 //Scale to Fill: 拉伸变形图片至[充满容器]

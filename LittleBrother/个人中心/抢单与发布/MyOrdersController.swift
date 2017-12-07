@@ -23,7 +23,7 @@ class MyOrdersController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "我的抢单"
-        vc1 = ItemsController(url: nil)
+        vc1 = ItemsController(url: Router.myAcceptTasks(MissionStatus.PROCESSING.rawValue, "1"))
         vc2 = ItemsController(url: nil)
         
         segmentView = MJCSegmentInterface(frame: Rect(0, 64, ScreenWidth, ScreenHeigh-64))

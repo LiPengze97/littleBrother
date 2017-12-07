@@ -40,6 +40,63 @@ extension UIView {
         let ges = UITapGestureRecognizer(target: target, action: action)
         addGestureRecognizer(ges)
     }
+    func addBottomLine(height: CGFloat = 0.75, color: UIColor = UIColor.lightGray, bottom: CGFloat = 1000, left: CGFloat = 0) {
+        let separator = UIView()
+        if color.cgColor.alpha == 1 {
+            separator.backgroundColor = color.withAlphaComponent(0.6)
+        }else {
+            separator.backgroundColor = color
+        }
+        addSubview(separator)
+        separator.snp.makeConstraints{ (make) in
+            make.left.equalTo(left)
+            make.right.equalTo(-left)
+            make.height.equalTo(height)
+            guard bottom != 1000 else {
+                make.bottom.equalTo(self); return
+            }
+            make.bottom.equalTo(bottom)
+            
+        }
+    }
+    func setBackgroundImage(named img: String){
+        layer.contents = UIImage(named: img)?.cgImage
+        layer.contentsGravity = kCAGravityResizeAspectFill
+    }
+}
+
+extension UITextField {
+    
+    func psdMod() {
+        placeholder = "请输入密码"
+        isSecureTextEntry = true
+        clearsOnBeginEditing = false
+        clearButtonMode = .whileEditing
+        keyboardType = .asciiCapable
+        autocorrectionType = .no
+    }
+    
+    func addTitleLabel(_ label: UILabel, _ ofSize: CGFloat = 17) {
+        label.textAlignment = .center
+        label.textColor = UIColor.lightGray
+        label.font = UIFont.systemFont(ofSize: ofSize)
+        addSubview(label)
+        label.snp.makeConstraints{ make in
+            make.bottom.equalTo(self.snp.top).inset(4)
+            make.centerX.width.equalTo(self)
+            make.height.equalTo(30)
+        }
+    }
+ 
+    func addConstraintY(centerY: CGFloat, right: CGFloat) {
+        snp.makeConstraints{ (make) in
+            make.height.equalTo(45)
+            make.left.equalTo(right)
+            make.right.equalTo(-right)
+            make.centerY.equalTo(centerY)
+        }
+    }
+    
 }
 
 extension String {
@@ -92,5 +149,37 @@ extension String {
         
     }
     
+    
+}
+
+
+
+extension UserDefaults {
+    
+    ///存储 自定义对象：
+    func saveCustomObj(_ obj: NSCoding, key: String){
+        
+        let encodedObj = NSKeyedArchiver.archivedData(withRootObject: obj)
+        set(encodedObj, forKey: key)
+        print("Has saved a key: ",key)
+        synchronize()
+        
+    }
+    ///获取 自定义对象：
+    func getCustomObj(for key: String) -> Any? {
+        
+        guard let decodedObj = object(forKey: key) as? Data else{
+            print("getting obj but nil from key: ", key)
+            return nil
+        }
+        print("Getting local obj from key: ", key)
+        return NSKeyedUnarchiver.unarchiveObject(with: decodedObj)
+        
+    }
+    ///存储基本数据类型
+    func saveBasic(_ value: Any?, key: String) {
+        set(value, forKey: key)
+        synchronize()
+    }
     
 }
