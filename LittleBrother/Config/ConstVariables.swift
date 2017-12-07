@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import SVProgressHUD
 
 let kIsFirstOpen = "kIsFirstopened"
 let kIsSignedIn = "kIsSignedIn"
@@ -30,6 +31,10 @@ let ScreenWidth = UIScreen.main.bounds.width;
 let ScreenHeigh = UIScreen.main.bounds.height;
 let UI_IPAD = UIDevice.current.userInterfaceIdiom == .pad
 let IPHONE = UIDevice.current.userInterfaceIdiom == .phone
+let numBoardSmall:CGFloat = 216
+
+typealias hud = SVProgressHUD
+
 let IPHONE4 = IPHONE && ScreenHeigh < 568.0
 let IPHONE5 = IPHONE && ScreenHeigh == 568.0
 let IPHONE6 = IPHONE && ScreenHeigh == 667.0
