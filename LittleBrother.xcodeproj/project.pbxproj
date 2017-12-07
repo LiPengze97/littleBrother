@@ -327,6 +327,7 @@
 		8E1EF0DB1FBA80C1004C8023 /* LittleBrother */ = {
 			isa = PBXGroup;
 			children = (
+				8EA8BAC71FD8376B005581A9 /* New Group */,
 				8E1EF0E81FBA80C1004C8023 /* Info.plist */,
 				8E4F8C321FD6C59100E412B5 /* Userplist.plist */,
 				8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */,
@@ -338,6 +339,13 @@
 				07047F661FBAC66C00A5B266 /* Support */,
 			);
 			path = LittleBrother;
+			sourceTree = "<group>";
+		};
+		8EA8BAC71FD8376B005581A9 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
 			sourceTree = "<group>";
 		};
 		8EAA05831FD57504003A3C14 /* Login&Register */ = {

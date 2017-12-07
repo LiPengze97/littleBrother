@@ -16,7 +16,15 @@ class MainViewController: UIViewController {
     var loopView: CircleLoopView!
     var threeButton: ThreeButtonView!
     
-    var dataArr = NSMutableArray()
+    var dataArr = NSMutableArray(){
+        didSet{
+            self.tableView.reloadData()
+        }
+    }
+    
+    func loadData(){
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +32,7 @@ class MainViewController: UIViewController {
         initNaviBar()
         initTable()
         initHeader()
-        
+        loadData()
     }
     
     
