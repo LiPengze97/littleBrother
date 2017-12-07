@@ -94,3 +94,35 @@ extension String {
     
     
 }
+
+
+
+extension UserDefaults {
+    
+    ///存储 自定义对象：
+    func saveCustomObj(_ obj: NSCoding, key: String){
+        
+        let encodedObj = NSKeyedArchiver.archivedData(withRootObject: obj)
+        set(encodedObj, forKey: key)
+        print("Has saved a key: ",key)
+        synchronize()
+        
+    }
+    ///获取 自定义对象：
+    func getCustomObj(for key: String) -> Any? {
+        
+        guard let decodedObj = object(forKey: key) as? Data else{
+            print("getting obj but nil from key: ", key)
+            return nil
+        }
+        print("Getting local obj from key: ", key)
+        return NSKeyedUnarchiver.unarchiveObject(with: decodedObj)
+        
+    }
+    ///存储基本数据类型
+    func saveBasic(_ value: Any?, key: String) {
+        set(value, forKey: key)
+        synchronize()
+    }
+    
+}

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		07047F691FBAC7AF00A5B266 /* HeadView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F681FBAC7AF00A5B266 /* HeadView.swift */; };
 		07047F6C1FBAC84400A5B266 /* Router.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F6B1FBAC84400A5B266 /* Router.swift */; };
-		07047F6E1FBAC85D00A5B266 /* Common.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F6D1FBAC85D00A5B266 /* Common.swift */; };
+		07047F6E1FBAC85D00A5B266 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F6D1FBAC85D00A5B266 /* Functions.swift */; };
 		07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F711FBAD24F00A5B266 /* PersonController.swift */; };
 		07047F7E1FBB0D4300A5B266 /* Test2.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F7D1FBB0D4300A5B266 /* Test2.swift */; };
 		07047F811FBB15B100A5B266 /* SettingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07047F801FBB15B100A5B266 /* SettingController.swift */; };
@@ -41,6 +41,8 @@
 		07CF21751FD8E64F00EF7411 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21741FD8E64F00EF7411 /* SwiftyJSON.swift */; };
 		07CF21791FD8E93B00EF7411 /* Misson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21771FD8E93B00EF7411 /* Misson.swift */; };
 		07CF217A1FD8E93B00EF7411 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21781FD8E93B00EF7411 /* Person.swift */; };
+		07CF217C1FD9053A00EF7411 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF217B1FD9053A00EF7411 /* Enums.swift */; };
+		07CF217E1FD9066800EF7411 /* ConstVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF217D1FD9066800EF7411 /* ConstVariables.swift */; };
 		87A18B6F774E4DF6286AB1A2 /* Pods_LittleBrother.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */; };
 		8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */; };
 		8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */; };
@@ -64,7 +66,7 @@
 /* Begin PBXFileReference section */
 		07047F681FBAC7AF00A5B266 /* HeadView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeadView.swift; sourceTree = "<group>"; };
 		07047F6B1FBAC84400A5B266 /* Router.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Router.swift; sourceTree = "<group>"; };
-		07047F6D1FBAC85D00A5B266 /* Common.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Common.swift; sourceTree = "<group>"; };
+		07047F6D1FBAC85D00A5B266 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Functions.swift; sourceTree = "<group>"; };
 		07047F711FBAD24F00A5B266 /* PersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonController.swift; sourceTree = "<group>"; };
 		07047F7D1FBB0D4300A5B266 /* Test2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Test2.swift; sourceTree = "<group>"; };
 		07047F801FBB15B100A5B266 /* SettingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingController.swift; sourceTree = "<group>"; };
@@ -97,6 +99,8 @@
 		07CF21741FD8E64F00EF7411 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		07CF21771FD8E93B00EF7411 /* Misson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misson.swift; sourceTree = "<group>"; };
 		07CF21781FD8E93B00EF7411 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
+		07CF217B1FD9053A00EF7411 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
+		07CF217D1FD9066800EF7411 /* ConstVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstVariables.swift; sourceTree = "<group>"; };
 		8D5BC0D104F25B66905FFE09 /* Pods-LittleBrother.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1EF0D91FBA80C1004C8023 /* LittleBrother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleBrother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -162,7 +166,9 @@
 			isa = PBXGroup;
 			children = (
 				07CF21731FD8E44400EF7411 /* SDK */,
-				07047F6D1FBAC85D00A5B266 /* Common.swift */,
+				07047F6D1FBAC85D00A5B266 /* Functions.swift */,
+				07CF217D1FD9066800EF7411 /* ConstVariables.swift */,
+				07CF217B1FD9053A00EF7411 /* Enums.swift */,
 				07047F6B1FBAC84400A5B266 /* Router.swift */,
 				070CE5181FBD7A70004DD912 /* Extensions.swift */,
 				07CF216F1FD8DEB900EF7411 /* HTTRequest.swift */,
@@ -546,6 +552,7 @@
 				8EAA05941FD58AA1003A3C14 /* completeInfoViewController.swift in Sources */,
 				8EAA058F1FD57D58003A3C14 /* withdrawViewController.swift in Sources */,
 				07CF217A1FD8E93B00EF7411 /* Person.swift in Sources */,
+				07CF217E1FD9066800EF7411 /* ConstVariables.swift in Sources */,
 				07047F841FBB15D900A5B266 /* WalletController.swift in Sources */,
 				070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */,
 				8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */,
@@ -556,8 +563,9 @@
 				070CE5091FBC53D9004DD912 /* MyReleaseController.swift in Sources */,
 				07C1AD891FD256F600CA252F /* TextAndImgView.swift in Sources */,
 				070CE5231FBD7CF3004DD912 /* AuthenController.swift in Sources */,
-				07047F6E1FBAC85D00A5B266 /* Common.swift in Sources */,
+				07047F6E1FBAC85D00A5B266 /* Functions.swift in Sources */,
 				070CE51C1FBD7C45004DD912 /* RecomController.swift in Sources */,
+				07CF217C1FD9053A00EF7411 /* Enums.swift in Sources */,
 				07CF21701FD8DEB900EF7411 /* HTTRequest.swift in Sources */,
 				8E543BCA1FBC31AC00C63671 /* CircleLoopView.swift in Sources */,
 				07831CE11FD19A130067DF7E /* PersonInfoView.swift in Sources */,

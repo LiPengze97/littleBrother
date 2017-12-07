@@ -10,21 +10,7 @@ import Foundation
 import UIKit
 import Alamofire
 
-let kIsFirstOpen = "kIsFirstopened"
-let kIsSignedIn = "kIsSignedIn"
-let kCurrentUserKey = "fdasfcewa"
 
-let kIdKey = "idfasfe"
-let kPhoneKey = "phondfasee"
-let kNickNameKey = "nickName"
-let kGenderKey = "gender"
-let kAuthenStatusKey = "typoeleu"
-let kSchoolKey = "fswgfewaf"
-let kRealNameKey = "relanameky"
-let kRealIdKey = "realidkEu"
-
-let kHeadImageKey = "heafasefd"
-let kToSaveKey = "fwsefw"
 
 //实现NSObject和NSCoding NSObject可以不加，用@objc修饰某些方法也可以。
 //NSCoding接口提供了序列化和反序列化对象的时候的编解码方法。
@@ -50,6 +36,7 @@ class Person: NSObject, NSCoding {
     }
 
     init(_ dict: JSON, toSave: Bool = false) {
+        super.init()
         self.toSave = toSave
         analyse(dict)
         if toSave {
@@ -58,23 +45,20 @@ class Person: NSObject, NSCoding {
     }
     
     ///构造和分析总是同时调用的
-    func analyse(_ dict: JSON) {
-    
-        let data = dict["data"].dictionaryValue
-        
-        id = data["id"]?.int ?? 0
-        mobile = data["mobile"]?.string ?? "0"
-        gender = data["sex"]?.string ?? "男"
-        userName = data["username"]?.string ?? "未知"
-        realName = data["name"]?.string ?? "未认证"
-        realID = data["idCard"]?.string ?? "未认证"
-        authenStatus = Authen(rawValue: (data["authStatus"]?.string ?? "NO"))
-        school = data["school"]?.string ?? "未知"
+    func analyse(_ data: JSON) {
+        id = data["id"].int ?? 0
+        mobile = data["mobile"].string ?? "0"
+        gender = data["sex"].string ?? "男"
+        userName = data["username"].string ?? "未知"
+        realName = data["name"].string ?? "未认证"
+        realID = data["idCard"].string ?? "未认证"
+        authenStatus = Authen(rawValue: (data["authStatus"].string ?? "NO"))
+        school = data["school"].string ?? "未知"
     }
     
  
     
-    ///序列化一个对象的时候使用
+    ///序列化一个对象的时候使用,用于存本地
     func encode(with aCoder: NSCoder) {
         aCoder.encode(id, forKey: kIdKey)
         aCoder.encode(mobile, forKey: kPhoneKey)

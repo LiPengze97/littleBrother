@@ -8,65 +8,46 @@
 
 import Foundation
 
-class Good {
+class Mission {
     
     var id: Int!
-    var user: Person!
-    var type: Int!
-    var isValid: Int!
-    
-    var long: Double!
-    var lati: Double!
+    ///发布者
+    var master: Person!
+    ///接单者
+    var acceptUser: Person?
     
     var title: String!
+    var address: String!
     var description: String!
+    var price: String!
+    var time: String!
+    var status: MissionStatus!
+    var acceptTime: String!
     
-    var threeLevel: [String]!
-    var location: String!
+    init() {}
     
-    var date: String!
-    var deadline: String!
+    init(_ data: JSON) {
+        analyse(data)
+    }
+   
     
-    var picRatio: String!
-    var pics: [String]!
-    var smallPics: [String]!
-    
-    ///info是 最小的那个字典，id = ···，······
-    func anlyse(_ value: JSON) {
+    ///value是 最小的那个字典，id = ···，······
+    func analyse(_ value: JSON) {
         
-        id = value["id"].int
-        type = value["type"].int
-        let people = Person()
-        people.analyse(value["user"].dictionaryObject! as NSDictionary)
-        user = people
-        isValid = value["isValid"].int
-        long = value["longitude"].double
-        lati = value["latitude"].double
-        title = value["title"].string
-        description = value["description"].string
+        id = value["id"].int ?? 0
+        master = Person(value["user"])
         
-        threeLevel = [value["l1"].string!, value["l2"].string!, value["l3"].string!]
-        location = value["location"].string
-        date = value["date"].string
-        deadline = value["deadline"].string
+        title = value["title"].string ?? "加载中"
+        description = value["description"].string ?? "暂无描述"
+        address = value["address"].string ?? "未填写"
+        price = value["price"].string ?? "00.0"
+        time = value["time"].string ?? "\(Date())"
+        status = MissionStatus(rawValue: value["status"].string ?? "WAIT")
+        acceptTime = value["acceptTime"].string
+        acceptUser = Person(value["acceptUser"])
         
-        picRatio = value["picRatio"].string
-        pics = value["pic"].arrayObject as? [String]
-        smallPics = convertSize(pics)
     }
     
-    //大图变小兔
-    func convertSize(_ former: [String]) -> [String] {
-        var new = (former as NSArray).copy() as! [String]
-        for i in 0..<former.count {
-            // _sm.png
-            let idx = former[i].index(former[i].endIndex, offsetBy: -3)
-            let r = Range(uncheckedBounds: (lower: former[i].index(before: idx), upper: idx))
-            new[i] = former[i].replacingCharacters(in: r, with: "_sm.")
-            
-        }
-        return new
-    }
     
 }
 
