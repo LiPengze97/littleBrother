@@ -27,7 +27,7 @@ class SelectSchoolController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        Alamofire.request(Router.getSchools()).responseJSON { (response) in
+        Alamofire.request(Router.getSchools).responseJSON { (response) in
             switch response.result{
             case .success:
                 guard let value = response.result.value else{
@@ -56,8 +56,6 @@ class SelectSchoolController: UITableViewController {
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: Identifier.tableheaderViewId)
         tableView.estimatedRowHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
-        
-        
     }
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -101,12 +99,6 @@ class SelectSchoolController: UITableViewController {
         vie.textLabel?.backgroundColor = UIColor.groupTableViewBackground
         return vie;
     }
-
-//    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let cell = UITableViewCell(style: .default, reuseIdentifier: Identifier.systemStyleCellId)
-//        cell.textLabel?.text = ((letterResultArr[indexPath.section] as! NSArray)[indexPath.row]) as? String
-//        return cell
-//    }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Identifier.systemStyleCellId)

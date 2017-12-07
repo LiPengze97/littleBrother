@@ -43,8 +43,8 @@ class Mission {
         price = value["price"].string ?? "00.0"
         time = value["time"].string ?? "\(Date())"
         status = MissionStatus(rawValue: value["status"].string ?? "WAIT")
-        acceptTime = value["acceptTime"].string
-        acceptUser = Person(value["acceptUser"])
+        acceptTime = value["acceptTime"].string ?? "\(Date())"
+        acceptUser = Person(value["acceptUser"]) 
         
     }
     

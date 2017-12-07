@@ -27,6 +27,9 @@ class HeadView: UIView {
     var myBill: UIButton?
     
     func fillContents(_ content: Any?) {
+        let person = content as? Person
+        nameLabel?.text = person?.userName
+        authentic?.setTitle(person?.authenStatus.rawValue, for: .normal)
         
     }
     
