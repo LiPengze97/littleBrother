@@ -8,6 +8,7 @@
 
 import Foundation
 import UIKit
+import Alamofire
 class PersonViewController: UIViewController {
     var isLogin:Int = 0
     var tableView: UITableView!
@@ -21,10 +22,17 @@ class PersonViewController: UIViewController {
         super.viewDidLoad()
         initTableView()
         initHeaderView()
+        loadData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
+    }
+    
+    func loadData() {
+        HttpRequest.request(Router.getUserOwnInfo()) { value in
+            
+        }
     }
     
     func initHeaderView() {

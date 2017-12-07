@@ -37,6 +37,8 @@
 		07C1AD8D1FD25B4400CA252F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1AD8C1FD25B4400CA252F /* MainViewController.swift */; };
 		07C1AD8F1FD25BBA00CA252F /* UniversityView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1AD8E1FD25BBA00CA252F /* UniversityView.swift */; };
 		07C1AD911FD2641B00CA252F /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1AD901FD2641B00CA252F /* MainViewCell.swift */; };
+		07CF21701FD8DEB900EF7411 /* HTTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF216F1FD8DEB900EF7411 /* HTTRequest.swift */; };
+		07CF21751FD8E64F00EF7411 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21741FD8E64F00EF7411 /* SwiftyJSON.swift */; };
 		87A18B6F774E4DF6286AB1A2 /* Pods_LittleBrother.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */; };
 		8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */; };
 		8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */; };
@@ -45,7 +47,6 @@
 		8E1EF0E71FBA80C1004C8023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E1EF0E51FBA80C1004C8023 /* LaunchScreen.storyboard */; };
 		8E4F8C331FD6C59100E412B5 /* Userplist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E4F8C321FD6C59100E412B5 /* Userplist.plist */; };
 		8E543BCA1FBC31AC00C63671 /* CircleLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */; };
-		8E58BA101FD6923A008F04C6 /* Log.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58BA0F1FD6923A008F04C6 /* Log.swift */; };
 		8E58BA131FD694F6008F04C6 /* identifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */; };
 		8E58BA141FD694F6008F04C6 /* identifyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */; };
 		8EA8BAC61FD81FE6005581A9 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */; };
@@ -90,6 +91,8 @@
 		07C1AD8C1FD25B4400CA252F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		07C1AD8E1FD25BBA00CA252F /* UniversityView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversityView.swift; sourceTree = "<group>"; };
 		07C1AD901FD2641B00CA252F /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
+		07CF216F1FD8DEB900EF7411 /* HTTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTRequest.swift; sourceTree = "<group>"; };
+		07CF21741FD8E64F00EF7411 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
 		8D5BC0D104F25B66905FFE09 /* Pods-LittleBrother.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1EF0D91FBA80C1004C8023 /* LittleBrother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleBrother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -100,7 +103,6 @@
 		8E1EF0E81FBA80C1004C8023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E4F8C321FD6C59100E412B5 /* Userplist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Userplist.plist; sourceTree = "<group>"; };
 		8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLoopView.swift; sourceTree = "<group>"; };
-		8E58BA0F1FD6923A008F04C6 /* Log.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Log.swift; sourceTree = "<group>"; };
 		8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifyCodeViewController.swift; sourceTree = "<group>"; };
 		8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = identifyCodeViewController.xib; sourceTree = "<group>"; };
 		8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
@@ -142,14 +144,12 @@
 			isa = PBXGroup;
 			children = (
 				07047F731FBAE83000A5B266 /* Main */,
-				8EAA05881FD57D24003A3C14 /* MoneyInfo */,
-				8EAA05831FD57504003A3C14 /* Login&Register */,
-				070CE50D1FBC7FA6004DD912 /* Authentication */,
-				070CE5071FBC53C2004DD912 /* Order&Release */,
-				07047F741FBAE83E00A5B266 /* PersonInfo */,
-				07047F821FBB15C700A5B266 /* Wallet */,
-				07047F7F1FBB158C00A5B266 /* Setting */,
-				070CE50A1FBC5F32004DD912 /* 杂七杂八 */,
+				070CE50D1FBC7FA6004DD912 /* 实名认证 */,
+				070CE5071FBC53C2004DD912 /* 抢单与发布 */,
+				07047F741FBAE83E00A5B266 /* 个人详细信息 */,
+				07047F821FBB15C700A5B266 /* 钱包相关 */,
+				07047F7F1FBB158C00A5B266 /* 设置相关 */,
+				070CE50A1FBC5F32004DD912 /* 几个不重要的Controller */,
 			);
 			path = "个人中心";
 			sourceTree = "<group>";
@@ -157,11 +157,11 @@
 		07047F6A1FBAC82200A5B266 /* Config */ = {
 			isa = PBXGroup;
 			children = (
-				8E58BA0F1FD6923A008F04C6 /* Log.swift */,
+				07CF21731FD8E44400EF7411 /* SDK */,
 				07047F6D1FBAC85D00A5B266 /* Common.swift */,
 				07047F6B1FBAC84400A5B266 /* Router.swift */,
-				8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */,
 				070CE5181FBD7A70004DD912 /* Extensions.swift */,
+				07CF216F1FD8DEB900EF7411 /* HTTRequest.swift */,
 			);
 			path = Config;
 			sourceTree = "<group>";
@@ -175,12 +175,12 @@
 			path = Main;
 			sourceTree = "<group>";
 		};
-		07047F741FBAE83E00A5B266 /* PersonInfo */ = {
+		07047F741FBAE83E00A5B266 /* 个人详细信息 */ = {
 			isa = PBXGroup;
 			children = (
 				070CE5141FBD3FBD004DD912 /* EditPersonController.swift */,
 			);
-			path = PersonInfo;
+			path = "个人详细信息";
 			sourceTree = "<group>";
 		};
 		07047F791FBB0CEA00A5B266 /* 首页系列 */ = {
@@ -201,53 +201,53 @@
 			path = "消息系列";
 			sourceTree = "<group>";
 		};
-		07047F7F1FBB158C00A5B266 /* Setting */ = {
+		07047F7F1FBB158C00A5B266 /* 设置相关 */ = {
 			isa = PBXGroup;
 			children = (
 				07047F801FBB15B100A5B266 /* SettingController.swift */,
 			);
-			path = Setting;
+			path = "设置相关";
 			sourceTree = "<group>";
 		};
-		07047F821FBB15C700A5B266 /* Wallet */ = {
+		07047F821FBB15C700A5B266 /* 钱包相关 */ = {
 			isa = PBXGroup;
 			children = (
-				07047F831FBB15D900A5B266 /* WalletController.swift */,
 				07047F851FBB173900A5B266 /* WalletView.swift */,
+				07047F831FBB15D900A5B266 /* WalletController.swift */,
+				8EAA05881FD57D24003A3C14 /* 充值与提现 */,
 			);
-			path = Wallet;
+			path = "钱包相关";
 			sourceTree = "<group>";
 		};
-		070CE5071FBC53C2004DD912 /* Order&Release */ = {
+		070CE5071FBC53C2004DD912 /* 抢单与发布 */ = {
 			isa = PBXGroup;
 			children = (
 				070CE5031FBC4579004DD912 /* ItemsController.swift */,
 				070CE5011FBC44FF004DD912 /* MyOrdersController.swift */,
 				070CE5081FBC53D9004DD912 /* MyReleaseController.swift */,
 			);
-			path = "Order&Release";
+			path = "抢单与发布";
 			sourceTree = "<group>";
 		};
-		070CE50A1FBC5F32004DD912 /* 杂七杂八 */ = {
+		070CE50A1FBC5F32004DD912 /* 几个不重要的Controller */ = {
 			isa = PBXGroup;
 			children = (
-				8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */,
 				070CE4FA1FBC1EF9004DD912 /* ReflectController.swift */,
 				070CE4F71FBC1E6C004DD912 /* RecomController.swift */,
 				070CE4F31FBC1C2C004DD912 /* ContactUsController.swift */,
 				070CE50B1FBC5F68004DD912 /* UserProtocolController.swift */,
 			);
-			path = "杂七杂八";
+			path = "几个不重要的Controller";
 			sourceTree = "<group>";
 		};
-		070CE50D1FBC7FA6004DD912 /* Authentication */ = {
+		070CE50D1FBC7FA6004DD912 /* 实名认证 */ = {
 			isa = PBXGroup;
 			children = (
 				070CE50E1FBC7FD8004DD912 /* AuthenController.swift */,
 				07831CDA1FD184F90067DF7E /* CardView.swift */,
 				070CE5251FBD7D72004DD912 /* RightItemCell.swift */,
 			);
-			path = Authentication;
+			path = "实名认证";
 			sourceTree = "<group>";
 		};
 		07831CDC1FD192D90067DF7E /* 发布 */ = {
@@ -287,6 +287,16 @@
 				07C1AD8A1FD2587900CA252F /* ThreeButtonView.swift */,
 			);
 			name = View;
+			sourceTree = "<group>";
+		};
+		07CF21731FD8E44400EF7411 /* SDK */ = {
+			isa = PBXGroup;
+			children = (
+				8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */,
+				8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */,
+				07CF21741FD8E64F00EF7411 /* SwiftyJSON.swift */,
+			);
+			path = SDK;
 			sourceTree = "<group>";
 		};
 		33C65A0DF8EE74C0B5497362 /* Frameworks */ = {
@@ -331,6 +341,7 @@
 				8E4F8C321FD6C59100E412B5 /* Userplist.plist */,
 				8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */,
 				8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */,
+				8EAA05831FD57504003A3C14 /* 登陆注册 */,
 				07047F791FBB0CEA00A5B266 /* 首页系列 */,
 				07047F7A1FBB0CF600A5B266 /* 消息系列 */,
 				07047F671FBAC77A00A5B266 /* 个人中心 */,
@@ -340,7 +351,7 @@
 			path = LittleBrother;
 			sourceTree = "<group>";
 		};
-		8EAA05831FD57504003A3C14 /* Login&Register */ = {
+		8EAA05831FD57504003A3C14 /* 登陆注册 */ = {
 			isa = PBXGroup;
 			children = (
 				8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */,
@@ -349,10 +360,10 @@
 				8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */,
 				8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */,
 			);
-			path = "Login&Register";
+			path = "登陆注册";
 			sourceTree = "<group>";
 		};
-		8EAA05881FD57D24003A3C14 /* MoneyInfo */ = {
+		8EAA05881FD57D24003A3C14 /* 充值与提现 */ = {
 			isa = PBXGroup;
 			children = (
 				8EAA05891FD57D49003A3C14 /* chargeViewController.swift */,
@@ -360,7 +371,7 @@
 				8EAA058D1FD57D58003A3C14 /* withdrawViewController.swift */,
 				8EAA058E1FD57D58003A3C14 /* withdrawViewController.xib */,
 			);
-			path = MoneyInfo;
+			path = "充值与提现";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -523,7 +534,6 @@
 				070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */,
 				8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */,
 				07047F7E1FBB0D4300A5B266 /* Test2.swift in Sources */,
-				8E58BA101FD6923A008F04C6 /* Log.swift in Sources */,
 				07047F691FBAC7AF00A5B266 /* HeadView.swift in Sources */,
 				07C1AD8D1FD25B4400CA252F /* MainViewController.swift in Sources */,
 				070CE5221FBD7CE7004DD912 /* EditPersonController.swift in Sources */,
@@ -532,6 +542,7 @@
 				070CE5231FBD7CF3004DD912 /* AuthenController.swift in Sources */,
 				07047F6E1FBAC85D00A5B266 /* Common.swift in Sources */,
 				070CE51C1FBD7C45004DD912 /* RecomController.swift in Sources */,
+				07CF21701FD8DEB900EF7411 /* HTTRequest.swift in Sources */,
 				8E543BCA1FBC31AC00C63671 /* CircleLoopView.swift in Sources */,
 				07831CE11FD19A130067DF7E /* PersonInfoView.swift in Sources */,
 				07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */,
@@ -547,6 +558,7 @@
 				07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */,
 				8EAA05861FD57558003A3C14 /* PhoneRegisterViewController.swift in Sources */,
 				07047F861FBB173900A5B266 /* WalletView.swift in Sources */,
+				07CF21751FD8E64F00EF7411 /* SwiftyJSON.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

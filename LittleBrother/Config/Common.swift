@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+let userDefault = UserDefaults.standard
 let ScreenWidth = UIScreen.main.bounds.width;
 let ScreenHeigh = UIScreen.main.bounds.height;
 let UI_IPAD = UIDevice.current.userInterfaceIdiom == .pad
@@ -17,6 +18,26 @@ let IPHONE4 = IPHONE && ScreenHeigh < 568.0
 let IPHONE5 = IPHONE && ScreenHeigh == 568.0
 let IPHONE6 = IPHONE && ScreenHeigh == 667.0
 let IPHONE6P = IPHONE && ScreenHeigh == 736.0 || ScreenWidth == 736.0
+
+enum LogType: String {
+    case ln = "✏️"
+    case error = "❗️"
+    case date = "🕒"
+    case url = "🌏"
+    case json = "💡"
+    case fuck = "🖕"
+    case happy = "😄"
+}
+
+func log<T>(_ message: T,
+            _ type: LogType = .ln,
+            file: String = #file,
+            method: String = #function,
+            line: Int    = #line) {
+    #if DEBUG
+        print("\(type.rawValue) \((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
+    #endif
+}
 
 
 
