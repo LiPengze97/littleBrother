@@ -39,6 +39,8 @@
 		07C1AD911FD2641B00CA252F /* MainViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1AD901FD2641B00CA252F /* MainViewCell.swift */; };
 		07CF21701FD8DEB900EF7411 /* HTTRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF216F1FD8DEB900EF7411 /* HTTRequest.swift */; };
 		07CF21751FD8E64F00EF7411 /* SwiftyJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21741FD8E64F00EF7411 /* SwiftyJSON.swift */; };
+		07CF21791FD8E93B00EF7411 /* Misson.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21771FD8E93B00EF7411 /* Misson.swift */; };
+		07CF217A1FD8E93B00EF7411 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21781FD8E93B00EF7411 /* Person.swift */; };
 		87A18B6F774E4DF6286AB1A2 /* Pods_LittleBrother.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */; };
 		8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */; };
 		8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */; };
@@ -93,6 +95,8 @@
 		07C1AD901FD2641B00CA252F /* MainViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewCell.swift; sourceTree = "<group>"; };
 		07CF216F1FD8DEB900EF7411 /* HTTRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTRequest.swift; sourceTree = "<group>"; };
 		07CF21741FD8E64F00EF7411 /* SwiftyJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftyJSON.swift; sourceTree = "<group>"; };
+		07CF21771FD8E93B00EF7411 /* Misson.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Misson.swift; sourceTree = "<group>"; };
+		07CF21781FD8E93B00EF7411 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		8D5BC0D104F25B66905FFE09 /* Pods-LittleBrother.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1EF0D91FBA80C1004C8023 /* LittleBrother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleBrother.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -299,6 +303,15 @@
 			path = SDK;
 			sourceTree = "<group>";
 		};
+		07CF21761FD8E8AC00EF7411 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				07CF21771FD8E93B00EF7411 /* Misson.swift */,
+				07CF21781FD8E93B00EF7411 /* Person.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		33C65A0DF8EE74C0B5497362 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -341,6 +354,7 @@
 				8E4F8C321FD6C59100E412B5 /* Userplist.plist */,
 				8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */,
 				8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */,
+				07CF21761FD8E8AC00EF7411 /* Model */,
 				8EAA05831FD57504003A3C14 /* 登陆注册 */,
 				07047F791FBB0CEA00A5B266 /* 首页系列 */,
 				07047F7A1FBB0CF600A5B266 /* 消息系列 */,
@@ -522,6 +536,7 @@
 				07047F6C1FBAC84400A5B266 /* Router.swift in Sources */,
 				070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */,
 				8EA8BAC61FD81FE6005581A9 /* SwiftNotice.swift in Sources */,
+				07CF21791FD8E93B00EF7411 /* Misson.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
 				07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */,
@@ -530,6 +545,7 @@
 				8EAA058B1FD57D49003A3C14 /* chargeViewController.swift in Sources */,
 				8EAA05941FD58AA1003A3C14 /* completeInfoViewController.swift in Sources */,
 				8EAA058F1FD57D58003A3C14 /* withdrawViewController.swift in Sources */,
+				07CF217A1FD8E93B00EF7411 /* Person.swift in Sources */,
 				07047F841FBB15D900A5B266 /* WalletController.swift in Sources */,
 				070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */,
 				8E1EF0DF1FBA80C1004C8023 /* ViewController.swift in Sources */,

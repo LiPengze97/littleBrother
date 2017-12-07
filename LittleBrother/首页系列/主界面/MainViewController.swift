@@ -110,7 +110,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
+        self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
         navigationController?.navigationBar.isHidden = false
     }
     

@@ -121,6 +121,7 @@ enum Identifier {
 enum Authen: String {
     case YES = "已认证"
     case NO = "未认证"
+    case WAIT = "认证中"
 }
 
 

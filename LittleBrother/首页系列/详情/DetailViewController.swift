@@ -40,7 +40,7 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
+        self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
     }
     
     func loadData() {

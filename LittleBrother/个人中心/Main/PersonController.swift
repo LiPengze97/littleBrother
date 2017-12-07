@@ -10,29 +10,32 @@ import Foundation
 import UIKit
 import Alamofire
 class PersonViewController: UIViewController {
+    
     var isLogin:Int = 0
     var tableView: UITableView!
     var headerView: HeadView!
     let dataArr = ["我的钱包", "推荐有奖", "意见反馈", "联系我们", "设置"]
     let imgArr = [#imageLiteral(resourceName: "qianbao"), #imageLiteral(resourceName: "tuijian"), #imageLiteral(resourceName: "yijian"), #imageLiteral(resourceName: "lianxi"), #imageLiteral(resourceName: "shezhi")]
-    
-    
+
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         initTableView()
         initHeaderView()
         loadData()
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        self.isLogin = UserDefaults.standard.integer(forKey: "isLogIn")
+        
     }
     
     func loadData() {
+        self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
+       
         HttpRequest.request(Router.getUserOwnInfo()) { value in
             
         }
+        
+        
+        
     }
     
     func initHeaderView() {
