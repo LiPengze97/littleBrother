@@ -47,7 +47,7 @@ enum Router: URLRequestConvertible {
     
     ///注册 参数: 昵称 密码 手机 身份证 名字 性别 学校 邀请码
     case signUp(String, String, String, String, String, String, String, String)
-    ///登录 参数: 昵称 密码
+    ///登录 参数: 手机号 验证码
     case logIn(String, String)
     ///下线
     case logOut
@@ -199,6 +199,7 @@ enum Router: URLRequestConvertible {
             return try URLEncoding.default.encode(urlRequest, with: result.para)
         default:
             urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+           
             return try JSONEncoding.default.encode(urlRequest, with: result.para)
         }
     }

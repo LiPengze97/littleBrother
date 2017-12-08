@@ -48,7 +48,7 @@ class CircleLoopView: UIView,UIScrollViewDelegate {
     func setImgNames(_ imgsNameArray:[String] ){
         imgNames=imgsNameArray
         if(imgNames.count < 3){
-            print("too few images, at least 3")
+           
             return
         }
         //update

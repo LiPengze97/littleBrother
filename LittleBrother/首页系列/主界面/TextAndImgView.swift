@@ -47,6 +47,43 @@ class TextAndImgView: UIView {
     }
     
 }
+class BackView: UIView {
+    
+    
+    var txt: UILabel!
+    var img: UIImageView!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        isUserInteractionEnabled = true
+        txt = UILabel()
+        img = UIImageView()
+        
+        addSubview(img)
+        img.contentMode = .scaleAspectFill
+        img.image = #imageLiteral(resourceName: "leftArr_1")
+        img.snp.makeConstraints { make in
+            make.centerY.left.equalTo(self)
+            make.height.equalTo(44)
+            make.width.equalTo(22)
+        }
+        
+        txt.textColor = UIColor.gray
+        txt.textAlignment = .center
+        txt.font = UIFont.systemFont(ofSize: 18, weight: .medium)
+        txt.text = "返回"
+        addSubview(txt)
+        txt.snp.makeConstraints { make in
+            make.left.equalTo(img.snp.right).offset(-2)
+            make.centerY.height.right.equalTo(self)
+        }
+    }
+    
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}
 
 
 

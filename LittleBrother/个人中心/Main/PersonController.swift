@@ -30,7 +30,7 @@ class PersonViewController: UIViewController {
     func loadData() {
         self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
        
-        HttpRequest.request(Router.getUserOwnInfo) { value in
+        HttpRequest.requestJSON(Router.getUserOwnInfo) { res, code, data in
             
         }
         

@@ -17,7 +17,7 @@ extension SignInViewController {
         let left1: CGFloat = 40
         
         let width1: CGFloat = 70
-        let height1: CGFloat = 18
+        let height1: CGFloat = 21
         let rad: CGFloat = 46
         let lineH: CGFloat = 1
         let font = UIFont.systemFont(ofSize: 21)
@@ -25,6 +25,8 @@ extension SignInViewController {
         //MARK: - setup views of cancel,head
         navigationController?.navigationBar.isHidden = true
         view.backgroundColor = UIColor.white
+//        view.layer.contents = #imageLiteral(resourceName: "launch").cgImage
+        view.layer.contentsGravity = kCAGravityResizeAspect
         
         cancelButton = UIButton()
         cancelButton.setTitleColor(Config.systemBlue, for: .normal)
@@ -113,7 +115,7 @@ extension SignInViewController {
         view.addSubview(newButton)
         newButton.snp.makeConstraints{ make in
             make.left.equalTo(loginButton)
-            make.top.equalTo(loginButton.snp.bottom).offset(6)
+            make.top.equalTo(loginButton.snp.bottom).offset(7)
             make.height.equalTo(height1)
             make.width.equalTo(width1+5)
         }

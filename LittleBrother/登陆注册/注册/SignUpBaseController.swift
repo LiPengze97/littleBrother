@@ -12,7 +12,7 @@ import UIKit
 import SnapKit
 
 
-///Web View Controller
+///暂时用着的 Web View Controller
 class WebViewController: UIViewController {
     
     lazy var webView = { return UIWebView() }()
@@ -44,8 +44,11 @@ class SignUpBaseViewController: UIViewController {
     ///富文本
     var bottomLabel: UILabel?
     ///返回按钮
-    var backButton: UIButton?
-    
+    var backView: BackView?
+    ///取消按钮
+    var cancelButton: UIButton!
+    ///上方背景图
+    var backImage: UIView!
     ///点击下一步是否有响应
     var nxtValid: Bool!{
         didSet{
@@ -70,34 +73,41 @@ class SignUpBaseViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-    //MARK: - 对基本内容简单的初始化
+
         view.backgroundColor = UIColor.white
         navigationController?.navigationBar.isHidden = true
-        view.setBackgroundImage(named: "unknown")
+       
+        //1080*233
+        backImage = UIView(frame: Rect(0, 0, ScreenWidth, 66))
+        backImage.layer.contents = #imageLiteral(resourceName: "signinBack").cgImage
+        backImage.layer.contentsGravity = kCAGravityResizeAspectFill
+        view.addSubview(backImage)
+
         
-        let cancelButton = UIButton()
+        
+        cancelButton = UIButton()
         cancelButton.setTitleColor(Config.systemBlue, for: .normal)
         cancelButton.setTitle("取消", for: .normal)
         cancelButton.titleLabel?.font = UIFont.systemFont(ofSize: 17)
-        view.addSubview(cancelButton)
+        backImage.addSubview(cancelButton)
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         cancelButton.snp.makeConstraints{ make in
             make.right.equalTo(0)
-            make.top.equalTo(25)
+            make.top.equalTo(30)
             make.height.equalTo(30)
             make.width.equalTo(75)
         }
 
-        backButton = UIButton()
-        backButton?.setBackgroundImage(UIImage(named: "back"), for: .normal)
-        backButton?.addTarget(self, action: #selector(back), for: .touchUpInside)
-        view.addSubview(backButton!)
-        backButton?.snp.makeConstraints{ make in
-            make.left.equalTo(10)
-            make.top.equalTo(28)
-            make.width.equalTo(60)
-            make.height.equalTo(30)
+        backView = BackView()
+        backImage.addSubview(backView!)
+        backView?.snp.makeConstraints{ make in
+            make.centerY.equalTo(cancelButton)
+            make.height.equalTo(32)
+            make.left.equalTo(7)
+            make.width.equalTo(65)
         }
+        backView?.addTapGest(target: self, action: #selector(back))
+        
         
         textField1 = UITextField()
         textField1?.clearButtonMode = .whileEditing

@@ -161,7 +161,7 @@ extension UserDefaults {
         
         let encodedObj = NSKeyedArchiver.archivedData(withRootObject: obj)
         set(encodedObj, forKey: key)
-        print("Has saved a key: ",key)
+        print("Has saved a key: ", key)
         synchronize()
         
     }

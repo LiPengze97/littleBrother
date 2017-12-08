@@ -39,6 +39,7 @@ class MainViewController: UIViewController {
             self.navigationItem.titleView?.addSubview(self.naviContentView)
         }
         naviContentView.button.addTarget(self, action: #selector(selectSchool), for: .touchUpInside)
+        hud.setMaximumDismissTimeInterval(0.38)
     }
     
     @objc func selectSchool() {
@@ -46,7 +47,7 @@ class MainViewController: UIViewController {
             //TODO: - 此处应该有代理传值。或者获得self引用，直接设选择的大学
             pushWithoutTabBar(SelectSchoolController())
         } else {
-            let signin = UINavigationController(rootViewController: SignInViewController())
+            let signin = UINavigationController(rootViewController: PhoneNumberController())
             present(signin, animated: true)
             
         }

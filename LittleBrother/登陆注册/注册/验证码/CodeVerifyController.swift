@@ -9,11 +9,10 @@
 import Foundation
 import Alamofire
 
-
 class CodeVerifyController: SignUpBaseViewController {
     
     var phone = ""
-    var timer:Timer!
+    var timer: Timer!
     var time = 60 {
         didSet{
             if time == 0 {
@@ -29,18 +28,8 @@ class CodeVerifyController: SignUpBaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         addMainConstraint(tf: ScreenHeigh/2 - numBoardSmall/2, nxt: 22)
-        
-        labelTitle = UILabel()
-        textField1?.keyboardType = .numberPad
-        textField1?.placeholder = ph2
-        textField1?.addTitleLabel(labelTitle!)
-        addSubtitle()
-        
+        specificView()
         fire()
-        let tap = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        labelSubtitle?.addGestureRecognizer(tap)
-        labelSubtitle?.font = UIFont.systemFont(ofSize: 14.5)
-        
     }
     func fire() {
         timer = Timer.scheduledTimer(timeInterval: 1, target: self, selector: #selector(tick), userInfo: nil, repeats: true)
@@ -58,6 +47,45 @@ class CodeVerifyController: SignUpBaseViewController {
     @objc func tick() {
         time -= 1
     }
+   
+    @objc override func nxt() {
+        guard nxtValid else { return }
+        hud.show()
+        attemptLogIn()
+       
+//        Alamofire.request(Router.verify(1, value: phone)).validate()
+//            .responseJSON{ response in
+//                switch response.result {
+//                case .failure(let error):
+//                    print(dk, error)
+//                    hud.showError(withStatus: "验证码错误")
+//                case .success:
+//                    hud.dismiss()
+//                    let nameController = NameVerifyController()
+//                    nameController.phone = self.phone
+//                    self.navigationController?.pushViewController(nameController, animated: true)
+//                }
+//        }
+   //     pushWithoutTabBar(DetailFillController())
+
+    }
+    
+    func attemptLogIn() {
+        HttpRequest.requestJSON(Router.logIn(phone, textField1!.text!)) {
+            _, code, data in
+            
+            
+        }
+    }
+    
+    
+    
+    @objc override func valueChanged() {
+       
+        let txtLen = textField1!.text!.len()
+        nxtValid = (txtLen >= 4 && txtLen <= 8)
+        labelTitle?.text = txtLen == 0 ? "" : ph2
+    }
     
     override func addSubtitle() {
         
@@ -74,33 +102,6 @@ class CodeVerifyController: SignUpBaseViewController {
             make.width.equalTo(100)
         }
     }
-    
-    @objc override func nxt() {
-        pushWithoutTabBar(EditPersonController())
-        guard nxtValid else { return }
-//        hud.show()
-//        Alamofire.request(Router.verify(1, value: phone)).validate()
-//            .responseJSON{ response in
-//                switch response.result {
-//                case .failure(let error):
-//                    print(dk, error)
-//                    hud.showError(withStatus: "验证码错误")
-//                case .success:
-//                    hud.dismiss()
-//                    let nameController = NameVerifyController()
-//                    nameController.phone = self.phone
-//                    self.navigationController?.pushViewController(nameController, animated: true)
-//                }
-//        }
-    }
-    
-    @objc override func valueChanged() {
-        print("valueChanged func invoked")
-        let txtLen = textField1!.text!.len()
-        nxtValid = (txtLen >= 4 && txtLen <= 8)
-        labelTitle?.text = txtLen == 0 ? "" : ph2
-    }
-    
     
 }
 

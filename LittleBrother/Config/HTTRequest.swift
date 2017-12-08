@@ -10,15 +10,28 @@ import Foundation
 import Alamofire
 class HttpRequest {
     
-    static func request(_ url: URLRequestConvertible, _ successBlock: @escaping (JSON?) -> Void) {
+    ///闭包参数: 原response(一般不用), code, data
+    static func requestJSON(_ url: URLRequestConvertible, _ processBlock: @escaping (_ response: DataResponse<Any>, _ code: Int, _ data: JSON) -> Void) {
     
-        Alamofire.request(url).responseJSON { response in
-            switch response.result {
+        Alamofire.request(url).responseJSON { respon in
+            switch respon.result {
             case .success(let value):
-                successBlock(value as? JSON)
+                let js = JSON(value)
+                let code = Int(js["code"].string ?? "200")
+                processBlock(respon, code!, js["data"])
             case .failure(let error):
+                hud.showError(withStatus: "无网络连接")
                 log("\(error)", LogType.error)
             }
         }
     }
+    
+    static func uploadFile(_ url: URLRequestConvertible) {
+        
+    }
+    
+    
+    
+    
+    
 }

@@ -14,6 +14,11 @@ func log<T>(_ message: T, _ type: LogType = .ln, file: String = #file, method: S
         print("\(type.rawValue) \((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
     #endif
 }
+func debugActions(_ action: () -> Void) {
+    #if DEBUG
+        action()
+    #endif
+}
 
 ///返回不同屏幕大小适配的 CGFloat，比如 let size = v(20, 22, 25)
 /// - Parameters:

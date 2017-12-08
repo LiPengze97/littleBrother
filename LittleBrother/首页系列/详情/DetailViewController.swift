@@ -44,9 +44,7 @@ class DetailViewController: UIViewController {
     }
     
     func loadData() {
-        Alamofire.request(Router.getUserOwnInfo).responseJSON { (re) in
-            print(re.result.value!)
-        }
+       
     }
     
 }
