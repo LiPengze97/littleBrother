@@ -40,8 +40,15 @@ class CodeVerifyController: SignUpBaseViewController {
         guard time == 0 else { return }
         labelSubtitle?.textColor = UIColor.lightGray
         time = 60
-        
         fire()
+        hud.show()
+        HttpRequest.requestJSON(Router.getIdentifyCode(phone)) { _, code, _ in
+            switch code {
+            case 203: hud.showError(withStatus: "手机号错误")
+            case 0: hud.showSuccess(withStatus: "验证码已发送")
+            default: hud.showError(withStatus: "未知错误")
+            }
+        }
     }
     
     @objc func tick() {
@@ -50,34 +57,45 @@ class CodeVerifyController: SignUpBaseViewController {
    
     @objc override func nxt() {
         guard nxtValid else { return }
-        hud.show()
         attemptLogIn()
-       
-//        Alamofire.request(Router.verify(1, value: phone)).validate()
-//            .responseJSON{ response in
-//                switch response.result {
-//                case .failure(let error):
-//                    print(dk, error)
-//                    hud.showError(withStatus: "验证码错误")
-//                case .success:
-//                    hud.dismiss()
-//                    let nameController = NameVerifyController()
-//                    nameController.phone = self.phone
-//                    self.navigationController?.pushViewController(nameController, animated: true)
-//                }
-//        }
-   //     pushWithoutTabBar(DetailFillController())
-
     }
     
     func attemptLogIn() {
-        HttpRequest.requestJSON(Router.logIn(phone, textField1!.text!)) {
+        hud.show()
+        var vericode = textField1?.text
+        debugActions {
+            self.phone = "17864154930"
+            vericode = "123456"
+        }
+        HttpRequest.requestJSON(Router.logIn(phone, vericode!)) {
             _, code, data in
+            switch code {
+            case 100:
+                hud.dismiss()
+                let fillDetail = DetailFillController()
+                fillDetail.phone = self.phone
+                self.pushWithoutTabBar(fillDetail)
+            case 0: hud.showSuccess(withStatus: "登陆成功")
+                let user = Person(data, toSave: true)
+                
+            default: hud.showError(withStatus: "未知错误")
+            }
             
             
+           
         }
     }
     
+    func specificView() {
+        labelTitle = UILabel()
+        textField1?.keyboardType = .numberPad
+        textField1?.placeholder = ph2
+        textField1?.addTitleLabel(labelTitle!)
+        addSubtitle()
+        labelSubtitle?.addTapGest(target: self, action: #selector(didTap))
+        labelSubtitle?.font = UIFont.systemFont(ofSize: 14.5)
+        
+    }
     
     
     @objc override func valueChanged() {

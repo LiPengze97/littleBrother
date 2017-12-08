@@ -45,8 +45,8 @@ enum Router: URLRequestConvertible {
     
     static let baseURLString =  "http://ischool.suqingfa.win:8080"
     
-    ///注册 参数: 昵称 密码 手机 身份证 名字 性别 学校 邀请码
-    case signUp(String, String, String, String, String, String, String, String)
+    ///注册 参数: 昵称 手机 性别 学校 邀请码""
+    case signUp(String, String, String, String, String)
     ///登录 参数: 手机号 验证码
     case logIn(String, String)
     ///下线
@@ -119,9 +119,12 @@ enum Router: URLRequestConvertible {
             case .getIdentifyCode(let phone):
                 params = ["mobile": phone ]
                 return ("/api/common/sendSms", params)
-            case .signUp(let username, let password, let mobile,
-                         let idCard, let name, let sex, let school, let invitationCode):
-                params = ["username": username, "password": password, "mobile": mobile, "idCard": idCard, "name": name, "sex": sex, "school": school, "invitationCode": invitationCode]
+            case .signUp(let username, let mobile, let gender, let school, let invitationCode):
+                params = ["username": username, "mobile": mobile, "sex": gender, "school": school]
+                let p = NSMutableDictionary(dictionary: params)
+                if invitationCode != "" {
+                    p.setValue(invitationCode, forKey: "invitationCode") }
+                params = p as! [String : Any]
                 return ("/api/account/register", params)
             case .logIn(let tel, let password):
                 params = ["username": tel, "password": password]

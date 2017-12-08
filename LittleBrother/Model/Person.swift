@@ -64,7 +64,7 @@ class Person: NSObject, NSCoding {
         aCoder.encode(mobile, forKey: kPhoneKey)
         aCoder.encode(userName, forKey: kNickNameKey)
         aCoder.encode(gender, forKey: kGenderKey)
-        aCoder.encode(authenStatus.rawValue, forKey: kAuthenStatusKey)
+        aCoder.encode(authenStatus, forKey: kAuthenStatusKey)
         aCoder.encode(realID, forKey: kRealIdKey)
         aCoder.encode(realName, forKey: kRealNameKey)
         aCoder.encode(school, forKey: kSchoolKey)

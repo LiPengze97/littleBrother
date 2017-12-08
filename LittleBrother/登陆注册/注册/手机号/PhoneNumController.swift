@@ -10,8 +10,6 @@ import Foundation
 import Alamofire
 import YBAttributeTextTapAction
 
-let SignInNotification = "SomeoneSignIn"
-
 class PhoneNumberController: SignUpBaseViewController {
     
     override func viewDidLoad() {
@@ -42,15 +40,13 @@ class PhoneNumberController: SignUpBaseViewController {
             labelSubtitle?.text = "请输入正确的手机号"; return
         }
         sendCode(of: txt)
-        //pushWithoutTabBar(CodeVerifyController())
     }
     
     func sendCode(of phone: String, to controller: CodeVerifyController = CodeVerifyController()) {
         hud.show()
         HttpRequest.requestJSON(Router.getIdentifyCode(phone)) { _, code, data in
             switch code {
-            case 203:
-                hud.showError(withStatus: "手机号错误")
+            case 203: hud.showError(withStatus: "手机号错误")
             case 0:
                 hud.showSuccess(withStatus: "验证码已发送")
                 controller.phone = phone
@@ -65,10 +61,9 @@ class PhoneNumberController: SignUpBaseViewController {
         }
  
     }
-    
    
     @objc func showTips() {
-        
+
         let alertControl = UIAlertController(title: "提示", message: "该手机号已注册，是否立即登录？", preferredStyle: .alert)
         let phoneLog = UIAlertAction(title: "确定", style: .default, handler: { (alert) in
             self.navigationController?.popViewController(animated: true)
@@ -78,11 +73,5 @@ class PhoneNumberController: SignUpBaseViewController {
         alertControl.addAction(cancel)
         present(alertControl, animated: true, completion: nil)
     }
-  
-    
-    
-    
+
 }
-
-
-

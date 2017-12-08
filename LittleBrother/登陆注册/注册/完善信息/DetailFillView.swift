@@ -1,54 +1,17 @@
 //
-//  NameVerifyController.swift
-//  打折啦
+//  DetailFillView.swift
+//  LittleBrother
 //
-//  Created by Eric on 8/4/17.
-//  Copyright © 2017 INGStudio. All rights reserved.
+//  Created by Eric on 08/12/2017.
+//  Copyright © 2017 INGSwifters. All rights reserved.
 //
 
 import Foundation
-import Alamofire
+import UIKit
+extension DetailFillController {
 
-class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate {
-    
-    var scroll: UIScrollView!
-    
-    var headButton: UIButton!
-    
-    var inviteTxtfld: UITextField!
-    var girlButton: RoundButton!
-    var boyButton: RoundButton!
-    var collegeButton: UIButton!
-    var submit: UIButton!
-    var headmask: UIView!
-    
-    let headSize: CGFloat = v(88, 94, 98)
-    let textfieldHei: CGFloat = v(36, 40, 44)
-    let seperator: CGFloat = v(10, 12, 14)
-    
-    let getButton = { (height: CGFloat) -> UIButton in
-        let b = UIButton()
-        b.layer.cornerRadius = height/2
-        b.clipsToBounds = true
-        b.layer.borderColor = Config.themeColor.cgColor
-        return b
-    }
-    let getLabel = { (str: String) -> UILabel in
-        let l = UILabel()
-        l.textColor = Config.themeColor
-        l.text = str
-        l.font = UIFont.systemFont(ofSize: 17.5, weight: .semibold)
-        return l
-    }
-    
-    @objc func submitInfo() {
-        navigationController?.dismiss(animated: true)
+    func setupView() {
         
-    }
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
         scroll = UIScrollView(frame: Rect(0, 66, ScreenWidth, ScreenHeigh-46))
         scroll.alwaysBounceVertical = true
         scroll.delegate = self
@@ -76,7 +39,7 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate {
         headButton = getButton(headSize)
         headButton.layer.borderWidth = 1
         headButton.imageView?.contentMode = .scaleAspectFill
-      
+        
         headmask = UIView()
         headmask.layer.contents = #imageLiteral(resourceName: "camera").cgImage
         headmask.layer.contentsGravity = kCAGravityResizeAspectFill
@@ -118,7 +81,7 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate {
         //昵称输入
         textField1?.font = UIFont.systemFont(ofSize: 18.5)
         textField1?.textAlignment = .left
-        
+        textField1?.placeholder = "1-12个字符"
         textField1?.snp.makeConstraints{ make in
             make.left.equalTo(left)
             make.top.equalTo(label2.snp.bottom).offset(-2)
@@ -235,42 +198,6 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate {
             make.bottom.equalTo(ScreenHeigh-90)
         }
         
-    }
-    
-    func scrollViewDidScroll(_ scrollView: UIScrollView) {
-        scroll.endEditing(true)
-    }
-    
-//    override func loadView() {
-//        let view1 = UIScrollView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh))
-//        view1.alwaysBounceVertical = true
-//        view1.delegate = self
-//        view1.showsVerticalScrollIndicator = false
-//        view = view1
-//    }
-
-    @objc func valueChanged2() {
- 
-    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
-        NotificationCenter.default.addObserver(self, selector: #selector(valueChanged2), name: .UITextFieldTextDidChange, object: inviteTxtfld)
         
     }
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        textField1?.resignFirstResponder()
-    }
-    
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        NotificationCenter.default.removeObserver(self, name: .UITextFieldTextDidChange, object: inviteTxtfld)
-    }
-    
 }
-
-
-
-

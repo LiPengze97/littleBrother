@@ -17,8 +17,8 @@ class HttpRequest {
             switch respon.result {
             case .success(let value):
                 let js = JSON(value)
-                let code = Int(js["code"].string ?? "200")
-                processBlock(respon, code!, js["data"])
+                let codeRaw = js["code"].int ?? 200 //?0 -> 0, nil -> 200
+                processBlock(respon, codeRaw, js["data"])
             case .failure(let error):
                 hud.showError(withStatus: "无网络连接")
                 log("\(error)", LogType.error)

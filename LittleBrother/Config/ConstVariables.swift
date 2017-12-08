@@ -26,6 +26,7 @@ let kRealIdKey = "realidkEu"
 let kHeadImageKey = "heafasefd"
 let kToSaveKey = "fwsefw"
 
+let nan = "男", nv = "女"
 let userDefault = UserDefaults.standard
 let ScreenWidth = UIScreen.main.bounds.width;
 let ScreenHeigh = UIScreen.main.bounds.height;

@@ -35,9 +35,9 @@ extension PhoneNumberController {
         let attStr = NSMutableAttributedString(string: str1)
         attStr.addAttribute(NSAttributedStringKey.font, value: UIFont.systemFont(ofSize: 12.5), range: myRange(0,str1len))
         attStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray, range: myRange(0,12))
-        attStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.blue, range: myRange(12, 4))
+        attStr.addAttribute(NSAttributedStringKey.foregroundColor, value: Config.systemBlue, range: myRange(12, 4))
         attStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.lightGray, range: myRange(16, 1))
-        attStr.addAttribute(NSAttributedStringKey.foregroundColor, value: UIColor.blue, range: myRange(17, 4))
+        attStr.addAttribute(NSAttributedStringKey.foregroundColor, value: Config.systemBlue, range: myRange(17, 4))
         let style = NSMutableParagraphStyle()
         style.alignment = .center
         attStr.addAttribute(NSAttributedStringKey.paragraphStyle, value: style, range: myRange(0, str1len))

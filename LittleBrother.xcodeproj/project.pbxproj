@@ -27,7 +27,6 @@
 		070CE5231FBD7CF3004DD912 /* AuthenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE50E1FBC7FD8004DD912 /* AuthenController.swift */; };
 		070CE5241FBD7D18004DD912 /* ReflectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE4FA1FBC1EF9004DD912 /* ReflectController.swift */; };
 		070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5251FBD7D72004DD912 /* RightItemCell.swift */; };
-		07629FA41FDA54FA002B391E /* CodeVerifyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07629FA31FDA54FA002B391E /* CodeVerifyView.swift */; };
 		07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CD51FD183A60067DF7E /* DistributeController.swift */; };
 		07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDA1FD184F90067DF7E /* CardView.swift */; };
 		07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDE1FD1930F0067DF7E /* DetailViewController.swift */; };
@@ -45,6 +44,7 @@
 		07CF217A1FD8E93B00EF7411 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21781FD8E93B00EF7411 /* Person.swift */; };
 		07CF217C1FD9053A00EF7411 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF217B1FD9053A00EF7411 /* Enums.swift */; };
 		07CF217E1FD9066800EF7411 /* ConstVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF217D1FD9066800EF7411 /* ConstVariables.swift */; };
+		07E1345F1FDABCD000186CA7 /* DetailFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1345E1FDABCD000186CA7 /* DetailFillView.swift */; };
 		07E928BE1FD958880019D65F /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928BD1FD958880019D65F /* SignInController.swift */; };
 		07E928C01FD958940019D65F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928BF1FD958940019D65F /* SignInView.swift */; };
 		07E928C21FD9589C0019D65F /* ResetPsdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928C11FD9589C0019D65F /* ResetPsdController.swift */; };
@@ -94,7 +94,6 @@
 		070CE5141FBD3FBD004DD912 /* EditPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonController.swift; sourceTree = "<group>"; };
 		070CE5181FBD7A70004DD912 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		070CE5251FBD7D72004DD912 /* RightItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightItemCell.swift; sourceTree = "<group>"; };
-		07629FA31FDA54FA002B391E /* CodeVerifyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeVerifyView.swift; sourceTree = "<group>"; };
 		07831CD51FD183A60067DF7E /* DistributeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributeController.swift; sourceTree = "<group>"; };
 		07831CDA1FD184F90067DF7E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		07831CDE1FD1930F0067DF7E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -112,6 +111,7 @@
 		07CF21781FD8E93B00EF7411 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		07CF217B1FD9053A00EF7411 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		07CF217D1FD9066800EF7411 /* ConstVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstVariables.swift; sourceTree = "<group>"; };
+		07E1345E1FDABCD000186CA7 /* DetailFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFillView.swift; sourceTree = "<group>"; };
 		07E928BD1FD958880019D65F /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		07E928BF1FD958940019D65F /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		07E928C11FD9589C0019D65F /* ResetPsdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPsdController.swift; sourceTree = "<group>"; };
@@ -282,7 +282,6 @@
 			isa = PBXGroup;
 			children = (
 				07E928C41FD958C80019D65F /* CodeVerifyController.swift */,
-				07629FA31FDA54FA002B391E /* CodeVerifyView.swift */,
 			);
 			path = "验证码";
 			sourceTree = "<group>";
@@ -354,23 +353,32 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		07E928CB1FD958DB0019D65F /* 登陆 */ = {
+		07E134601FDABD7200186CA7 /* 完善信息 */ = {
+			isa = PBXGroup;
+			children = (
+				07E928C51FD958C80019D65F /* DetailFillController.swift */,
+				07E1345E1FDABCD000186CA7 /* DetailFillView.swift */,
+			);
+			path = "完善信息";
+			sourceTree = "<group>";
+		};
+		07E928CB1FD958DB0019D65F /* 将来会用的登陆 */ = {
 			isa = PBXGroup;
 			children = (
 				07E928BF1FD958940019D65F /* SignInView.swift */,
 				07E928C11FD9589C0019D65F /* ResetPsdController.swift */,
 				07E928BD1FD958880019D65F /* SignInController.swift */,
 			);
-			path = "登陆";
+			path = "将来会用的登陆";
 			sourceTree = "<group>";
 		};
 		07E928CC1FD958E90019D65F /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
-				07629FA21FDA4D92002B391E /* 验证码 */,
-				07AFFF331FDA364B00F3B2AA /* 手机号 */,
-				07E928C51FD958C80019D65F /* DetailFillController.swift */,
 				07E928C31FD958C80019D65F /* SignUpBaseController.swift */,
+				07AFFF331FDA364B00F3B2AA /* 手机号 */,
+				07629FA21FDA4D92002B391E /* 验证码 */,
+				07E134601FDABD7200186CA7 /* 完善信息 */,
 			);
 			path = "注册";
 			sourceTree = "<group>";
@@ -432,7 +440,7 @@
 			isa = PBXGroup;
 			children = (
 				07E928CC1FD958E90019D65F /* 注册 */,
-				07E928CB1FD958DB0019D65F /* 登陆 */,
+				07E928CB1FD958DB0019D65F /* 将来会用的登陆 */,
 				8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */,
 				8EAA05851FD57558003A3C14 /* PhoneRegisterViewController.xib */,
 				8EAA05931FD58AA1003A3C14 /* completeInfoViewController.swift */,
@@ -625,6 +633,7 @@
 				07047F7E1FBB0D4300A5B266 /* Test2.swift in Sources */,
 				07047F691FBAC7AF00A5B266 /* HeadView.swift in Sources */,
 				07C1AD8D1FD25B4400CA252F /* MainViewController.swift in Sources */,
+				07E1345F1FDABCD000186CA7 /* DetailFillView.swift in Sources */,
 				070CE5221FBD7CE7004DD912 /* EditPersonController.swift in Sources */,
 				07E928C81FD958C80019D65F /* CodeVerifyController.swift in Sources */,
 				070CE5091FBC53D9004DD912 /* MyReleaseController.swift in Sources */,
@@ -639,7 +648,6 @@
 				07831CE11FD19A130067DF7E /* PersonInfoView.swift in Sources */,
 				07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */,
 				07C1AD8B1FD2587900CA252F /* ThreeButtonView.swift in Sources */,
-				07629FA41FDA54FA002B391E /* CodeVerifyView.swift in Sources */,
 				070CE5241FBD7D18004DD912 /* ReflectController.swift in Sources */,
 				07831CE31FD19AEC0067DF7E /* MissionInfoView.swift in Sources */,
 				07C1AD8F1FD25BBA00CA252F /* UniversityView.swift in Sources */,

@@ -14,7 +14,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-     
+    
+        if !userDefault.bool(forKey: kIsFirstOpen) {
+            userDefault.saveBasic(true, key: kIsFirstOpen)
+        }
+        
         return true
     }
 

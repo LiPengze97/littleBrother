@@ -12,6 +12,9 @@ import YUChineseSorting
 import Alamofire
 import SwiftyJSON
 
+protocol SelectSchoolProtocol {
+    func selectSchool(_ school: String)
+}
 
 class SelectSchoolController: UITableViewController {
     
@@ -24,6 +27,7 @@ class SelectSchoolController: UITableViewController {
     
     ///这是初始化本view controller时候要传进来的
     var currentSchool: String!
+    var delegate: SelectSchoolProtocol?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -67,8 +71,13 @@ class SelectSchoolController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.setSelected(false, animated: true)
-        //代理传值，然后pop返回：
-        //delegate.transfer(value)
+        //TODO: - 等确定了大学模式再说。什么玩意啊。。。
+        if indexPath.section == 0 {
+            
+        } else {
+            
+        }
+        delegate?.selectSchool(schools[indexPath.row])
         navigationController?.popViewController(animated: true)
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
