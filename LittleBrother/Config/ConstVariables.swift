@@ -10,9 +10,10 @@ import Foundation
 import UIKit
 import SVProgressHUD
 
+///bool
 let kIsFirstOpen = "kIsFirstopened"
+///存的bool
 let kIsSignedIn = "kIsSignedIn"
-let kCurrentUserKey = "fdasfcewa"
 
 let kIdKey = "idfasfe"
 let kPhoneKey = "phondfasee"
@@ -22,9 +23,11 @@ let kAuthenStatusKey = "typoeleu"
 let kSchoolKey = "fswgfewaf"
 let kRealNameKey = "relanameky"
 let kRealIdKey = "realidkEu"
+let kToSaveKey = "fwsefw"
 
 let kHeadImageKey = "heafasefd"
-let kToSaveKey = "fwsefw"
+let kCurrentUserKey = "fdasfcewa"
+
 
 let nan = "男", nv = "女"
 let userDefault = UserDefaults.standard

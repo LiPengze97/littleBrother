@@ -67,6 +67,8 @@ class CodeVerifyController: SignUpBaseViewController {
             self.phone = "17864154930"
             vericode = "123456"
         }
+    
+        
         HttpRequest.requestJSON(Router.logIn(phone, vericode!)) {
             _, code, data in
             switch code {

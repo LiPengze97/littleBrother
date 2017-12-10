@@ -10,7 +10,7 @@ import Foundation
 
 class Mission {
     
-    var id: Int!
+    var id: String!
     ///发布者
     var master: Person!
     ///接单者
@@ -34,7 +34,7 @@ class Mission {
     ///value是 最小的那个字典，id = ···，······
     func analyse(_ value: JSON) {
         
-        id = value["id"].int ?? 0
+        id = value["id"].string ?? "0"
         master = Person(value["user"])
         
         title = value["title"].string ?? "加载中"

@@ -11,7 +11,7 @@ import UIKit
 import Alamofire
 class PersonViewController: UIViewController {
     
-    var isLogin:Int = 0
+    var isLogin = false
     var tableView: UITableView!
     var headerView: HeadView!
     let dataArr = ["我的钱包", "推荐有奖", "意见反馈", "联系我们", "设置"]
@@ -28,7 +28,7 @@ class PersonViewController: UIViewController {
     }
     
     func loadData() {
-        self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
+        self.isLogin = userDefault.bool(forKey: kIsSignedIn)
        
         HttpRequest.requestJSON(Router.getUserOwnInfo) { res, code, data in
             
@@ -67,14 +67,14 @@ class PersonViewController: UIViewController {
         
     }
     @objc func labelTap() {
-        if isLogin == 0 {
+        if !isLogin  {
             pushWithoutTabBar(PhoneRegisterViewController())
         }
         pushWithoutTabBar(EditPersonController())
     }
     
     @objc func buttonClick(_ sender: UIButton) {
-        if isLogin == 0 {
+        if !isLogin  {
             pushWithoutTabBar(PhoneRegisterViewController())
         }
         switch sender.tag {
@@ -120,8 +120,9 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.isSelected = false
-        if isLogin == 0 {
+        if !isLogin {
             pushWithoutTabBar(PhoneRegisterViewController())
+            return
         }
         if indexPath.section == 1 {
             pushWithoutTabBar(SettingController()); return

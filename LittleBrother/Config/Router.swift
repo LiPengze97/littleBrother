@@ -45,6 +45,7 @@ enum Router: URLRequestConvertible {
     
     static let baseURLString =  "http://ischool.suqingfa.win:8080"
     
+    
     ///注册 参数: 昵称 手机 性别 学校 邀请码""
     case signUp(String, String, String, String, String)
     ///登录 参数: 手机号 验证码
@@ -193,16 +194,14 @@ enum Router: URLRequestConvertible {
         var urlRequest = URLRequest(url: url.appendingPathComponent(result.path))
         urlRequest.httpMethod = method.rawValue
         
-        ///有特殊情况的，在case里写setValue方法，替换为下面俩格式之一：
-        ///application/x-www-form-urlencoded
-        ///application/json
+        //有的是 JSONEncoding 有的是 URLEncoding
         switch self {
-        case .logIn:
+        case .logIn, .nearbyTask:
             urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             return try URLEncoding.default.encode(urlRequest, with: result.para)
         default:
             urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-           
+            
             return try JSONEncoding.default.encode(urlRequest, with: result.para)
         }
     }

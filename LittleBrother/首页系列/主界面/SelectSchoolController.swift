@@ -13,7 +13,7 @@ import Alamofire
 import SwiftyJSON
 
 protocol SelectSchoolProtocol {
-    func selectSchool(_ school: String)
+    func selectSchool(_ id: String, _ name: String)
 }
 
 class SelectSchoolController: UITableViewController {
@@ -25,7 +25,7 @@ class SelectSchoolController: UITableViewController {
     ///二维数组，存的真数据
     var letterResultArr: NSMutableArray!
     
-    ///这是初始化本view controller时候要传进来的
+    ///初始化本view controller时候要传进来的
     var currentSchool: String!
     var delegate: SelectSchoolProtocol?
     
@@ -77,7 +77,7 @@ class SelectSchoolController: UITableViewController {
         } else {
             
         }
-        delegate?.selectSchool(schools[indexPath.row])
+        delegate?.selectSchool(schools[indexPath.row], "")
         navigationController?.popViewController(animated: true)
     }
     override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -113,12 +113,7 @@ class SelectSchoolController: UITableViewController {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Identifier.systemStyleCellId)
         if indexPath.section == 0 {
             cell.accessoryType = .checkmark
-            if currentSchool == nil {
-                print("😭😭😭: 进来时候没赋值当前学校！！！")
-                cell.textLabel?.text = "当前学校: 无"
-            } else {
-                cell.textLabel?.text = "当前学校:  " + currentSchool
-            }
+            cell.textLabel?.text = "当前学校:  " + (currentSchool ?? "未选择")
             cell.textLabel?.font = UIFont.systemFont(ofSize: 17, weight: .medium)
             cell.textLabel?.textColor = UIColor.darkGray
         } else {

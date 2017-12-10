@@ -24,7 +24,7 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
     let textfieldHei: CGFloat = v(36, 40, 44)
     let seperator: CGFloat = v(10, 12, 14)
     
-    var school = ""
+    var school: School!
     /// 在init后就赋值了
     var phone = ""
     var headImage: UIImage?
@@ -44,48 +44,62 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
         l.font = UIFont.systemFont(ofSize: 17.5, weight: .semibold)
         return l
     }
-    func selectSchool(_ school: String) {
-        self.school = school
+    func selectSchool(_ id: String, _ name: String) {
+        school = School(id: id, name: name)
     }
-    
+    ///点提交
     @objc func submitInfo() {
+        hud.show()
         let name = textField1?.text
-        var gender = nan
+        let gender = girlButton.status ? nv : nan
         if name == "" || name!.len() > 12 {
             hud.showError(withStatus: "昵称长度错误"); return
         }
         guard Config.predicate(Regex.name, textField1!.text!) else {
             hud.showError(withStatus: "昵称含有非法字符"); return
         }
-        if school == "" {
+        if school == nil {
             hud.showError(withStatus: "请选择学校"); return
-        }
-        if girlButton.status {
-            gender = nv
         }
         signUp(gender, name: name!)
     }
-    
-    func signUp(_ gender: String, name: String) {
-        HttpRequest.requestJSON(Router.signUp(name, phone, gender, school, inviteTxtfld.text!)) { _, code, data in
+    ///注册行为
+    private func signUp(_ gender: String, name: String) {
+        HttpRequest.requestJSON(Router.signUp(name, phone, gender, school.id, inviteTxtfld.text!)) { _, code, data in
             switch code {
             case 203: hud.showError(withStatus: "邀请码有误")
             case 204: hud.showError(withStatus: "手机号已被注册")
             case 0: self.afterRegister(data: data)
             default: hud.showError(withStatus: "未知错误")
-                
             }
         }
     }
     
-    func afterRegister(data: JSON) {
-        let person = Person(data, toSave: true)
+    ///注册成功后的处理
+    private func afterRegister(data: JSON) {
+        //如果有头像
         if headImage != nil {
-            //上传头像
+            uploadAvatar()
         }
+        let person = Person(data, toSave: true)
+        
         
     }
     
+    ///上传头像
+    private func uploadAvatar() {
+        HttpRequest.uploadFile(Router.setUserAvatar, { multi in
+            let data = UIImagePNGRepresentation(self.headImage!)
+            multi.append(data!, withName: "avatar")
+        }, { progress in
+            hud.showProgress(Float(progress))
+        }) { _, code, _ in
+            guard code == 0 else {
+                hud.showError(withStatus: "上传失败,正在登陆"); return
+            }
+            hud.show(withStatus: "上传完成,正在登陆")
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -97,7 +111,7 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
    
     
     
-    @objc func valueChanged2() {
+    @objc private func valueChanged2() {
         
     }
     

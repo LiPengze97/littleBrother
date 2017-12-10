@@ -27,6 +27,7 @@
 		070CE5231FBD7CF3004DD912 /* AuthenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE50E1FBC7FD8004DD912 /* AuthenController.swift */; };
 		070CE5241FBD7D18004DD912 /* ReflectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE4FA1FBC1EF9004DD912 /* ReflectController.swift */; };
 		070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5251FBD7D72004DD912 /* RightItemCell.swift */; };
+		076F88091FDD7B6100CDA6E5 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F88081FDD7B6100CDA6E5 /* School.swift */; };
 		07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CD51FD183A60067DF7E /* DistributeController.swift */; };
 		07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDA1FD184F90067DF7E /* CardView.swift */; };
 		07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDE1FD1930F0067DF7E /* DetailViewController.swift */; };
@@ -94,6 +95,7 @@
 		070CE5141FBD3FBD004DD912 /* EditPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonController.swift; sourceTree = "<group>"; };
 		070CE5181FBD7A70004DD912 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		070CE5251FBD7D72004DD912 /* RightItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightItemCell.swift; sourceTree = "<group>"; };
+		076F88081FDD7B6100CDA6E5 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		07831CD51FD183A60067DF7E /* DistributeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributeController.swift; sourceTree = "<group>"; };
 		07831CDA1FD184F90067DF7E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		07831CDE1FD1930F0067DF7E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
@@ -349,6 +351,7 @@
 			children = (
 				07CF21771FD8E93B00EF7411 /* Misson.swift */,
 				07CF21781FD8E93B00EF7411 /* Person.swift */,
+				076F88081FDD7B6100CDA6E5 /* School.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -617,6 +620,7 @@
 				07CF21791FD8E93B00EF7411 /* Misson.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
+				076F88091FDD7B6100CDA6E5 /* School.swift in Sources */,
 				07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */,
 				8E58BA131FD694F6008F04C6 /* identifyCodeViewController.swift in Sources */,
 				070CE4F41FBC1C2C004DD912 /* ContactUsController.swift in Sources */,

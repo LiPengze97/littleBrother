@@ -17,7 +17,7 @@ import Alamofire
 class Person: NSObject, NSCoding {
    
     //属性值--------
-    var id: Int!
+    var id: String!
     var mobile: String!
     var userName: String!
     
@@ -40,14 +40,15 @@ class Person: NSObject, NSCoding {
         self.toSave = toSave
         analyse(dict)
         if toSave {
+            userDefault.saveBasic(true, key: kIsSignedIn)
             userDefault.saveCustomObj(self, key: kCurrentUserKey)
         }
     }
     
     ///构造和分析总是同时调用的
     func analyse(_ data: JSON) {
-        id = data["id"].int ?? 0
-        mobile = data["mobile"].string ?? "0"
+        id = data["id"].string ?? "0"
+        mobile = data["mobile"].string ?? "00000"
         gender = data["sex"].string ?? "男"
         userName = data["username"].string ?? "未知"
         realName = data["name"].string ?? "未认证"
@@ -76,7 +77,7 @@ class Person: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         toSave = aDecoder.decodeObject(forKey: kToSaveKey) as? Bool
         
-        id = aDecoder.decodeObject(forKey: kIdKey) as? Int
+        id = aDecoder.decodeObject(forKey: kIdKey) as? String
         mobile = aDecoder.decodeObject(forKey: kPhoneKey) as? String
         userName = aDecoder.decodeObject(forKey: kNickNameKey) as? String
         gender = aDecoder.decodeObject(forKey: kGenderKey) as? String

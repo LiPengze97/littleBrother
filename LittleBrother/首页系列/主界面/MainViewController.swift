@@ -9,13 +9,17 @@
 import Foundation
 import UIKit
 let threeButtonHeight: CGFloat = 50
-class MainViewController: UIViewController {
-    var isLogin = 0
+///初始化时赋值school 默认=？
+class MainViewController: UIViewController, SelectSchoolProtocol {
+
     var tableView: UITableView!
     var naviContentView: UniversityView!
     var loopView: CircleLoopView!
     var threeButton: ThreeButtonView!
-    
+  
+    var isLogin: Bool = false
+     
+    var school: School!
     var dataArr = NSMutableArray()
     
     override func viewDidLoad() {
@@ -27,7 +31,6 @@ class MainViewController: UIViewController {
         
     }
     
-    
     func initNaviBar() {
         view.backgroundColor = UIColor.white
         navigationItem.titleView = UIView(frame: Rect(0, 0, ScreenWidth, 44))
@@ -38,24 +41,28 @@ class MainViewController: UIViewController {
             self.naviContentView.frame = (self.view.window?.convert(self.naviContentView.frame, to: self.navigationItem.titleView))!
             self.navigationItem.titleView?.addSubview(self.naviContentView)
         }
-        naviContentView.button.addTarget(self, action: #selector(selectSchool), for: .touchUpInside)
+        naviContentView.button.addTarget(self, action: #selector(selectClick), for: .touchUpInside)
         hud.setMaximumDismissTimeInterval(0.38)
     }
     
-    @objc func selectSchool() {
+    func selectSchool(_ id: String, _ name: String) {
+        self.school = School(id: id, name: name)
+        naviContentView.fillContents(school)
+    }
+    
+    @objc func selectClick() {
         if userDefault.bool(forKey: kIsSignedIn) {
-            //TODO: - 此处应该有代理传值。或者获得self引用，直接设选择的大学
-            pushWithoutTabBar(SelectSchoolController())
+            let selectVC = SelectSchoolController()
+            selectVC.currentSchool = school.name
+            selectVC.delegate = self
+            pushWithoutTabBar(selectVC)
         } else {
             let signin = UINavigationController(rootViewController: PhoneNumberController())
             present(signin, animated: true)
-            
         }
         
     }
  
-    
-    
     func initTable() {
         tableView = UITableView(frame: view.bounds)
         tableView.delegate = self
@@ -72,13 +79,11 @@ class MainViewController: UIViewController {
         } else {
             pushWithoutTabBar(MyOrdersController())
         }
-        
     }
     
     func initHeader() {
         
-        //126*51
-        let loopH = ScreenWidth*51/126
+        let loopH = ScreenWidth*51/126 //126*51
         loopView = CircleLoopView(frame: Rect(0, 0, ScreenWidth, loopH))
         threeButton = ThreeButtonView(frame: Rect(0, loopH, ScreenWidth, threeButtonHeight))
         loopView.setImgNames(["nanmonvlei", "waimai", "wajueji"])
@@ -92,10 +97,10 @@ class MainViewController: UIViewController {
         threeButton.post.tag = 100
         let tap2 = UITapGestureRecognizer(target: self, action: #selector(didTap))
         threeButton.my.addGestureRecognizer(tap2)
-        
     }
     
 }
+
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -118,18 +123,11 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
+        self.isLogin = userDefault.bool(forKey: kIsSignedIn)
         navigationController?.navigationBar.isHidden = false
     }
     
 }
-
-
-
-
-
-
-
 
 
 
