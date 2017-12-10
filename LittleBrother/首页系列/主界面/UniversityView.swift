@@ -17,7 +17,7 @@ class UniversityView: UIView {
     
     ///参数: 学校名字 String
     func fillContents(_ contents: Any?) {
-        university = contents as? School ?? "未选择"
+        university = (contents as? School ?? School(id: "", name: "未选择")).name
         let w = autoSize(university, size: 13).width
         button.snp.updateConstraints{ make in
             make.width.equalTo(w)
