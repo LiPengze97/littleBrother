@@ -10,7 +10,8 @@ import Foundation
 import UIKit
 import Alamofire
 class DetailViewController: UIViewController {
-    var isLogin = 0
+   
+    var isLogin = false
     var personInfoView: PersonInfoView!
     var missionInfoView: MissionInfoView!
     var getButton: UIButton!
@@ -40,13 +41,11 @@ class DetailViewController: UIViewController {
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        self.isLogin = UserDefaults.standard.integer(forKey: kIsSignedIn)
+        self.isLogin = userDefault.bool(forKey: kIsSignedIn)
     }
     
     func loadData() {
-        Alamofire.request(Router.getUserOwnInfo).responseJSON { (re) in
-            print(re.result.value!)
-        }
+       
     }
     
 }
@@ -110,7 +109,7 @@ extension DetailViewController {
     }
     
     @objc func getJob(){
-        if isLogin == 0 {
+        if !isLogin {
             self.present(PhoneRegisterViewController(), animated: true, completion: {
                 
             })
@@ -118,7 +117,7 @@ extension DetailViewController {
     }
     
     @objc func sendMsg(){
-        if isLogin == 0 {
+        if !isLogin {
             pushWithoutTabBar(PhoneRegisterViewController())
         }
     }

@@ -27,11 +27,14 @@
 		070CE5231FBD7CF3004DD912 /* AuthenController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE50E1FBC7FD8004DD912 /* AuthenController.swift */; };
 		070CE5241FBD7D18004DD912 /* ReflectController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE4FA1FBC1EF9004DD912 /* ReflectController.swift */; };
 		070CE5261FBD7D72004DD912 /* RightItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 070CE5251FBD7D72004DD912 /* RightItemCell.swift */; };
+		072D81EE1FDE35DF00AA8769 /* MainView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 072D81ED1FDE35DF00AA8769 /* MainView.swift */; };
+		076F88091FDD7B6100CDA6E5 /* School.swift in Sources */ = {isa = PBXBuildFile; fileRef = 076F88081FDD7B6100CDA6E5 /* School.swift */; };
 		07831CD61FD183A60067DF7E /* DistributeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CD51FD183A60067DF7E /* DistributeController.swift */; };
 		07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDA1FD184F90067DF7E /* CardView.swift */; };
 		07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CDE1FD1930F0067DF7E /* DetailViewController.swift */; };
 		07831CE11FD19A130067DF7E /* PersonInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CE01FD19A130067DF7E /* PersonInfoView.swift */; };
 		07831CE31FD19AEC0067DF7E /* MissionInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07831CE21FD19AEC0067DF7E /* MissionInfoView.swift */; };
+		07AFFF351FDA366100F3B2AA /* PhoneNumberView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07AFFF341FDA366100F3B2AA /* PhoneNumberView.swift */; };
 		07C1AD891FD256F600CA252F /* TextAndImgView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1AD881FD256F600CA252F /* TextAndImgView.swift */; };
 		07C1AD8B1FD2587900CA252F /* ThreeButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1AD8A1FD2587900CA252F /* ThreeButtonView.swift */; };
 		07C1AD8D1FD25B4400CA252F /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07C1AD8C1FD25B4400CA252F /* MainViewController.swift */; };
@@ -43,12 +46,13 @@
 		07CF217A1FD8E93B00EF7411 /* Person.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF21781FD8E93B00EF7411 /* Person.swift */; };
 		07CF217C1FD9053A00EF7411 /* Enums.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF217B1FD9053A00EF7411 /* Enums.swift */; };
 		07CF217E1FD9066800EF7411 /* ConstVariables.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07CF217D1FD9066800EF7411 /* ConstVariables.swift */; };
+		07E1345F1FDABCD000186CA7 /* DetailFillView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E1345E1FDABCD000186CA7 /* DetailFillView.swift */; };
 		07E928BE1FD958880019D65F /* SignInController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928BD1FD958880019D65F /* SignInController.swift */; };
 		07E928C01FD958940019D65F /* SignInView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928BF1FD958940019D65F /* SignInView.swift */; };
 		07E928C21FD9589C0019D65F /* ResetPsdController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928C11FD9589C0019D65F /* ResetPsdController.swift */; };
 		07E928C71FD958C80019D65F /* SignUpBaseController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928C31FD958C80019D65F /* SignUpBaseController.swift */; };
 		07E928C81FD958C80019D65F /* CodeVerifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928C41FD958C80019D65F /* CodeVerifyController.swift */; };
-		07E928C91FD958C80019D65F /* NameVerifyController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928C51FD958C80019D65F /* NameVerifyController.swift */; };
+		07E928C91FD958C80019D65F /* DetailFillController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928C51FD958C80019D65F /* DetailFillController.swift */; };
 		07E928CA1FD958C80019D65F /* PhoneNumController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 07E928C61FD958C80019D65F /* PhoneNumController.swift */; };
 		87A18B6F774E4DF6286AB1A2 /* Pods_LittleBrother.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */; };
 		8E1EF0DD1FBA80C1004C8023 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */; };
@@ -92,11 +96,14 @@
 		070CE5141FBD3FBD004DD912 /* EditPersonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditPersonController.swift; sourceTree = "<group>"; };
 		070CE5181FBD7A70004DD912 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		070CE5251FBD7D72004DD912 /* RightItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RightItemCell.swift; sourceTree = "<group>"; };
+		072D81ED1FDE35DF00AA8769 /* MainView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainView.swift; sourceTree = "<group>"; };
+		076F88081FDD7B6100CDA6E5 /* School.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = School.swift; sourceTree = "<group>"; };
 		07831CD51FD183A60067DF7E /* DistributeController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DistributeController.swift; sourceTree = "<group>"; };
 		07831CDA1FD184F90067DF7E /* CardView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		07831CDE1FD1930F0067DF7E /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		07831CE01FD19A130067DF7E /* PersonInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersonInfoView.swift; sourceTree = "<group>"; };
 		07831CE21FD19AEC0067DF7E /* MissionInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MissionInfoView.swift; sourceTree = "<group>"; };
+		07AFFF341FDA366100F3B2AA /* PhoneNumberView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberView.swift; sourceTree = "<group>"; };
 		07C1AD881FD256F600CA252F /* TextAndImgView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextAndImgView.swift; sourceTree = "<group>"; };
 		07C1AD8A1FD2587900CA252F /* ThreeButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeButtonView.swift; sourceTree = "<group>"; };
 		07C1AD8C1FD25B4400CA252F /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
@@ -108,12 +115,13 @@
 		07CF21781FD8E93B00EF7411 /* Person.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Person.swift; sourceTree = "<group>"; };
 		07CF217B1FD9053A00EF7411 /* Enums.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enums.swift; sourceTree = "<group>"; };
 		07CF217D1FD9066800EF7411 /* ConstVariables.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConstVariables.swift; sourceTree = "<group>"; };
+		07E1345E1FDABCD000186CA7 /* DetailFillView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailFillView.swift; sourceTree = "<group>"; };
 		07E928BD1FD958880019D65F /* SignInController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInController.swift; sourceTree = "<group>"; };
 		07E928BF1FD958940019D65F /* SignInView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignInView.swift; sourceTree = "<group>"; };
 		07E928C11FD9589C0019D65F /* ResetPsdController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPsdController.swift; sourceTree = "<group>"; };
 		07E928C31FD958C80019D65F /* SignUpBaseController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SignUpBaseController.swift; sourceTree = "<group>"; };
 		07E928C41FD958C80019D65F /* CodeVerifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CodeVerifyController.swift; sourceTree = "<group>"; };
-		07E928C51FD958C80019D65F /* NameVerifyController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NameVerifyController.swift; sourceTree = "<group>"; };
+		07E928C51FD958C80019D65F /* DetailFillController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFillController.swift; sourceTree = "<group>"; };
 		07E928C61FD958C80019D65F /* PhoneNumController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PhoneNumController.swift; sourceTree = "<group>"; };
 		8D5BC0D104F25B66905FFE09 /* Pods-LittleBrother.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.debug.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.debug.xcconfig"; sourceTree = "<group>"; };
 		8E1EF0D91FBA80C1004C8023 /* LittleBrother.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = LittleBrother.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -274,6 +282,23 @@
 			path = "实名认证";
 			sourceTree = "<group>";
 		};
+		072D81EC1FDE359A00AA8769 /* General */ = {
+			isa = PBXGroup;
+			children = (
+				07C1AD881FD256F600CA252F /* TextAndImgView.swift */,
+				0708259B1FD2D09500775C1F /* SelectSchoolController.swift */,
+			);
+			path = General;
+			sourceTree = "<group>";
+		};
+		07629FA21FDA4D92002B391E /* 验证码 */ = {
+			isa = PBXGroup;
+			children = (
+				07E928C41FD958C80019D65F /* CodeVerifyController.swift */,
+			);
+			path = "验证码";
+			sourceTree = "<group>";
+		};
 		07831CDC1FD192D90067DF7E /* 发布 */ = {
 			isa = PBXGroup;
 			children = (
@@ -292,11 +317,19 @@
 			path = "详情";
 			sourceTree = "<group>";
 		};
+		07AFFF331FDA364B00F3B2AA /* 手机号 */ = {
+			isa = PBXGroup;
+			children = (
+				07E928C61FD958C80019D65F /* PhoneNumController.swift */,
+				07AFFF341FDA366100F3B2AA /* PhoneNumberView.swift */,
+			);
+			path = "手机号";
+			sourceTree = "<group>";
+		};
 		07C1AD871FD2563F00CA252F /* 主界面 */ = {
 			isa = PBXGroup;
 			children = (
 				07C1AD8C1FD25B4400CA252F /* MainViewController.swift */,
-				0708259B1FD2D09500775C1F /* SelectSchoolController.swift */,
 				07C1AD921FD286FA00CA252F /* View */,
 			);
 			path = "主界面";
@@ -305,9 +338,9 @@
 		07C1AD921FD286FA00CA252F /* View */ = {
 			isa = PBXGroup;
 			children = (
+				072D81ED1FDE35DF00AA8769 /* MainView.swift */,
 				07C1AD901FD2641B00CA252F /* MainViewCell.swift */,
 				07C1AD8E1FD25BBA00CA252F /* UniversityView.swift */,
-				07C1AD881FD256F600CA252F /* TextAndImgView.swift */,
 				07C1AD8A1FD2587900CA252F /* ThreeButtonView.swift */,
 			);
 			name = View;
@@ -328,27 +361,37 @@
 			children = (
 				07CF21771FD8E93B00EF7411 /* Misson.swift */,
 				07CF21781FD8E93B00EF7411 /* Person.swift */,
+				076F88081FDD7B6100CDA6E5 /* School.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
 		};
-		07E928CB1FD958DB0019D65F /* 登陆 */ = {
+		07E134601FDABD7200186CA7 /* 完善信息 */ = {
+			isa = PBXGroup;
+			children = (
+				07E1345E1FDABCD000186CA7 /* DetailFillView.swift */,
+				07E928C51FD958C80019D65F /* DetailFillController.swift */,
+			);
+			path = "完善信息";
+			sourceTree = "<group>";
+		};
+		07E928CB1FD958DB0019D65F /* 将来会用的登陆 */ = {
 			isa = PBXGroup;
 			children = (
 				07E928BF1FD958940019D65F /* SignInView.swift */,
 				07E928C11FD9589C0019D65F /* ResetPsdController.swift */,
 				07E928BD1FD958880019D65F /* SignInController.swift */,
 			);
-			path = "登陆";
+			path = "将来会用的登陆";
 			sourceTree = "<group>";
 		};
 		07E928CC1FD958E90019D65F /* 注册 */ = {
 			isa = PBXGroup;
 			children = (
-				07E928C41FD958C80019D65F /* CodeVerifyController.swift */,
-				07E928C51FD958C80019D65F /* NameVerifyController.swift */,
-				07E928C61FD958C80019D65F /* PhoneNumController.swift */,
 				07E928C31FD958C80019D65F /* SignUpBaseController.swift */,
+				07AFFF331FDA364B00F3B2AA /* 手机号 */,
+				07629FA21FDA4D92002B391E /* 验证码 */,
+				07E134601FDABD7200186CA7 /* 完善信息 */,
 			);
 			path = "注册";
 			sourceTree = "<group>";
@@ -397,6 +440,7 @@
 				8E1EF0DC1FBA80C1004C8023 /* AppDelegate.swift */,
 				8E1EF0DE1FBA80C1004C8023 /* ViewController.swift */,
 				07CF21761FD8E8AC00EF7411 /* Model */,
+				072D81EC1FDE359A00AA8769 /* General */,
 				8EAA05831FD57504003A3C14 /* 登陆注册 */,
 				07047F791FBB0CEA00A5B266 /* 首页系列 */,
 				07047F7A1FBB0CF600A5B266 /* 消息系列 */,
@@ -418,7 +462,7 @@
 			isa = PBXGroup;
 			children = (
 				07E928CC1FD958E90019D65F /* 注册 */,
-				07E928CB1FD958DB0019D65F /* 登陆 */,
+				07E928CB1FD958DB0019D65F /* 将来会用的登陆 */,
 				8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */,
 				8EAA05851FD57558003A3C14 /* PhoneRegisterViewController.xib */,
 				8EAA05931FD58AA1003A3C14 /* completeInfoViewController.swift */,
@@ -543,6 +587,7 @@
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
+				"${BUILT_PRODUCTS_DIR}/YBAttributeTextTapAction/YBAttributeTextTapAction.framework",
 				"${BUILT_PRODUCTS_DIR}/YUChineseSorting/YUChineseSorting.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
@@ -553,6 +598,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YBAttributeTextTapAction.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YUChineseSorting.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -586,6 +632,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				07047F811FBB15B100A5B266 /* SettingController.swift in Sources */,
+				072D81EE1FDE35DF00AA8769 /* MainView.swift in Sources */,
 				07E928C01FD958940019D65F /* SignInView.swift in Sources */,
 				07047F6C1FBAC84400A5B266 /* Router.swift in Sources */,
 				070CE5021FBC44FF004DD912 /* MyOrdersController.swift in Sources */,
@@ -593,6 +640,7 @@
 				07CF21791FD8E93B00EF7411 /* Misson.swift in Sources */,
 				07047F721FBAD24F00A5B266 /* PersonController.swift in Sources */,
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
+				076F88091FDD7B6100CDA6E5 /* School.swift in Sources */,
 				07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */,
 				8E58BA131FD694F6008F04C6 /* identifyCodeViewController.swift in Sources */,
 				070CE4F41FBC1C2C004DD912 /* ContactUsController.swift in Sources */,
@@ -609,6 +657,7 @@
 				07047F7E1FBB0D4300A5B266 /* Test2.swift in Sources */,
 				07047F691FBAC7AF00A5B266 /* HeadView.swift in Sources */,
 				07C1AD8D1FD25B4400CA252F /* MainViewController.swift in Sources */,
+				07E1345F1FDABCD000186CA7 /* DetailFillView.swift in Sources */,
 				070CE5221FBD7CE7004DD912 /* EditPersonController.swift in Sources */,
 				07E928C81FD958C80019D65F /* CodeVerifyController.swift in Sources */,
 				070CE5091FBC53D9004DD912 /* MyReleaseController.swift in Sources */,
@@ -635,8 +684,9 @@
 				8EAA05861FD57558003A3C14 /* PhoneRegisterViewController.swift in Sources */,
 				07047F861FBB173900A5B266 /* WalletView.swift in Sources */,
 				07CF21751FD8E64F00EF7411 /* SwiftyJSON.swift in Sources */,
+				07AFFF351FDA366100F3B2AA /* PhoneNumberView.swift in Sources */,
 				07E928BE1FD958880019D65F /* SignInController.swift in Sources */,
-				07E928C91FD958C80019D65F /* NameVerifyController.swift in Sources */,
+				07E928C91FD958C80019D65F /* DetailFillController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

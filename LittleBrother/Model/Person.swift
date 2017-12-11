@@ -10,20 +10,18 @@ import Foundation
 import UIKit
 import Alamofire
 
-
-
 //实现NSObject和NSCoding NSObject可以不加，用@objc修饰某些方法也可以。
 //NSCoding接口提供了序列化和反序列化对象的时候的编解码方法。
 class Person: NSObject, NSCoding {
    
     //属性值--------
-    var id: Int!
+    var id: String!
     var mobile: String!
     var userName: String!
     
     var gender: String!
-    var authenStatus: Authen!
-    var school: String!
+    var authenStatus: String!
+    var school: School!
     
     var realName: String?
     var realID: String?
@@ -40,20 +38,21 @@ class Person: NSObject, NSCoding {
         self.toSave = toSave
         analyse(dict)
         if toSave {
+            userDefault.saveBasic(true, key: kIsSignedIn)
             userDefault.saveCustomObj(self, key: kCurrentUserKey)
         }
     }
     
     ///构造和分析总是同时调用的
     func analyse(_ data: JSON) {
-        id = data["id"].int ?? 0
-        mobile = data["mobile"].string ?? "0"
+        id = data["id"].string ?? "0"
+        mobile = data["mobile"].string ?? "00000"
         gender = data["sex"].string ?? "男"
         userName = data["username"].string ?? "未知"
         realName = data["name"].string ?? "未认证"
         realID = data["idCard"].string ?? "未认证"
-        authenStatus = Authen(rawValue: (data["authStatus"].string ?? "NO"))
-        school = data["school"].string ?? "未知"
+        authenStatus = data["authStatus"].string ?? "NO"
+        school = School("0", data["school"].string ?? "未知")
     }
     
  
@@ -64,7 +63,7 @@ class Person: NSObject, NSCoding {
         aCoder.encode(mobile, forKey: kPhoneKey)
         aCoder.encode(userName, forKey: kNickNameKey)
         aCoder.encode(gender, forKey: kGenderKey)
-        aCoder.encode(authenStatus.rawValue, forKey: kAuthenStatusKey)
+        aCoder.encode(authenStatus, forKey: kAuthenStatusKey)
         aCoder.encode(realID, forKey: kRealIdKey)
         aCoder.encode(realName, forKey: kRealNameKey)
         aCoder.encode(school, forKey: kSchoolKey)
@@ -76,27 +75,16 @@ class Person: NSObject, NSCoding {
     required init?(coder aDecoder: NSCoder) {
         toSave = aDecoder.decodeObject(forKey: kToSaveKey) as? Bool
         
-        id = aDecoder.decodeObject(forKey: kIdKey) as? Int
+        id = aDecoder.decodeObject(forKey: kIdKey) as? String
         mobile = aDecoder.decodeObject(forKey: kPhoneKey) as? String
         userName = aDecoder.decodeObject(forKey: kNickNameKey) as? String
         gender = aDecoder.decodeObject(forKey: kGenderKey) as? String
         realID = aDecoder.decodeObject(forKey: kRealIdKey) as? String
         realName = aDecoder.decodeObject(forKey: kRealNameKey) as? String
-        school = aDecoder.decodeObject(forKey: kSchoolKey) as? String
-        authenStatus = Authen(rawValue: aDecoder.decodeObject(forKey: kAuthenStatusKey) as! String)
+        school = aDecoder.decodeObject(forKey: kSchoolKey) as? School
+        authenStatus = aDecoder.decodeObject(forKey: kAuthenStatusKey) as? String
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
 
 

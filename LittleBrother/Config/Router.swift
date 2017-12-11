@@ -84,7 +84,7 @@ enum Router: URLRequestConvertible {
     ///我接受的任务 参数: Status, Page
     case myAcceptTasks(String, String)
     ///附近的任务 参数: 学校ID, Page
-    case nearbyTask(String, String)
+    case nearbyTask(String, Int)
     ///意见反馈 参数: 字符串内容
     case addFeedback(String)
     ///获取邀请码
@@ -95,17 +95,7 @@ enum Router: URLRequestConvertible {
     case getSchools
     ///实名认证
     case authentic
-    
-    var method: HTTPMethod {
-        switch self {
-        case .getSchools,         .getUserOwnInfo,
-             .getOtherUserInfo,   .getUserAvatar,
-             .getInvitationCode,  .getAddrList,
-             .myAcceptTasks,      .myPostTasks,
-             .nearbyTask:         return .get
-        default: return .post
-        }
-    }
+ 
  
     func asURLRequest() throws -> URLRequest {
         
@@ -119,9 +109,12 @@ enum Router: URLRequestConvertible {
             case .getIdentifyCode(let phone):
                 params = ["mobile": phone ]
                 return ("/api/common/sendSms", params)
-            case .signUp(let username, let password, let mobile,
-                         let idCard, let name, let sex, let school, let invitationCode):
-                params = ["username": username, "password": password, "mobile": mobile, "idCard": idCard, "name": name, "sex": sex, "school": school, "invitationCode": invitationCode]
+            case .signUp(let username, let mobile, let gender, let school, let invitationCode):
+                params = ["username": username, "mobile": mobile, "sex": gender, "school": school]
+                let p = NSMutableDictionary(dictionary: params)
+                if invitationCode != "" {
+                    p.setValue(invitationCode, forKey: "invitationCode") }
+                params = p as! [String : Any]
                 return ("/api/account/register", params)
             case .logIn(let tel, let password):
                 params = ["username": tel, "password": password]
@@ -186,24 +179,32 @@ enum Router: URLRequestConvertible {
                 return ("/api/account/getUserAvatar", params)
             }
         }()
-        
-        let url = URL(string: Router.baseURLString)!
-        var urlRequest = URLRequest(url: url.appendingPathComponent(result.path))
-        urlRequest.httpMethod = method.rawValue
-        
-        ///有特殊情况的，在case里写setValue方法，替换为下面俩格式之一：
-        ///application/x-www-form-urlencoded
-        ///application/json
-        switch self {
-        case .logIn:
-            urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            return try URLEncoding.default.encode(urlRequest, with: result.para)
-        default:
-            urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
-            return try JSONEncoding.default.encode(urlRequest, with: result.para)
-        }
+    
+        return try getMethodAndEncoding(result.path, result.para)
     }
     
+    private func getMethodAndEncoding(_ path: String, _ parameter: Parameters) throws -> URLRequest {
+        let url = URL(string: Router.baseURLString)!
+        var urlRequest = URLRequest(url: url.appendingPathComponent(path))
+        
+        switch self {
+        case .getSchools,         .getUserOwnInfo,
+             .getOtherUserInfo,   .getUserAvatar,
+             .getInvitationCode,  .getAddrList,
+             .myAcceptTasks,      .myPostTasks,
+             .nearbyTask, .logIn: // 待定。看怎么返回
+            
+            urlRequest.httpMethod = HTTPMethod.get.rawValue
+            urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            return try URLEncoding.default.encode(urlRequest, with: parameter)
+            
+        default:
+            urlRequest.httpMethod = HTTPMethod.post.rawValue
+            urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
+            return try JSONEncoding.default.encode(urlRequest, with: parameter)
+        }
+        
+    }
     
     
     

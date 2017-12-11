@@ -11,7 +11,7 @@ import UIKit
 import SnapKit
 import Alamofire
 
-class SignInViewController: UIViewController {
+class SignInViewController: UIViewController, UITextFieldDelegate {
     
     var headImgView: UIImageView!
     var accountField: UITextField!
@@ -30,7 +30,7 @@ class SignInViewController: UIViewController {
     ///登陆按钮上方
     var signConstr:Constraint?
     
-    let standard: CGFloat = 0.35
+    let standard: CGFloat = v(0.4, 0.35, 0.35)
     let distance: CGFloat = 50
     let height2: CGFloat = 39
     let top: CGFloat = 100
@@ -38,21 +38,16 @@ class SignInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-     
     }
-   
-    
-    
+
     @objc func cancel() {
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-
         endEditing()
     }
 
-    
     func myDismiss() {
         let abc = navigationController?.presentingViewController as? ViewController
         navigationController?.dismiss(animated: true) {
@@ -65,9 +60,8 @@ class SignInViewController: UIViewController {
         }
     }
     
-    
     @objc func login(_ button: UIButton) {
-        return
+        
         //pushWithoutTabBar(CodeVerifyController())
         #if DEBUG
 //            let me = Person()
@@ -75,20 +69,11 @@ class SignInViewController: UIViewController {
 //            me.id = 10
 //            me.phone = "13176370907"
 //            me.userName = "Catherine1323224"
-//
 //            me.gender = "男"
-//            me.mark = 100
-//            me.type = 1
-//            me.signature = "wocao???"
 //            me.realName = ""
 //            me.realID = ""
-//            me.email = ""
-//            me.birthday = "1901-01-01"
-//            me.fans = 0
 //            userDefau.saveBasic(true, key: isSignedKey)
 //            me.analyse([:])
-            myDismiss()
-            return
         #endif
         
         endEditing()
@@ -108,55 +93,47 @@ class SignInViewController: UIViewController {
         if passd!.contains(" ") || psdLen < 8 || psdLen > 16 {
             hud.showError(withStatus: "密码错误"); return
         }
-        hud.showError(withStatus: "正在登录")
+        hud.show(withStatus: "正在登录")
+        start(account!, passd!)
         
-        //valiPhone(account!, passd!)
-
     }
-    
+    func start(_ account: String, _ pswd: String) {
+//        HttpRequest.request(Router.logIn(account, pswd)) { value in
+//            switch value?["code"].int {
+//            case 0:
+//                case
+//            }
+//        }
+    }
    
     func success(_ value: Any) {
-        let info = JSON(value)
-        let person = Person(info, toSave: true)
-         
-        userDefault.saveBasic(true, key: kIsSignedIn)
-        hud.showSuccess(withStatus: "登陆成功")
-        
+//        let info = JSON(value)
+//        let person = Person(info, toSave: true)
+//
+//        userDefault.saveBasic(true, key: kIsSignedIn)
+//        hud.showSuccess(withStatus: "登陆成功")
+//
         //myDismiss()
     }
     
     @objc func phoneSign() {
         navigationController?.pushViewController(PhoneSignInController(), animated: true)
     }
-    
     @objc func find() {
         navigationController?.pushViewController(ResetPsdController(), animated: true)
     }
-    
- 
-    
-    
     @objc func new(_ button: UIButton) {
-        print("----------------ok")
-        pushWithoutTabBar(PhoneNumberController())
-        
+         pushWithoutTabBar(PhoneNumberController())
     }
-    
     @objc func forget(_ button: UIButton) {
-        
-        
         let alertControl = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
-        
         let find = UIAlertAction(title: "找回密码", style: .default, handler: { (alert) in self.find() })
         let phoneLog = UIAlertAction(title: "短信验证登陆", style: .default, handler: { (alert) in self.phoneSign() })
         let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        
         alertControl.addAction(phoneLog)
         alertControl.addAction(find)
         alertControl.addAction(cancel)
-        
         present(alertControl, animated: true, completion: nil)
-        
     }
 
     ///change top constraint animatedly
@@ -164,13 +141,10 @@ class SignInViewController: UIViewController {
     func change(by times: CGFloat, duration seconds: Double) {
  
         UIView.animate(withDuration: seconds, animations: {
-        
             self.headConstr?.update(offset: ScreenHeigh*self.standard*0.5/times.squareRoot().squareRoot())
             self.txtfConstr?.update(offset: ScreenHeigh*self.standard/times.squareRoot())
             self.signConstr?.update(offset: self.height2/times)
             self.view.layoutIfNeeded()
-            
-       
         })
     }
     override func viewWillDisappear(_ animated: Bool) {
@@ -182,108 +156,6 @@ class SignInViewController: UIViewController {
         view.endEditing(true)
         change(by: 1, duration: 0.2)
     }
-    
-}
-
-class PhoneSignInController: PhoneNumberController {
-    
-    override func nxt() {
-        let txt = textField1!.text!
-        guard textField1?.text?.len() == 11 && nxtValid else {
-            labelSubtitle?.text = ph00
-            return
-        }
-        guard Config.predicate(Regex.phone, txt) else {
-            labelSubtitle?.text = "请输入正确的手机号"
-            return
-        }
-        //hud.show()
-//        Alamofire.request(Router.validate(Property.phone, txt)).validate()
-//            .responseJSON{ response in
-//                switch response.result {
-//                case .failure(let error):
-//                    print(dk, error)
-//                    hud.showError(withStatus: "网络连接失败")
-//                case .success(let value):
-//                    if ((value as! NSDictionary)["data"] as! Bool) {
-//                        self.sendCode(of: txt, to: CodeSignInController())
-//                        return
-//                    }
-//                    self.showTips()
-//                }
-//        }
-    }
-
-    override func showTips() {
-        //let ph = textField1!.text!
-        let alertControl = UIAlertController(title: "提示", message: "该手机号尚未注册，是否立即注册？", preferredStyle: .alert)
-        let phoneLog = UIAlertAction(title: "确定", style: .default, handler: { (alert) in
-//            hud.show()
-//            Alamofire.request(Router.verify(3, value: ph)).validate()
-//                .responseJSON{ response in
-//                    switch response.result {
-//                    case .failure(let error):
-//                        print(dk, error)
-//                        hud.showError(withStatus: "网络连接失败")
-//                    case .success:
-//                        hud.showSuccess(withStatus: "验证码已发送")
-//                        let controller = CodeVerifyController()
-//                        controller.phone = ph
-//                        self.navigationController?.pushViewController(controller, animated: true)
-//                    }
-//            }
-
-        })
-        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
-        alertControl.addAction(phoneLog)
-        alertControl.addAction(cancel)
-        present(alertControl, animated: true, completion: nil)
-    }
-    
-}
-
-
-class CodeSignInController: CodeVerifyController {
-    
-    override func nxt() {
-        guard nxtValid else { return }
-//        hud.show()
-//        Alamofire.request(Router.verify(2, value: phone)).validate()
-//            .responseJSON{ response in
-//                switch response.result {
-//                case .failure(let error):
-//                    print(dk, error)
-//                    hud.showError(withStatus: "验证码错误，请重新发送")
-//                case .success(let value):
-//                    self.success(value: value)
-//                }
-//        }
-
-    }
-//    func success(value: Any) {
-//        hud.show(withStatus: "验证成功，正在登录")
-//        guard let info = value as? NSDictionary else {
-//            print(dk, "js"); return
-//        }
-//        let person = Person(save: true)
-//        person.analyse(info)
-//        userDefau.saveBasic(true, key: isSignedKey)
-//        hud.showSuccess(withStatus: "登陆成功")
-//
-//        let abc = navigationController?.presentingViewController
-//        navigationController?.dismiss(animated: true){
-//            if abc!.isKind(of: ViewController.self) {
-//                print("selectedIndex changed after dismission")
-//                (abc as! ESTabBarController).selectedIndex = 4
-//            }
-//        }
-//
-//    }
-    
-}
-
-extension SignInViewController: UITextFieldDelegate {
-    
     func textFieldDidBeginEditing(_ textField: UITextField) {
         change(by: 1.8, duration: 0.3)
     }
@@ -300,7 +172,7 @@ extension SignInViewController: UITextFieldDelegate {
         return true
     }
     
-   
+    
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         if textField == accountField {
@@ -308,8 +180,53 @@ extension SignInViewController: UITextFieldDelegate {
         }
         return true
     }
+}
+
+
+class PhoneSignInController: PhoneNumberController {
+    
+    @objc override func nxt() {
+        let txt = textField1!.text!
+        guard textField1?.text?.len() == 11 && nxtValid else {
+            labelSubtitle?.text = ph00
+            return
+        }
+        guard Config.predicate(Regex.phone, txt) else {
+            labelSubtitle?.text = "请输入正确的手机号"
+            return
+        }
+    
+    }
+
+    @objc override func showTips() {
+        //let ph = textField1!.text!
+        let alertControl = UIAlertController(title: "提示", message: "该手机号尚未注册，是否立即注册？", preferredStyle: .alert)
+        let phoneLog = UIAlertAction(title: "确定", style: .default, handler: { (alert) in
+            
+        })
+        let cancel = UIAlertAction(title: "取消", style: .cancel, handler: nil)
+        alertControl.addAction(phoneLog)
+        alertControl.addAction(cancel)
+        present(alertControl, animated: true, completion: nil)
+    }
     
 }
+
+
+class CodeSignInController: CodeVerifyController {
+    
+    override func nxt() {
+        guard nxtValid else { return }
+
+        
+    }
+//    func success(value: Any) {
+//
+//    }
+    
+}
+
+
 
 
 

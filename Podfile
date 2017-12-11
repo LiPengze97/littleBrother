@@ -8,5 +8,8 @@ pod 'SnapKit', '~> 4.0.0'
 pod 'MJRefresh', '~> 3.1.15'
 pod 'MJCSegmentInterface'
 pod 'YUChineseSorting'
-pod 'SVProgressHUD'
+pod 'SVProgressHUD', '~> 2.2.2'
+pod 'YBAttributeTextTapAction'
+pod 'SDWebImage', '~> 4.0' #//'4.2.2'
+
 end

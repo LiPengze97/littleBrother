@@ -14,6 +14,11 @@ func log<T>(_ message: T, _ type: LogType = .ln, file: String = #file, method: S
         print("\(type.rawValue) \((file as NSString).lastPathComponent)[\(line)], \(method): \(message)")
     #endif
 }
+func debugActions(_ action: () -> Void) {
+    #if DEBUG
+        action()
+    #endif
+}
 
 ///返回不同屏幕大小适配的 CGFloat，比如 let size = v(20, 22, 25)
 /// - Parameters:
@@ -48,7 +53,7 @@ func Size(_ width: CGFloat, _ height: CGFloat) -> CGSize {
 ///   - size: 字号
 ///   - maxSize: 所能容忍的最大尺寸 默认 200, 25
 ///   - lineSpace: 其实这个行距参数该直接换成 NSMutableParaStyle，便于拓展。不过现在先算了
-func autoSize(_ txt: String, size fontSize: CGFloat, maxSize: CGSize = Size(200, 25), lineSpace: CGFloat = 0) -> CGSize {
+func autoSize(_ txt: String, size fontSize: CGFloat, maxSize: CGSize = Size(200, 27), lineSpace: CGFloat = 0) -> CGSize {
     let para = NSMutableParagraphStyle()
     para.lineBreakMode = .byWordWrapping
     if lineSpace != 0 {

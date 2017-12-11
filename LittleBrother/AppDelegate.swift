@@ -7,14 +7,38 @@
 //
 
 import UIKit
-
+import Alamofire
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-
+ 
+        /* 获取附近任务：
+         {
+         "status" : "WAIT",
+         "user" : {
+         "school" : "山东大学",
+         "id" : "2c918086601fd054016020217f3f0007",
+         "mobile" : "18340018831",
+         "username" : "cyf",
+         "sex" : "女"
+         },
+         "acceptUser" : null,
+         "id" : "2c918086602b513201602be74c2d0000",
+         "acceptTime" : null,
+         "address" : "工具房",
+         "description" : "银行卡没办法的戳破突然",
+         "title" : "体会复旦大学吃饭",
+         "time" : 1512565067000,
+         "price" : 55
+         },
+         */
+       
+        if !userDefault.bool(forKey: kIsFirstOpen) {
+            userDefault.saveBasic(true, key: kIsFirstOpen)
+        }
         
         return true
     }

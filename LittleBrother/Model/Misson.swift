@@ -10,7 +10,7 @@ import Foundation
 
 class Mission {
     
-    var id: Int!
+    var id: String!
     ///发布者
     var master: Person!
     ///接单者
@@ -34,16 +34,16 @@ class Mission {
     ///value是 最小的那个字典，id = ···，······
     func analyse(_ value: JSON) {
         
-        id = value["id"].int ?? 0
+        id = value["id"].string ?? "0"
         master = Person(value["user"])
         
         title = value["title"].string ?? "加载中"
         description = value["description"].string ?? "暂无描述"
         address = value["address"].string ?? "未填写"
         price = value["price"].string ?? "00.0"
-        time = value["time"].string ?? "\(Date())"
+        time = value["time"].string ?? "\(Date().timeIntervalSince1970)"
         status = MissionStatus(rawValue: value["status"].string ?? "WAIT")
-        acceptTime = value["acceptTime"].string ?? "\(Date())"
+        acceptTime = value["acceptTime"].string
         acceptUser = Person(value["acceptUser"]) 
         
     }

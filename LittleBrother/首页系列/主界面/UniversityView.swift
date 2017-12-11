@@ -13,16 +13,16 @@ let navTitleHeight: CGFloat = 18
 class UniversityView: UIView {
     
     var button: UIButton!
-    var university: String!
+    var university: School!
     
-    ///参数： String
+    ///参数: 学校 School
     func fillContents(_ contents: Any?) {
-        university = contents as? String ?? "未选择"
-        let w = autoSize(university, size: 13).width
+        university = contents as? School ?? School("0", "未选择")
+        let w = autoSize(university.name, size: 13).width
         button.snp.updateConstraints{ make in
             make.width.equalTo(w)
         }
-        button.setTitle(university, for: .normal)
+        button.setTitle(university.name, for: .normal)
     }
     
     override init(frame: CGRect) {

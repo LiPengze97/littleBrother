@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 
+
 let headImgHeight: CGFloat = 70
 
 class PersonInfoView: UIView {
@@ -62,7 +63,7 @@ class PersonInfoView: UIView {
             make.width.height.equalTo(19)
             make.centerY.equalTo(nameLabel)
         }
-        genderImg.image = #imageLiteral(resourceName: "boy_1")
+        genderImg.image = #imageLiteral(resourceName: "nan")
         
         universityLabel = UILabel()
         universityLabel.textColor = UIColor.darkGray.withAlphaComponent(0.9)
@@ -125,6 +126,16 @@ class WhiteCircleImageView: UIView {
     
     func el_setImage(_ img: UIImage) {
         imgView.image = img
+    }
+    
+    func el_setImage(_ userId: String) {
+        
+        HttpRequest.downloadFile(Router.getUserAvatar(userId)) { response, data in
+//            let img = UIImage(data: data)
+//            imgView.image = img
+        }
+        
+        
     }
     
     required init?(coder aDecoder: NSCoder) {
