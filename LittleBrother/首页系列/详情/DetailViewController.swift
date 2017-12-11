@@ -17,6 +17,8 @@ class DetailViewController: UIViewController {
     var getButton: UIButton!
     var msgButton: UIButton!
     
+    var mission: Mission!
+    
     let buttonHeight: CGFloat = 50
     let buttonBottom: CGFloat = 22
     
@@ -45,7 +47,7 @@ class DetailViewController: UIViewController {
     }
     
     func loadData() {
-       
+        
     }
     
 }

@@ -62,7 +62,7 @@ class MainViewCell: UITableViewCell {
             make.left.equalTo(head.snp.right).offset(leftD-3)
             make.width.equalTo(50)
             make.height.equalTo(22)
-            make.top.equalTo(head).offset(2)
+            make.top.equalTo(head)
         }
         //nameLabel.el_setAutoWidthText("NULL", fontSize: 18.5)
         
@@ -96,7 +96,7 @@ class MainViewCell: UITableViewCell {
         addSubview(moneyLabel)
         moneyLabel.snp.makeConstraints { (make) in
             make.right.equalTo(timeLabel)
-            make.centerY.equalTo(head.snp.bottom).offset(4)
+            make.top.equalTo(head).offset(2)
             make.width.equalTo(200)
             make.height.equalTo(34)
         }
@@ -117,9 +117,6 @@ class MainViewCell: UITableViewCell {
             make.height.equalTo(24)
         }
         contentLabel.text = "NULLNULLLLLL"
-     
-    
-        
         
     }
     
