@@ -44,7 +44,7 @@ enum Router: URLRequestConvertible {
      "code":201    */
     
     static let baseURLString =  "http://ischool.suqingfa.win:8080"
-    
+    //18340018998
     ///注册 参数: 昵称 密码 手机 身份证 名字 性别 学校 邀请码
     case signUp(String, String, String, String, String, String, String, String)
     ///登录 参数: 昵称 密码
@@ -174,6 +174,7 @@ enum Router: URLRequestConvertible {
                 return ("/api/mission/acceptList", params)
             case .nearbyTask(let schoolId, let page):
                 params = ["schoolId": schoolId, "page": page]
+                print(schoolId)
                 return ("/api/mission/nearby", params)
             case .addFeedback(let feedback):
                 let params = ["feedback": feedback]

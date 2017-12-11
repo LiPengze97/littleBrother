@@ -49,6 +49,7 @@ class identifyCodeViewController: UIViewController {
                     userdefault.setValue(json["data"][key].string, forKey: key)
                 }
                 userdefault.setValue(1, forKey: "isLogIn")
+                self.navigationController?.popViewController(animated: true)
                 
 //                let filepath:String = NSHomeDirectory() + "Userplist.plist"
 //                NSDictionary.init(dictionary: dic).write(toFile: filepath, atomically: true)

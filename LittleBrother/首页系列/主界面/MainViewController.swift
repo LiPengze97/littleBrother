@@ -8,9 +8,12 @@
 
 import Foundation
 import UIKit
+import Alamofire
+import SwiftyJSON
 let threeButtonHeight: CGFloat = 50
 class MainViewController: UIViewController {
     var isLogin = 0
+    var pagenum = 1
     var tableView: UITableView!
     var naviContentView: UniversityView!
     var loopView: CircleLoopView!
@@ -23,7 +26,23 @@ class MainViewController: UIViewController {
     }
     
     func loadData(){
-        
+        if isLogin == 0 {
+            Alamofire.request(Router.nearbyTask("53d76162601b5d6c01601b5d781f0000", "0")).responseJSON(completionHandler: { (response) in
+                switch response.result{
+                case .success(_):
+                    guard let value = response.result.value else{
+                        log("response.result.value is nil", .error)
+                        return
+                    }
+                    let json = JSON(value)
+                    
+                    print("📺",json)
+                case .failure(let error):
+                    log(error, .error)
+                    return
+                }
+            })
+        }
     }
     
     override func viewDidLoad() {
@@ -106,12 +125,14 @@ class MainViewController: UIViewController {
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
+        return dataArr.count
         //return dataArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MainViewCell(style: .default, reuseIdentifier: Identifier.mainTableCellId)
+        cell.nameLabel.text = ""
+        cell.timeLabel.text = ""
         return cell
     }
     

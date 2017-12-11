@@ -9,6 +9,8 @@
 import Foundation
 import UIKit
 import MJCSegmentInterface
+import Alamofire
+import SwiftyJSON
 
 class MyOrdersController: UIViewController {
     
@@ -18,6 +20,45 @@ class MyOrdersController: UIViewController {
     
     let segmentTitleHeight: CGFloat = 60
     let titleArr = ["进行中", "已完成"]
+    
+    func loadData(){
+        //进行中
+        Alamofire.request(Router.myAcceptTasks("PROCESSING", "0")).responseJSON { (response) in
+            switch response.result{
+            case .success:
+                guard let value = response.result.value else{
+                    log("response.result.value is nil", .error)
+                    return
+                }
+                let json = JSON(value)
+                print("📺",json)
+                
+                
+                return
+            case .failure(let error):
+                log(error, .error)
+                return
+            }
+        }
+        //已完成
+        Alamofire.request(Router.myAcceptTasks("FINISH", "0")).responseJSON { (response) in
+            switch response.result{
+            case .success:
+                guard let value = response.result.value else{
+                    log("response.result.value is nil", .error)
+                    return
+                }
+                let json = JSON(value)
+                print("📺",json)
+                
+                
+                return
+            case .failure(let error):
+                log(error, .error)
+                return
+            }
+        }
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()

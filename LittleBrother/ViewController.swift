@@ -14,7 +14,7 @@ class ViewController: UITabBarController {
         super.viewDidLoad()
         
         let vc1 = UINavigationController(rootViewController: MainViewController())
-        let vc2 = UINavigationController(rootViewController: Test2())
+        let vc2 = UINavigationController(rootViewController: SelectSchoolController())
         let vc3 = UINavigationController(rootViewController: PersonViewController())
        
        
