@@ -17,6 +17,36 @@ class HttpRequest {
             dealResponse(respon, processBlock)
         }
     }
+ 
+    ///
+    static func downloadFile(_ url: URLRequestConvertible, _ progressHandler: ((Double) -> Void)? = nil, _ responseHandler: @escaping (DownloadResponse<Data>, Data) -> Void) {
+        
+        Alamofire.download(url)
+            
+            .downloadProgress { progress in
+                progressHandler?(progress.fractionCompleted)
+            }
+        
+            .responseData { (response) in
+                
+                switch response.result {
+                    
+                case .success(let value):
+                    let js = JSON(value)
+                    let codeRaw = js["code"].int
+                    if codeRaw == nil || codeRaw == 0 {
+                        responseHandler(response, value)
+                    } else {
+                        log("😭😭😭")
+                        print(js)
+                    }
+                    
+                case .failure: break
+                }
+                
+                
+            }
+    }
     
     static func uploadFile(_ url: URLRequestConvertible, _ dataHandler: @escaping (MultipartFormData) -> Void, _ progressHandler: @escaping (Double) -> Void, _ responseHandler: @escaping (DataResponse<Any>, Int, JSON) -> Void) {
         

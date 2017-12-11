@@ -70,15 +70,20 @@ class CodeVerifyController: SignUpBaseViewController {
     
         
         HttpRequest.requestJSON(Router.logIn(phone, vericode!)) {
-            _, code, data in
+            response, code, data in
+            print(response.result.value)
             switch code {
             case 100:
                 hud.dismiss()
                 let fillDetail = DetailFillController()
                 fillDetail.phone = self.phone
                 self.pushWithoutTabBar(fillDetail)
-            case 0: hud.showSuccess(withStatus: "登陆成功")
-                let user = Person(data, toSave: true)
+            case 0:
+                
+                _ = Person(data, toSave: true)
+                //现在本地存了person，直接dismiss后拿出来用
+                let completionHandler = (self.navigationController!.viewControllers[0] as! PhoneNumberController).loginDidFinishHandler
+                self.navigationController?.dismiss(animated: true, completion: completionHandler)
                 
             default: hud.showError(withStatus: "未知错误")
             }

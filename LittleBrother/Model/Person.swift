@@ -10,8 +10,6 @@ import Foundation
 import UIKit
 import Alamofire
 
-
-
 //实现NSObject和NSCoding NSObject可以不加，用@objc修饰某些方法也可以。
 //NSCoding接口提供了序列化和反序列化对象的时候的编解码方法。
 class Person: NSObject, NSCoding {
@@ -22,8 +20,8 @@ class Person: NSObject, NSCoding {
     var userName: String!
     
     var gender: String!
-    var authenStatus: Authen!
-    var school: String!
+    var authenStatus: String!
+    var school: School!
     
     var realName: String?
     var realID: String?
@@ -53,8 +51,8 @@ class Person: NSObject, NSCoding {
         userName = data["username"].string ?? "未知"
         realName = data["name"].string ?? "未认证"
         realID = data["idCard"].string ?? "未认证"
-        authenStatus = Authen(rawValue: (data["authStatus"].string ?? "NO"))
-        school = data["school"].string ?? "未知"
+        authenStatus = data["authStatus"].string ?? "NO"
+        school = School("0", data["school"].string ?? "未知")
     }
     
  
@@ -83,21 +81,10 @@ class Person: NSObject, NSCoding {
         gender = aDecoder.decodeObject(forKey: kGenderKey) as? String
         realID = aDecoder.decodeObject(forKey: kRealIdKey) as? String
         realName = aDecoder.decodeObject(forKey: kRealNameKey) as? String
-        school = aDecoder.decodeObject(forKey: kSchoolKey) as? String
-        authenStatus = Authen(rawValue: aDecoder.decodeObject(forKey: kAuthenStatusKey) as! String)
+        school = aDecoder.decodeObject(forKey: kSchoolKey) as? School
+        authenStatus = aDecoder.decodeObject(forKey: kAuthenStatusKey) as? String
     }
     
 }
-
-
-
-
-
-
-
-
-
-
-
 
 

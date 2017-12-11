@@ -29,7 +29,7 @@ class HeadView: UIView {
     func fillContents(_ content: Any?) {
         let person = content as? Person
         nameLabel?.text = person?.userName
-        authentic?.setTitle(person?.authenStatus.rawValue, for: .normal)
+        authentic?.setTitle(person?.authenStatus, for: .normal)
         
     }
     
@@ -103,7 +103,7 @@ class HeadView: UIView {
         authentic?.clipsToBounds = true
         authentic?.layer.borderColor = Config.themeFontColor.cgColor
         authentic?.layer.borderWidth = 1.5
-        authentic?.setTitle(Authen.NO.rawValue, for: .normal)
+        authentic?.setTitle(Authen_NO, for: .normal)
         authentic?.snp.makeConstraints { make in
             make.width.equalTo(55)
             make.height.equalTo(authenticHeight)

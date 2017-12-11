@@ -9,7 +9,7 @@
 import Foundation
 import Alamofire
 
-class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, SelectSchoolProtocol {
+class DetailFillController: SignUpBaseViewController {
     
     var scroll: UIScrollView!
     var headButton: UIButton!
@@ -44,9 +44,15 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
         l.font = UIFont.systemFont(ofSize: 17.5, weight: .semibold)
         return l
     }
-    func selectSchool(_ id: String, _ name: String) {
-        school = School(id: id, name: name)
+    
+  
+    
+    @objc func selectCollegeClick() {
+        let sele = SelectSchoolController()
+        sele.delegate = self
+        pushWithoutTabBar(sele)
     }
+    
     ///点提交
     @objc func submitInfo() {
         hud.show()
@@ -63,6 +69,7 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
         }
         signUp(gender, name: name!)
     }
+    
     ///注册行为
     private func signUp(_ gender: String, name: String) {
         HttpRequest.requestJSON(Router.signUp(name, phone, gender, school.id, inviteTxtfld.text!)) { _, code, data in
@@ -81,8 +88,10 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
         if headImage != nil {
             uploadAvatar()
         }
-        let person = Person(data, toSave: true)
-        
+        _ = Person(data, toSave: true)
+        //现在本地存了person，直接dismiss后拿出来用
+        let completionHandler = (self.navigationController!.viewControllers[0] as! PhoneNumberController).loginDidFinishHandler
+        self.navigationController?.dismiss(animated: true, completion: completionHandler)
         
     }
     
@@ -107,19 +116,12 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
         
     }
     
-   
-   
-    
-    
     @objc private func valueChanged2() {
         
     }
     
-    
-
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        
         NotificationCenter.default.addObserver(self, selector: #selector(valueChanged2), name: .UITextFieldTextDidChange, object: inviteTxtfld)
         
     }
@@ -127,13 +129,22 @@ class DetailFillController: SignUpBaseViewController, UIScrollViewDelegate, Sele
         super.viewDidAppear(animated)
         textField1?.resignFirstResponder()
     }
-    
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         NotificationCenter.default.removeObserver(self, name: .UITextFieldTextDidChange, object: inviteTxtfld)
     }
+   
+}
+
+extension DetailFillController: UIScrollViewDelegate, SelectSchoolDelegate {
+    
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         scroll.endEditing(true)
+    }
+    
+    func selectSchool(_ school: School) {
+        self.school = school
+        setCollegeButtonTitle(school.name)
     }
 }
 

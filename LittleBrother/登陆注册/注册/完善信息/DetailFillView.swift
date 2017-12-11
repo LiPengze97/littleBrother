@@ -55,6 +55,7 @@ extension DetailFillController {
             make.center.equalTo(headmask)
             make.size.equalTo(headSize)
         }
+        
         //头像文字提示
         let label1 = UILabel()
         label1.text = "设置头像"
@@ -67,6 +68,7 @@ extension DetailFillController {
             make.height.equalTo(24)
             make.centerX.equalTo(headButton)
         }
+        
         //昵称文字
         let left: CGFloat = 20
         let label2 = getLabel("昵称")
@@ -88,6 +90,7 @@ extension DetailFillController {
             make.width.equalTo(ScreenWidth-2*left)
             make.height.equalTo(textfieldHei)
         }
+        
         //横线
         let line = UIView()
         line.backgroundColor = UIColor.lightGray
@@ -98,6 +101,7 @@ extension DetailFillController {
             make.height.equalTo(0.5)
             make.bottom.equalTo(textField1!)
         }
+        
         //性别文字
         let label3 = getLabel("性别")
         scroll.addSubview(label3)
@@ -105,6 +109,7 @@ extension DetailFillController {
             make.left.width.height.equalTo(label2)
             make.top.equalTo(textField1!.snp.bottom).offset(seperator)
         }
+        
         //男女button
         girlButton = RoundButton()
         girlButton.fillImage(corner: 6, borderW: 1.5, img: #imageLiteral(resourceName: "girl_1"))
@@ -122,6 +127,7 @@ extension DetailFillController {
             make.centerX.equalTo(ScreenWidth*0.7)
             make.top.size.equalTo(girlButton)
         }
+        
         //学校选择
         let label4 = getLabel("学校选择")
         scroll.addSubview(label4)
@@ -129,20 +135,22 @@ extension DetailFillController {
             make.left.width.height.equalTo(label3)
             make.top.equalTo(girlButton.snp.bottom).offset(14)
         }
-        //学校选择按钮
         
+        //学校选择按钮
         collegeButton = getButton(textfieldHei)
         collegeButton.layer.borderWidth = 2
-        collegeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 44)
-        collegeButton.setTitle("未选择", for: .normal)
+        collegeButton.titleEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 40)
         collegeButton.setTitleColor(UIColor.black, for: .normal)
+        collegeButton.titleLabel?.font = UIFont.systemFont(ofSize: 16)
+        collegeButton.addTarget(self, action: #selector(selectCollegeClick), for: .touchUpInside)
         scroll.addSubview(collegeButton)
         collegeButton.snp.makeConstraints{ make in
             make.left.equalTo(label4).offset(2)
-            make.width.equalTo(ScreenWidth*0.45)
+            make.width.equalTo(1)
             make.height.equalTo(textfieldHei)
             make.top.equalTo(label4.snp.bottom).offset(8)
         }
+        setCollegeButtonTitle(unKnown)
         let downView = UIView()
         downView.layer.contents = #imageLiteral(resourceName: "down").cgImage
         downView.layer.contentsGravity = kCAGravityResizeAspectFill
@@ -197,7 +205,17 @@ extension DetailFillController {
             make.width.equalTo(141)
             make.bottom.equalTo(ScreenHeigh-90)
         }
-        
-        
+    
     }
+    
+    func setCollegeButtonTitle(_ str: String) {
+        let w = autoSize(str, size: 16).width
+        collegeButton.snp.updateConstraints{ make in
+            make.width.equalTo(50 + w)
+        }
+        collegeButton.setTitle(str, for: .normal)
+    }
+    
+    
+    
 }

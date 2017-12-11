@@ -49,6 +49,9 @@ class SignUpBaseViewController: UIViewController {
     var cancelButton: UIButton!
     ///上方背景图
     var backImage: UIView!
+    ///dismiss后执行的东西
+    var loginDidFinishHandler: (() -> Void)?
+
     ///点击下一步是否有响应
     var nxtValid: Bool!{
         didSet{
@@ -61,7 +64,7 @@ class SignUpBaseViewController: UIViewController {
     }
     ///tf距离屏幕两侧的距离
     let right: CGFloat = 57
-    
+
     //placeholders:
     let ph1 = "输入手机号码"
     let ph2 = "输入短信验证码"
@@ -120,7 +123,7 @@ class SignUpBaseViewController: UIViewController {
     }
     
     @objc func cancel() {
-        navigationController?.dismiss(animated: true, completion: nil)
+        navigationController?.dismiss(animated: true)
     }
     
     

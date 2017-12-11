@@ -53,7 +53,7 @@ func Size(_ width: CGFloat, _ height: CGFloat) -> CGSize {
 ///   - size: 字号
 ///   - maxSize: 所能容忍的最大尺寸 默认 200, 25
 ///   - lineSpace: 其实这个行距参数该直接换成 NSMutableParaStyle，便于拓展。不过现在先算了
-func autoSize(_ txt: String, size fontSize: CGFloat, maxSize: CGSize = Size(200, 25), lineSpace: CGFloat = 0) -> CGSize {
+func autoSize(_ txt: String, size fontSize: CGFloat, maxSize: CGSize = Size(200, 27), lineSpace: CGFloat = 0) -> CGSize {
     let para = NSMutableParagraphStyle()
     para.lineBreakMode = .byWordWrapping
     if lineSpace != 0 {

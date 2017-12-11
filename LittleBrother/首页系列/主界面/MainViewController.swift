@@ -9,18 +9,25 @@
 import Foundation
 import UIKit
 let threeButtonHeight: CGFloat = 50
-///初始化时赋值school 默认=？
-class MainViewController: UIViewController, SelectSchoolProtocol {
+
+class MainViewController: UIViewController, SelectSchoolDelegate {
 
     var tableView: UITableView!
     var naviContentView: UniversityView!
     var loopView: CircleLoopView!
     var threeButton: ThreeButtonView!
   
-    var isLogin: Bool = false
-     
     var school: School!
+    var person: Person!
     var dataArr = NSMutableArray()
+    
+    //
+    //
+    // 每次打开app或15分钟不操作：session 失效，得重新登，输手机号、验证码 哪有这样的啊？？搞笑吗
+    // 还存个屁本地？唉，先完成再说吧，等他到手用了就知道不爽了就要改需求啦😁
+    //
+    //
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -28,26 +35,37 @@ class MainViewController: UIViewController, SelectSchoolProtocol {
         initNaviBar()
         initTable()
         initHeader()
+        if userDefault.bool(forKey: kIsSignedIn) {
+            logInRefresh()
+        } else {
+            loadData(of: defalutSchoolId)
+            naviContentView.fillContents(School(defalutSchoolId, unKnown))
+        }
+        
+        
+    }
+
+    func loadData(of schoolId: String, page: Int = 0) {
+        
+        HttpRequest.requestJSON(Router.nearbyTask(schoolId, page)) { _, code, data in
+            switch code {
+            case 0:
+                let tempArr = data.arrayValue
+                for i in tempArr {
+                    let m = Mission(i)
+                    self.dataArr.add(m)
+                }
+                self.tableView.reloadData()
+            default: hud.showError(withStatus: "服务器未响应")
+            }
+        }
         
     }
     
-    func initNaviBar() {
-        view.backgroundColor = UIColor.white
-        navigationItem.titleView = UIView(frame: Rect(0, 0, ScreenWidth, 44))
-        let w = navTitleHeight*463/63+58
-        naviContentView = UniversityView(frame: Rect((ScreenWidth-w)/2, 30, w, navTitleHeight))
-        naviContentView.fillContents(nil)
-        DispatchQueue.main.async {
-            self.naviContentView.frame = (self.view.window?.convert(self.naviContentView.frame, to: self.navigationItem.titleView))!
-            self.navigationItem.titleView?.addSubview(self.naviContentView)
-        }
-        naviContentView.button.addTarget(self, action: #selector(selectClick), for: .touchUpInside)
-        hud.setMaximumDismissTimeInterval(0.38)
-    }
-    
-    func selectSchool(_ id: String, _ name: String) {
-        self.school = School(id: id, name: name)
+    func selectSchool(_ school: School) {
+        self.school = school
         naviContentView.fillContents(school)
+        loadData(of: school.id)
     }
     
     @objc func selectClick() {
@@ -57,20 +75,21 @@ class MainViewController: UIViewController, SelectSchoolProtocol {
             selectVC.delegate = self
             pushWithoutTabBar(selectVC)
         } else {
-            let signin = UINavigationController(rootViewController: PhoneNumberController())
-            present(signin, animated: true)
+            let signin = PhoneNumberController()
+            signin.loginDidFinishHandler = {
+                hud.showSuccess(withStatus: "登陆成功")
+                self.logInRefresh()
+            }
+            present(UINavigationController(rootViewController: signin), animated: true)
         }
         
     }
- 
-    func initTable() {
-        tableView = UITableView(frame: view.bounds)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.estimatedRowHeight = 0
-        tableView.rowHeight = 30+headImgHeight
-        tableView.register(MainViewCell.self, forCellReuseIdentifier: Identifier.mainTableCellId)
-        view.addSubview(tableView)
+    
+    func logInRefresh() {
+        person = userDefault.getCustomObj(for: kCurrentUserKey) as! Person
+        school = person.school
+        loadData(of: school.id)
+        naviContentView.fillContents(school)
     }
     
     @objc func didTap(_ sender: UITapGestureRecognizer) {
@@ -80,36 +99,18 @@ class MainViewController: UIViewController, SelectSchoolProtocol {
             pushWithoutTabBar(MyOrdersController())
         }
     }
-    
-    func initHeader() {
-        
-        let loopH = ScreenWidth*51/126 //126*51
-        loopView = CircleLoopView(frame: Rect(0, 0, ScreenWidth, loopH))
-        threeButton = ThreeButtonView(frame: Rect(0, loopH, ScreenWidth, threeButtonHeight))
-        loopView.setImgNames(["nanmonvlei", "waimai", "wajueji"])
-        let header = UIView(frame: Rect(0, 0, ScreenWidth, loopH+threeButtonHeight+8))
-        header.addSubview(loopView)
-        header.addSubview(threeButton)
-        tableView.tableHeaderView = header
-        
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        threeButton.post.addGestureRecognizer(tap1)
-        threeButton.post.tag = 100
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(didTap))
-        threeButton.my.addGestureRecognizer(tap2)
-    }
-    
+
 }
 
 extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 8
-        //return dataArr.count
+        return dataArr.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = MainViewCell(style: .default, reuseIdentifier: Identifier.mainTableCellId)
+        cell.fillContents(dataArr[indexPath.row])
         return cell
     }
     
@@ -123,7 +124,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.isLogin = userDefault.bool(forKey: kIsSignedIn)
+
         navigationController?.navigationBar.isHidden = false
     }
     

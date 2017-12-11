@@ -19,6 +19,22 @@ class MainViewCell: UITableViewCell {
     
     let nameFontSize: CGFloat = 18
     let contentFontSize: CGFloat = 14.5
+    let contentMaxSize = Size(ScreenWidth-headImgHeight*1.7, 55)
+    
+    ///参数：任务对象
+    func fillContents(_ content: Any?) {
+        guard let mission = content as? Mission else { return }
+        nameLabel.el_setAutoWidthText(mission.master.userName, fontSize: nameFontSize)
+        if mission.master.gender == "女" {
+            genderImg.image = #imageLiteral(resourceName: "nv")
+        }
+        head.el_setImage(mission.master.id)
+        contentLabel.el_setAutoWidthText(mission.title, fontSize: contentFontSize, max: contentMaxSize)
+        
+        timeLabel.text = mission.time.getDaysBefore()
+        moneyLabel.text = "¥" + mission.price
+    }
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     
@@ -35,7 +51,7 @@ class MainViewCell: UITableViewCell {
             make.top.equalTo(self).offset(10)
             make.width.height.equalTo(headImgHeight+2*borderW)
         }
-        head.el_setImage(#imageLiteral(resourceName: "headPlaceholder"))
+        head.el_setImage(UIImage(named: "headPlaceholder")!)
         
         nameLabel = UILabel()
         nameLabel.text = "NO"
@@ -59,7 +75,7 @@ class MainViewCell: UITableViewCell {
             make.width.height.equalTo(16)
             make.centerY.equalTo(nameLabel)
         }
-        genderImg.image = #imageLiteral(resourceName: "boy_1")
+        genderImg.image = #imageLiteral(resourceName: "nan")
         
         timeLabel = UILabel()
         timeLabel.font = UIFont.systemFont(ofSize: 13)
@@ -93,15 +109,15 @@ class MainViewCell: UITableViewCell {
         contentLabel.font = UIFont.systemFont(ofSize: contentFontSize)
         addSubview(contentLabel)
         contentLabel.textAlignment = .left
-        let w1 = ScreenWidth-headImgHeight*1.7
+       
         contentLabel.snp.makeConstraints { make in
             make.left.equalTo(nameLabel)
             make.top.equalTo(nameLabel.snp.bottom).offset(1)
-            make.width.equalTo(w1)
+            make.width.equalTo(contentMaxSize.width)
             make.height.equalTo(24)
         }
         contentLabel.text = "NULLNULLLLLL"
-        contentLabel.el_setAutoWidthText("NULLNULLLLLLNULLNULLLLLLNUNULLLLLNUL", fontSize: contentFontSize, max: Size(w1, 55))
+     
     
         
         

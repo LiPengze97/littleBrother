@@ -10,6 +10,7 @@ import Foundation
 import Alamofire
 import YBAttributeTextTapAction
 
+///使用时这一定是navigationController的root啊
 class PhoneNumberController: SignUpBaseViewController {
     
     override func viewDidLoad() {
@@ -44,7 +45,7 @@ class PhoneNumberController: SignUpBaseViewController {
     
     func sendCode(of phone: String, to controller: CodeVerifyController = CodeVerifyController()) {
         hud.show()
-        HttpRequest.requestJSON(Router.getIdentifyCode(phone)) { _, code, data in
+        HttpRequest.requestJSON(Router.getIdentifyCode(phone)) { response, code, data in
             switch code {
             case 203: hud.showError(withStatus: "手机号错误")
             case 0:

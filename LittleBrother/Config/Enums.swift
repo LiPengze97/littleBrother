@@ -42,13 +42,6 @@ enum Identifier {
     static let tableheaderViewId = "dfasefwserw"
 }
 
-///是否已认证
-enum Authen: String {
-    case YES = "已认证"
-    case NO = "未认证"
-    case WAIT = "认证中"
-}
-
 ///订单状态
 enum MissionStatus: String {
     case WAIT = "未接单"
