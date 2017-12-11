@@ -23,7 +23,16 @@ class PersonInfoView: UIView {
     
     let nameFontSize: CGFloat = 18
     
-     
+    ///参数 人
+    func fillContents(_ content: Any?) {
+        let p = content as! Person
+        head.el_setImage(p.id)
+        nameLabel.el_setAutoWidthText(p.userName, fontSize: nameFontSize)
+        if p.gender != "男" {
+            genderImg.image = #imageLiteral(resourceName: "nv")
+        }
+        universityLabel.text = p.school.name
+    }
     
     
     override init(frame: CGRect) {

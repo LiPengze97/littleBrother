@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import Alamofire
+
 class DetailViewController: UIViewController {
    
     var isLogin = false
@@ -47,8 +47,19 @@ class DetailViewController: UIViewController {
     }
     
     func loadData() {
+        guard mission != nil else {
+            hud.showError(withStatus: "网络异常"); return
+        }
+        personInfoView.fillContents(mission.master)
+        missionInfoView.fillContents(mission)
+        
+        //TODO: - 判断订单状态及是否自己，改变底部 button 内容
+        //
+        //
+        
         
     }
+    
     
 }
 

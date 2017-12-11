@@ -42,7 +42,6 @@ class MainViewController: UIViewController, SelectSchoolDelegate {
             naviContentView.fillContents(School(defalutSchoolId, unKnown))
         }
         
-        
     }
 
     func loadData(of schoolId: String, page: Int = 0) {
@@ -117,7 +116,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detail = DetailViewController()
-        //some operations on detail
+        detail.mission = dataArr[indexPath.row] as? Mission
         pushWithoutTabBar(detail)
         
     }

@@ -19,7 +19,7 @@ class Mission {
     var title: String!
     var address: String!
     var description: String!
-    var price: String!
+    var price: Double!
     var time: String!
     var status: MissionStatus!
     var acceptTime: String!
@@ -40,8 +40,8 @@ class Mission {
         title = value["title"].string ?? "加载中"
         description = value["description"].string ?? "暂无描述"
         address = value["address"].string ?? "未填写"
-        price = value["price"].string ?? "00.0"
-        time = value["time"].string ?? "\(Date().timeIntervalSince1970)"
+        price = value["price"].doubleValue
+        time = "\(value["time"].int64Value)"
         status = MissionStatus(rawValue: value["status"].string ?? "WAIT")
         acceptTime = value["acceptTime"].string
         acceptUser = Person(value["acceptUser"]) 

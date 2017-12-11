@@ -10,6 +10,7 @@ pod 'MJCSegmentInterface'
 pod 'YUChineseSorting'
 pod 'SVProgressHUD', '~> 2.2.2'
 pod 'YBAttributeTextTapAction'
-pod 'SDWebImage', '~> 4.0' #//'4.2.2'
+pod 'MJRefresh'
+#pod 'SDWebImage', '~> 4.0' //'4.2.2'
 
 end

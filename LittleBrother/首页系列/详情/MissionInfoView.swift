@@ -15,6 +15,18 @@ class MissionInfoView: UIView {
     var missionTitleLabel: UILabel!
     var missionDetailLabel: UILabel!
     
+    ///参数 任务
+    func fillContents(_ content: Any?) {
+        let m = content as! Mission
+        moneyLabel.text = "\(m.price!)元"
+        timeLabel.text = m.time.getDaysBefore(true)
+        missionTitleLabel.text = m.title
+        missionDetailLabel.text = m.description + "  地址: " + m.address
+        
+     
+    }
+    
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -84,6 +96,7 @@ class MissionInfoView: UIView {
         missionDetailLabel = UILabel()
         missionDetailLabel.textColor = UIColor.darkGray
         missionDetailLabel.textAlignment = .left
+        missionDetailLabel.numberOfLines = 0
         missionDetailLabel.font = UIFont.systemFont(ofSize: 17)
         addSubview(missionDetailLabel)
         missionDetailLabel.snp.makeConstraints{ make in

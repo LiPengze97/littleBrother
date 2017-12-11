@@ -39,9 +39,8 @@ class SelectSchoolController: UITableViewController {
                 hud.showError(withStatus: "学校列表加载失败"); return
             }
             let dataArr = data.arrayValue
-            var aSchool: School
             for i in 0..<dataArr.count {
-                aSchool = School(dataArr[i])
+                let aSchool = School(dataArr[i])
                 self.schoolsArr.add(aSchool)
                 self.schoolNameArr.add(aSchool.name)
             }
