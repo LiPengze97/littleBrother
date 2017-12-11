@@ -41,7 +41,7 @@ class ThreeButtonView: UIView {
             make.size.centerY.equalTo(around)
         }
         
-        let v = UIView(frame: Rect(ScreenWidth/3, 6, 0.5, threeButtonHeight-12))
+        let v = UIView(frame: Rect(ScreenWidth/3, 0, 0.5, threeButtonHeight))
         v.backgroundColor = UIColor.lightGray.withAlphaComponent(0.77)
         addSubview(v)
         let v1 = UIView(frame: Rect(ScreenWidth*2/3, 6, 0.5, threeButtonHeight-12))
