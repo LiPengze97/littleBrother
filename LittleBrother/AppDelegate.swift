@@ -14,6 +14,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+        
+        let appkey = "1402c25bcc5476048e9a093066d48e1c"
+        let appserc = "e7d3bf422fc2"
  
         /* 获取附近任务：
          {
