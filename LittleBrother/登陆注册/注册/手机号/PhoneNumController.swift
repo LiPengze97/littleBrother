@@ -13,12 +13,14 @@ import YBAttributeTextTapAction
 ///使用时这一定是navigationController的root啊
 class PhoneNumberController: SignUpBaseViewController {
     
+    var phone = ""
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         addMainConstraint()
-        specificView()
         setupAttributeLabel()
         addSubtitle()
+        specificView()
     }
     
     @objc override func back() {

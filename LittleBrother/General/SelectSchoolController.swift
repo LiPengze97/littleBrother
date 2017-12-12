@@ -65,6 +65,7 @@ class SelectSchoolController: UITableViewController {
         tableView.register(UITableViewHeaderFooterView.self, forHeaderFooterViewReuseIdentifier: Identifier.tableheaderViewId)
         tableView.estimatedRowHeight = 0
         tableView.estimatedSectionHeaderHeight = 0
+        tableView.tableFooterView = UIView()
     }
   
     //MARK: - 2 basic tableview methods
@@ -113,10 +114,12 @@ class SelectSchoolController: UITableViewController {
         
         if count > 0 {
             arr.append(indexArrStr[0])
-        }
-        for i in 1..<count {
-            arr.append("·")
-            arr.append(indexArrStr[i])
+            if count > 1 {
+                for i in 1..<count {
+                    arr.append("·")
+                    arr.append(indexArrStr[i])
+                }
+            }
         }
         arr.append("#")
         return arr

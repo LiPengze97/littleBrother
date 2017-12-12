@@ -2,6 +2,9 @@ PODS:
   - Alamofire (4.5.1)
   - MJCSegmentInterface (1.9.0)
   - MJRefresh (3.1.15)
+  - SDWebImage (4.2.2):
+    - SDWebImage/Core (= 4.2.2)
+  - SDWebImage/Core (4.2.2)
   - SnapKit (4.0.0)
   - SVProgressHUD (2.2.2)
   - SwiftyJSON (4.0.0)
@@ -11,8 +14,8 @@ PODS:
 DEPENDENCIES:
   - Alamofire (~> 4.5.1)
   - MJCSegmentInterface
-  - MJRefresh
   - MJRefresh (~> 3.1.15)
+  - SDWebImage (~> 4.0)
   - SnapKit (~> 4.0.0)
   - SVProgressHUD (~> 2.2.2)
   - SwiftyJSON
@@ -23,12 +26,13 @@ SPEC CHECKSUMS:
   Alamofire: 2d95912bf4c34f164fdfc335872e8c312acaea4a
   MJCSegmentInterface: a3b45730b68a0ae66fc329ed69771c14841d1876
   MJRefresh: 9af70f5f9327a2cf87f0fb5929f35fcc2fa638ea
+  SDWebImage: 89a9d32cd520bbb46eb14e541d5109b3564af198
   SnapKit: a42d492c16e80209130a3379f73596c3454b7694
   SVProgressHUD: 59b2d3dabacbd051576d21d32293ca7228dc18b0
   SwiftyJSON: 070dabdcb1beb81b247c65ffa3a79dbbfb3b48aa
   YBAttributeTextTapAction: 650ff36251479f8cfc7b5dd8fb62587c538ce502
   YUChineseSorting: 46bbd4fa0344e21b169a537bb17aafec0980c560
 
-PODFILE CHECKSUM: 7620852e73fae250b5f68468d446107690529a71
+PODFILE CHECKSUM: e6dac57b8bbb2ccc1874b65a6939dbcdedd534e7
 
 COCOAPODS: 1.3.1

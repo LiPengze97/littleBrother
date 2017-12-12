@@ -51,7 +51,7 @@ class Person: NSObject, NSCoding {
         userName = data["username"].string ?? "未知"
         realName = data["name"].string ?? "未认证"
         realID = data["idCard"].string ?? "未认证"
-        authenStatus = data["authStatus"].string ?? "NO"
+        authenStatus = data["authStatus"].string ?? Authen_NO
         school = School("0", data["school"].string ?? "未知")
     }
     

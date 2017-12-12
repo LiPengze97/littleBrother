@@ -8,7 +8,7 @@
 
 import Foundation
 import Alamofire
-
+///init后就赋值phone
 class DetailFillController: SignUpBaseViewController {
     
     var scroll: UIScrollView!

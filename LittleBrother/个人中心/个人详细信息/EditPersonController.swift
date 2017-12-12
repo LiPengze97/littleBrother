@@ -228,6 +228,7 @@ class EditPersonController: UIViewController, UIScrollViewDelegate {
 class RoundButton: UIButton {
     
     var status: Bool = false
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         clipsToBounds = true
@@ -240,16 +241,14 @@ class RoundButton: UIButton {
         setImage(img, for: .normal)
     }
     
-    func changeStatus() {
-        status = !status
-        if !status {
-            layer.borderColor = UIColor.clear.cgColor
-        }else{
-            layer.borderColor = Config.themeColor.cgColor
-            setTitleColor(Config.themeColor, for: .normal)
-        }
+    func activate() {
+        status = true
+        layer.borderColor = Config.themeColor.cgColor
     }
-    
+    func deactivate() {
+        status = false
+        layer.borderColor = UIColor.clear.cgColor
+    }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")

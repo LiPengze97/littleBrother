@@ -60,6 +60,13 @@ class DetailViewController: UIViewController {
         
     }
     
+    @objc func getJob(){
+        
+    }
+    
+    @objc func sendMsg(){
+        
+    }
     
 }
 
@@ -116,25 +123,11 @@ extension DetailViewController {
         msgButton.layer.borderColor = Config.themeColor.cgColor
         msgButton.layer.borderWidth = 1
         getButton.backgroundColor = Config.themeColor
+      
         
-        getButton.addTarget(self, action: #selector(DetailViewController.getJob), for: .touchUpInside)
-        msgButton.addTarget(self, action: #selector(DetailViewController.sendMsg), for: .touchUpInside)
     }
     
-    @objc func getJob(){
-        if !isLogin {
-            self.present(PhoneRegisterViewController(), animated: true, completion: {
-                
-            })
-        }
-    }
-    
-    @objc func sendMsg(){
-        if !isLogin {
-            pushWithoutTabBar(PhoneRegisterViewController())
-        }
-    }
-    
+ 
     
     override func loadView() {
         let view1 = UIScrollView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh))

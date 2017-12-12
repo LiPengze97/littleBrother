@@ -9,6 +9,7 @@
 import Foundation
 import UIKit
 import SnapKit
+import SDWebImage
 
 ///1501*790
 class HeadView: UIView {
@@ -21,16 +22,24 @@ class HeadView: UIView {
     var nameLabel: UILabel?
     var authentic: UIButton?
     var backPanel: UIView!
-    
-    
+ 
     var myUpLoad: UIButton?
     var myBill: UIButton?
     
+    ///参数 person
     func fillContents(_ content: Any?) {
         let person = content as? Person
         nameLabel?.text = person?.userName
         authentic?.setTitle(person?.authenStatus, for: .normal)
-        
+//        var headHolder: UIImage
+//        if userDefault.getCustomObj(for: kHeadImageKey) != nil {
+//            headHolder = 
+//        }
+//        headImageView?.sd_setImage(with: Router.getAvatarURL(person!.id), placeholderImage: UIImage(named: "headPlaceholder"), options: [.retryFailed, .delayPlaceholder, .refreshCached, .cacheMemoryOnly], progress: { (<#Int#>, <#Int#>, <#URL?#>) in
+//            <#code#>
+//        }, completed: { (<#UIImage?#>, <#Error?#>, <#SDImageCacheType#>, <#URL?#>) in
+//            <#code#>
+//        })
     }
     
     override init(frame: CGRect) {

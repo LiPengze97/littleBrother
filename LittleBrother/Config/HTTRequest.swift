@@ -72,8 +72,6 @@ class HttpRequest {
                 }
                 
             }
-            
-            
         }
  
     }
@@ -83,13 +81,13 @@ class HttpRequest {
         switch response.result {
             
         case .success(let value):
+            log(value, .json)
             let js = JSON(value)
             let codeRaw = js["code"].int ?? 200 //?0 -> 0, nil -> 200
             successHandler(response, codeRaw, js["data"])
             
         case .failure(let error):
-            hud.showError(withStatus: "无网络连接")
-            log("\(error)", LogType.error)
+            log("无网络连接:::\n \(error)\nFINISH", LogType.error)
         }
         
     }

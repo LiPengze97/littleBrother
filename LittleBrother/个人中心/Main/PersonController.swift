@@ -33,49 +33,16 @@ class PersonViewController: UIViewController {
         HttpRequest.requestJSON(Router.getUserOwnInfo) { res, code, data in
             
         }
-        
-        
-        
+ 
     }
-    
-    func initHeaderView() {
-        
-        navigationController?.navigationBar.isHidden = true
-        headerView = HeadView(frame: Rect(0, 0, ScreenWidth, ScreenWidth*79/150+65))
-        tableView.tableHeaderView = headerView
-        headerView.myUpLoad?.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
-        headerView.myBill?.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
-        headerView.myBill?.tag = 1000
-        headerView.myUpLoad?.tag = 1001
-        headerView.authentic?.tag = 1002
-        let tap1 = UITapGestureRecognizer(target: self, action: #selector(labelTap))
-        let tap2 = UITapGestureRecognizer(target: self, action: #selector(labelTap))
-        headerView.nameLabel?.addGestureRecognizer(tap2)
-        headerView.headImageView?.addGestureRecognizer(tap1)
-        headerView.authentic?.addTarget(self, action: #selector(buttonClick(_:)), for: .touchUpInside)
-    }
-    
-    func initTableView() {
-        
-        tableView = UITableView(frame: Rect(0, -20, ScreenWidth, ScreenHeigh+20), style: .grouped)
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.personCellId)
-        tableView.estimatedRowHeight = 0
-        tableView.rowHeight = 60
-        view.addSubview(tableView)
-        
-    }
+ 
     @objc func labelTap() {
-        if !isLogin  {
-            pushWithoutTabBar(PhoneRegisterViewController())
-        }
-        pushWithoutTabBar(EditPersonController())
+        
     }
     
     @objc func buttonClick(_ sender: UIButton) {
         if !isLogin  {
-            pushWithoutTabBar(PhoneRegisterViewController())
+           
         }
         switch sender.tag {
         case 1000:
@@ -90,19 +57,9 @@ class PersonViewController: UIViewController {
     }
 }
 
+/// View:
 extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 2
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if section == 1 {
-            return 1
-        }
-        return 4
-    }
-    
+ 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = UITableViewCell(style: .default, reuseIdentifier: Identifier.personCellId)
         
@@ -121,7 +78,7 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.cellForRow(at: indexPath)?.isSelected = false
         if !isLogin {
-            pushWithoutTabBar(PhoneRegisterViewController())
+            
             return
         }
         if indexPath.section == 1 {
@@ -138,8 +95,42 @@ extension PersonViewController: UITableViewDelegate, UITableViewDataSource {
             pushWithoutTabBar(ContactController())
         default: break;
         }
-        
-        
+ 
+    }
+ 
+    func initHeaderView() {
+        navigationController?.navigationBar.isHidden = true
+        headerView = HeadView(frame: Rect(0, 0, ScreenWidth, ScreenWidth*79/150+65))
+        tableView.tableHeaderView = headerView
+        headerView.myUpLoad?.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+        headerView.myBill?.addTarget(self, action: #selector(buttonClick), for: .touchUpInside)
+        headerView.myBill?.tag = 1000
+        headerView.myUpLoad?.tag = 1001
+        headerView.authentic?.tag = 1002
+        headerView.nameLabel?.addTapGest(target: self, action: #selector(labelTap))
+        headerView.headImageView?.addTapGest(target: self, action: #selector(labelTap))
+        headerView.authentic?.addTarget(self, action: #selector(buttonClick(_:)), for: .touchUpInside)
+    }
+    
+    func initTableView() {
+        tableView = UITableView(frame: Rect(0, -20, ScreenWidth, ScreenHeigh+20), style: .grouped)
+        tableView.delegate = self
+        tableView.dataSource = self
+        tableView.register(UITableViewCell.self, forCellReuseIdentifier: Identifier.personCellId)
+        tableView.estimatedRowHeight = 0
+        tableView.rowHeight = 60
+        view.addSubview(tableView)
+    }
+    
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 2
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        if section == 1 {
+            return 1
+        }
+        return 4
     }
     
 }

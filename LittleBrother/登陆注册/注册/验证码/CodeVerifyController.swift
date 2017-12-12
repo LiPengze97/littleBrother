@@ -67,11 +67,10 @@ class CodeVerifyController: SignUpBaseViewController {
             self.phone = "17864154930"
             vericode = "123456"
         }
-    
-        
+ 
         HttpRequest.requestJSON(Router.logIn(phone, vericode!)) {
             response, code, data in
-            print(response.result.value)
+             
             switch code {
             case 100:
                 hud.dismiss()

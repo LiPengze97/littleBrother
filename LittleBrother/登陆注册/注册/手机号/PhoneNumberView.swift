@@ -15,6 +15,10 @@ extension PhoneNumberController {
         textField1?.keyboardType = .numberPad
         textField1?.placeholder = ph1
         textField1?.addTitleLabel(labelTitle!)
+        if phone != "" {
+            textField1?.text = phone
+            valueChanged()
+        }
         cancelButton.isHidden = true
     }
     

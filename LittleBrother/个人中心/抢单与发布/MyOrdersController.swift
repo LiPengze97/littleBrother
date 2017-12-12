@@ -23,19 +23,19 @@ class MyOrdersController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "我的抢单"
-        vc1 = ItemsController(url: Router.myAcceptTasks(MissionStatus.PROCESSING.rawValue, "1"))
-        vc2 = ItemsController(url: nil)
+        vc1 = ItemsController(isMyAccept: true, MissionStatus.PROCESSING)
+        vc2 = ItemsController(isMyAccept: true, MissionStatus.FINISH)
         
         segmentView = MJCSegmentInterface(frame: Rect(0, 64, ScreenWidth, ScreenHeigh-64))
         segmentView.titlesViewFrame = Rect(0, 0, ScreenWidth, segmentTitleHeight)
         view.addSubview(segmentView)
         segmentView.intoTitlesArray(titleArr, intoChildControllerArray: [vc1, vc2], hostController: self)
-        //segmentView.titleBarStyles = .titlesScrollStyle
-        //segmentView.isIndicatorFollow = true
         segmentView.itemTextSelectedColor = Config.themeColor
         segmentView.itemTextNormalColor = .black
         segmentView.indicatorHidden = true
         segmentView.itemTextFontSize = 20
+        //segmentView.titleBarStyles = .titlesScrollStyle
+        //segmentView.isIndicatorFollow = true
         //segmentView.indicatorColor = Config.themeColor
         
         let vi = UIView(frame: Rect(ScreenWidth/2, 7.5, 0.5, segmentTitleHeight-15))
@@ -54,6 +54,8 @@ class MyOrdersController: UIViewController {
         super.viewWillAppear(animated)
         navigationController?.navigationBar.isHidden = false
     }
+    
+    
     
 }
 

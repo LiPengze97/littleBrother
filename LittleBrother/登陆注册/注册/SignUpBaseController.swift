@@ -81,7 +81,7 @@ class SignUpBaseViewController: UIViewController {
         navigationController?.navigationBar.isHidden = true
        
         //1080*233
-        backImage = UIView(frame: Rect(0, 0, ScreenWidth, 66))
+        backImage = UIView(frame: Rect(0, 0, ScreenWidth, 64))
         backImage.layer.contents = #imageLiteral(resourceName: "signinBack").cgImage
         backImage.layer.contentsGravity = kCAGravityResizeAspectFill
         view.addSubview(backImage)
@@ -96,7 +96,7 @@ class SignUpBaseViewController: UIViewController {
         cancelButton.addTarget(self, action: #selector(cancel), for: .touchUpInside)
         cancelButton.snp.makeConstraints{ make in
             make.right.equalTo(0)
-            make.top.equalTo(30)
+            make.top.equalTo(36)
             make.height.equalTo(30)
             make.width.equalTo(75)
         }
@@ -106,7 +106,7 @@ class SignUpBaseViewController: UIViewController {
         backView?.snp.makeConstraints{ make in
             make.centerY.equalTo(cancelButton)
             make.height.equalTo(32)
-            make.left.equalTo(7)
+            make.left.equalTo(9)
             make.width.equalTo(65)
         }
         backView?.addTapGest(target: self, action: #selector(back))

@@ -8,9 +8,8 @@ pod 'SnapKit', '~> 4.0.0'
 pod 'MJRefresh', '~> 3.1.15'
 pod 'MJCSegmentInterface'
 pod 'YUChineseSorting'
-pod 'SVProgressHUD', '~> 2.2.2'
+pod 'SVProgressHUD', '~> 2.2.2', :inhibit_warnings => true
 pod 'YBAttributeTextTapAction'
-pod 'MJRefresh'
-#pod 'SDWebImage', '~> 4.0' //'4.2.2'
+pod 'SDWebImage', '~> 4.0' #//'4.2.2'
 
 end

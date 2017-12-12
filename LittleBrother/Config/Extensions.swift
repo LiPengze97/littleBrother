@@ -10,10 +10,23 @@ import Foundation
 import UIKit
 
 extension UIViewController {
+    
     func pushWithoutTabBar(_ viewController: UIViewController, animated: Bool = true) {
         viewController.hidesBottomBarWhenPushed = true
         navigationController?.pushViewController(viewController, animated: animated)
     }
+    
+    func reLogin(_ loginDidFinishHandler: (() -> Void)?) {
+        let signIn = PhoneNumberController()
+        let p = (userDefault.getCustomObj(for: kCurrentUserKey) as? Person)?.mobile
+        if p != nil {
+            signIn.phone = p!
+        }
+        signIn.loginDidFinishHandler = loginDidFinishHandler
+        present(UINavigationController(rootViewController: signIn), animated: true)
+    }
+    
+    
 }
 
 extension UILabel {
@@ -40,6 +53,7 @@ extension UIView {
         let ges = UITapGestureRecognizer(target: target, action: action)
         addGestureRecognizer(ges)
     }
+    
     func addBottomLine(height: CGFloat = 0.75, color: UIColor = UIColor.lightGray, bottom: CGFloat = 1000, left: CGFloat = 0) {
         let separator = UIView()
         if color.cgColor.alpha == 1 {
@@ -141,10 +155,7 @@ extension UserDefaults {
     ///获取 自定义对象：
     func getCustomObj(for key: String) -> Any? {
         
-        guard let decodedObj = object(forKey: key) as? Data else{
-            print("getting obj but nil from key: ", key)
-            return nil
-        }
+        guard let decodedObj = object(forKey: key) as? Data else{ return nil }
         log("Got a local obj")
         return NSKeyedUnarchiver.unarchiveObject(with: decodedObj)
         
