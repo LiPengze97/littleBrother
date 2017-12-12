@@ -8,6 +8,7 @@
 
 import UIKit
 
+///需要传 school
 class DistributeController: UIViewController {
     
     var tableView: UITableView!
@@ -15,6 +16,7 @@ class DistributeController: UIViewController {
     var distrButton: UIButton!
     var txView: UITextView!
     
+    var school: School!
     let distrButtonHeight: CGFloat = 48
     let dataArr = ["任务标题", "任务详情:", "任务地点", "添加赏金"]
     
@@ -26,6 +28,46 @@ class DistributeController: UIViewController {
         initFooter()
     }
     
+    @objc func distribute() {
+        view.endEditing(true)
+        var cell0 = tableView.cellForRow(at: IndexPath(row: 0, section: 0)) as! RightTextFieldCell
+        let title = cell0.txfld.text!
+        cell0 = tableView.cellForRow(at: IndexPath(row: 1, section: 1)) as! RightTextFieldCell
+        let amount = Double(cell0.txfld.text!)
+        cell0 = tableView.cellForRow(at: IndexPath(row: 0, section: 1)) as! RightTextFieldCell
+        var location = cell0.txfld.text!
+        location = location == "" ? school.name : location
+        let len0 = title.len()
+        let detail = txView.text!
+        if len0 > 20 || len0 < 5 {
+            hud.showError(withStatus: ""); return
+        } else if detail.len() < 1 {
+            hud.showError(withStatus: ""); return
+        } else if amount == nil || amount == 0 {
+            hud.showError(withStatus: ""); return
+        }
+        HttpRequest.requestJSON(Router.releaseTask(title, detail, location, "\(amount!)")) { _, code, _ in
+            switch code {
+            case 203: hud.showError(withStatus: "")
+            case 201: self.reLogin(self.distribute);
+            case 0: hud.showSuccess(withStatus: " ")
+                self.navigationController?.popViewController(animated: true)
+            default: hud.showError(withStatus: " ")
+            }
+            
+        }
+        
+    }
+    
+  
+}
+
+
+
+
+///view setup
+extension DistributeController: UITableViewDelegate, UITableViewDataSource {
+   
     func initTable() {
         
         tableView = UITableView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh), style: .plain)
@@ -52,6 +94,7 @@ class DistributeController: UIViewController {
         distrButton.backgroundColor = Config.themeColor
         distrButton.clipsToBounds = true
         distrButton.layer.cornerRadius = distrButtonHeight/2
+        distrButton.addTarget(self, action: #selector(distribute), for: .touchUpInside)
         distrButton.snp.makeConstraints{ make in
             make.width.equalTo(ScreenWidth/2)
             make.height.equalTo(distrButtonHeight)
@@ -60,17 +103,6 @@ class DistributeController: UIViewController {
         }
     }
     
-//    override func viewWillDisappear(_ animated: Bool) {
-//        super.viewWillDisappear(animated)
-//        navigationController?.navigationBar.isHidden = true
-//    }
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        navigationController?.navigationBar.isHidden = false
-//    }
-}
-extension DistributeController: UITableViewDelegate, UITableViewDataSource {
-   
     func scrollViewDidScroll(_ scrollView: UIScrollView) {
         view.endEditing(true)
     }
@@ -111,28 +143,25 @@ extension DistributeController: UITableViewDelegate, UITableViewDataSource {
             let cell = UITableViewCell()
             cell.textLabel?.text = dataArr[1]
             cell.textLabel?.font = UIFont.systemFont(ofSize: 16.5)
+            cell.selectionStyle = .none
             return cell
         }
         let cell = RightTextFieldCell(style: .default, reuseIdentifier: Identifier.distributeCellId)
         if s == 0 && r == 0 {
-            cell.setRightArgs("5-20字", width: 150, size: 18.5, color: .gray)
+            cell.setRightArgs("5-20字", width: 250, size: 18.5, color: .gray)
             cell.setLeftText(dataArr[0], color: .black)
         } else if s == 1 && r == 0 {
             cell.setLeftText(dataArr[2], color: .black)
-            cell.setRightArgs("送达地点(选填)", width: 220, size: 18.5, color: .gray)
+            cell.setRightArgs("送达地点:" + school.name, width: 220, size: 18.5, color: .gray)
         } else {
             cell.setRightArgs("元", width: 100)
+            cell.txfld.keyboardType = .decimalPad
             cell.setLeftText(dataArr[3], color: .black)
         }
         cell.selectionStyle = .none
         return cell
     }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        
-        
-    }
+   
     
 }
 

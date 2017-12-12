@@ -83,6 +83,7 @@ func getAttributed(_ str: String, lineSpac: CGFloat) -> NSAttributedString {
     return atStr
 }
 
+//[.retryFailed, .delayPlaceholder, .refreshCached, .cacheMemoryOnly]
  
 //Aspect Fill：保持长宽比 使图片[充满容器]
 //Aspect Fit：保持长宽比 使图片在容器内[完整显示]出来 [不一定充满容器]

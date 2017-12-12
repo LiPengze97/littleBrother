@@ -62,6 +62,9 @@ class MainViewController: UIViewController {
         loadData()
     }
 
+    ///
+    ///我tm是服了 能返回学校ID的接口只有getSchools，那么我只有返回人，通过人的大学名，再调用 获取大学 得到数组，在这个数组里找到该大学，就知道关联的SchoolID。搞什么？？？草。胡闹
+    //
     func loadData(of schoolId: String, page: Int = 0) {
         
         HttpRequest.requestJSON(Router.nearbyTask(schoolId, page)) { _, code, data in
@@ -79,9 +82,34 @@ class MainViewController: UIViewController {
         
     }
     
+    func logInRefresh() {
+        person = userDefault.getCustomObj(for: kCurrentUserKey) as! Person //1
+    
+        school = person.school //注意，人属性的school里没有ID！ //2
+      
+//        HttpRequest.requestJSON(Router.getSchools) { _, code, data in
+//            if code != 0 {
+//                hud.showError(withStatus: "学校列表加载失败"); return
+//            }
+//            let dataArr = data.arrayValue
+//            for i in 0..<dataArr.count {
+//                let aSchool = School(dataArr[i])
+//                if aSchool.name == self.school.name {
+//                    self.school.id = aSchool.id; break
+//                }
+//            }
+//            self.loadData(of: self.school.id) //3
+//            self.naviContentView.fillContents(self.school) //4
+//            hud.dismiss()
+//        }
+        self.loadData(of: self.school.id) //3
+        self.naviContentView.fillContents(self.school) //4
+    }
+    
     func selectSchool(_ school: School) {
         self.school = school
         naviContentView.fillContents(school)
+        dataArr.removeAllObjects()
         loadData(of: school.id)
     }
     
@@ -102,13 +130,7 @@ class MainViewController: UIViewController {
         
     }
     
-    func logInRefresh() {
-        person = userDefault.getCustomObj(for: kCurrentUserKey) as! Person
-        school = person.school
-        loadData(of: school.id)
-        naviContentView.fillContents(school)
-    }
-    
+   
     @objc func didTap(_ sender: UITapGestureRecognizer) {
         if sender.view?.tag == 100 {
             pushWithoutTabBar(DistributeController())
@@ -136,7 +158,7 @@ extension MainViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         let detail = DetailViewController()
-        //some operations on detail
+        detail.mission = dataArr[indexPath.row] as? Mission
         pushWithoutTabBar(detail)
         
     }

@@ -24,21 +24,22 @@ class MyReleaseController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
         title = "我的发布"
-        vc1 = ItemsController(url: nil)
-        vc2 = ItemsController(url: nil)
-        vc3 = ItemsController(url: nil)
+        
+        vc1 = ItemsController(isMyAccept: false, MissionStatus.WAIT)
+        vc2 = ItemsController(isMyAccept: false, MissionStatus.PROCESSING)
+        vc3 = ItemsController(isMyAccept: false, MissionStatus.FINISH)
         
         segmentView = MJCSegmentInterface(frame: Rect(0, 64, ScreenWidth, ScreenHeigh-64))
         segmentView.titlesViewFrame = Rect(0, 0, ScreenWidth, segmentTitleHeight)
         view.addSubview(segmentView)
         segmentView.intoTitlesArray(titleArr, intoChildControllerArray: [vc1, vc2, vc3], hostController: self)
-        //segmentView.titleBarStyles = .titlesScrollStyle
-        //segmentView.isIndicatorFollow = true
         segmentView.itemTextSelectedColor = Config.themeColor
         segmentView.itemTextNormalColor = .black
         segmentView.indicatorHidden = true
         segmentView.itemTextFontSize = 20
         //segmentView.indicatorColor = Config.themeColor
+        //segmentView.titleBarStyles = .titlesScrollStyle
+        //segmentView.isIndicatorFollow = true
         
         let vi = UIView(frame: Rect(ScreenWidth/3, 7.5, 0.5, segmentTitleHeight-15))
         vi.backgroundColor = UIColor.lightGray

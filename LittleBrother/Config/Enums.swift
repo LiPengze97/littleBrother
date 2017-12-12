@@ -44,10 +44,20 @@ enum Identifier {
 
 ///订单状态
 enum MissionStatus: String {
-    case WAIT = "未接单"
-    case PROCESSING = "进行中"
-    case CANCEL = "订单取消"
-    case FINISH = "订单完成"
+    
+    case WAIT = "WAIT"
+    case PROCESSING = "PROCESSING"
+    case CANCEL = "CANCEL"
+    case FINISH = "FINISH"
+    
+    func describe() -> String {
+        switch self {
+        case .CANCEL: return "订单取消"
+        case .PROCESSING: return "进行中"
+        case .WAIT: return "未接单"
+        case .FINISH: return "订单完成"
+        }
+    }
 }
 
 enum Regex {

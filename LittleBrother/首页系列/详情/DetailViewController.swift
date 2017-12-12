@@ -8,7 +8,7 @@
 
 import Foundation
 import UIKit
-import Alamofire
+
 class DetailViewController: UIViewController {
    
     var isLogin = false
@@ -47,6 +47,24 @@ class DetailViewController: UIViewController {
     }
     
     func loadData() {
+        guard mission != nil else {
+            hud.showError(withStatus: "网络异常"); return
+        }
+        personInfoView.fillContents(mission.master)
+        missionInfoView.fillContents(mission)
+        
+        //TODO: - 判断订单状态及是否自己，改变底部 button 内容
+        //
+        //
+        
+        
+    }
+    
+    @objc func getJob(){
+        
+    }
+    
+    @objc func sendMsg(){
         
     }
     
@@ -105,25 +123,11 @@ extension DetailViewController {
         msgButton.layer.borderColor = Config.themeColor.cgColor
         msgButton.layer.borderWidth = 1
         getButton.backgroundColor = Config.themeColor
+      
         
-        getButton.addTarget(self, action: #selector(DetailViewController.getJob), for: .touchUpInside)
-        msgButton.addTarget(self, action: #selector(DetailViewController.sendMsg), for: .touchUpInside)
     }
     
-    @objc func getJob(){
-        if !isLogin {
-            self.present(PhoneRegisterViewController(), animated: true, completion: {
-                
-            })
-        }
-    }
-    
-    @objc func sendMsg(){
-        if !isLogin {
-            pushWithoutTabBar(PhoneRegisterViewController())
-        }
-    }
-    
+ 
     
     override func loadView() {
         let view1 = UIScrollView(frame: Rect(0, 0, ScreenWidth, ScreenHeigh))

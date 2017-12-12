@@ -192,21 +192,22 @@ enum Router: URLRequestConvertible {
              .getOtherUserInfo,   .getUserAvatar,
              .getInvitationCode,  .getAddrList,
              .myAcceptTasks,      .myPostTasks,
-             .nearbyTask, .logIn: // 待定。看怎么返回
-            
+             .nearbyTask,         .getOwnAvatar:
             urlRequest.httpMethod = HTTPMethod.get.rawValue
-            urlRequest.setValue("application/x-www-form-urlencoded; charset=utf-8", forHTTPHeaderField: "Content-Type")
             return try URLEncoding.default.encode(urlRequest, with: parameter)
-            
+        case .logIn:
+            urlRequest.httpMethod = HTTPMethod.post.rawValue
+            return try URLEncoding.default.encode(urlRequest, with: parameter)
         default:
             urlRequest.httpMethod = HTTPMethod.post.rawValue
-            urlRequest.setValue("application/json; charset=utf-8", forHTTPHeaderField: "Content-Type")
             return try JSONEncoding.default.encode(urlRequest, with: parameter)
         }
         
     }
     
-    
+    static func getAvatarURL(_ id: String) -> URL? {
+        return URL(string: "http://ischool.suqingfa.win:8080/api/account/getUserAvatar?id="+id)
+    }
     
 }
 

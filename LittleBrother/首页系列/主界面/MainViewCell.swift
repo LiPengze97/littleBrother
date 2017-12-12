@@ -32,7 +32,8 @@ class MainViewCell: UITableViewCell {
         contentLabel.el_setAutoWidthText(mission.title, fontSize: contentFontSize, max: contentMaxSize)
         
         timeLabel.text = mission.time.getDaysBefore()
-        moneyLabel.text = "¥" + mission.price
+       
+        moneyLabel.text = "¥\(mission.price!)"
     }
     
     
@@ -85,7 +86,7 @@ class MainViewCell: UITableViewCell {
         timeLabel.snp.makeConstraints { (make) in
             make.right.equalTo(-15)
             make.height.equalTo(18)
-            make.centerY.equalTo(nameLabel)
+            make.top.equalTo(head).offset(2)
             make.width.equalTo(80)
         }
         timeLabel.text = "14小时前"
@@ -96,7 +97,7 @@ class MainViewCell: UITableViewCell {
         addSubview(moneyLabel)
         moneyLabel.snp.makeConstraints { (make) in
             make.right.equalTo(timeLabel)
-            make.top.equalTo(head).offset(2)
+            make.centerY.equalTo(head.snp.bottom).offset(2)
             make.width.equalTo(200)
             make.height.equalTo(34)
         }

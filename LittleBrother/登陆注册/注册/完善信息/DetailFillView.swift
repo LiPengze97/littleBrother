@@ -127,6 +127,9 @@ extension DetailFillController {
             make.centerX.equalTo(ScreenWidth*0.7)
             make.top.size.equalTo(girlButton)
         }
+        boyButton.addTarget(self, action: #selector(selectGender), for: .touchUpInside)
+        girlButton.addTarget(self, action: #selector(selectGender), for: .touchUpInside)
+        
         
         //学校选择
         let label4 = getLabel("学校选择")
@@ -216,6 +219,24 @@ extension DetailFillController {
         collegeButton.setTitle(str, for: .normal)
     }
     
+    @objc func selectGender(_ sender: UIButton) {
+        
+        let target = sender as! RoundButton
+        var other = girlButton
+        
+        if target != boyButton {
+            other = boyButton
+        }
+        if target.status {
+            target.deactivate()
+        } else {
+            target.activate()
+            other?.deactivate()
+        }
+    }
+    
+    
     
     
 }
+

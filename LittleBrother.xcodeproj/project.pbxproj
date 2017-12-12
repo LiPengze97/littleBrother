@@ -62,16 +62,11 @@
 		8E1EF0E71FBA80C1004C8023 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8E1EF0E51FBA80C1004C8023 /* LaunchScreen.storyboard */; };
 		8E4F8C331FD6C59100E412B5 /* Userplist.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8E4F8C321FD6C59100E412B5 /* Userplist.plist */; };
 		8E543BCA1FBC31AC00C63671 /* CircleLoopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */; };
-		8E58BA131FD694F6008F04C6 /* identifyCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */; };
-		8E58BA141FD694F6008F04C6 /* identifyCodeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */; };
 		8EA8BAC61FD81FE6005581A9 /* SwiftNotice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */; };
-		8EAA05861FD57558003A3C14 /* PhoneRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */; };
-		8EAA05871FD57558003A3C14 /* PhoneRegisterViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA05851FD57558003A3C14 /* PhoneRegisterViewController.xib */; };
 		8EAA058B1FD57D49003A3C14 /* chargeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA05891FD57D49003A3C14 /* chargeViewController.swift */; };
 		8EAA058C1FD57D49003A3C14 /* chargeViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA058A1FD57D49003A3C14 /* chargeViewController.xib */; };
 		8EAA058F1FD57D58003A3C14 /* withdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA058D1FD57D58003A3C14 /* withdrawViewController.swift */; };
 		8EAA05901FD57D58003A3C14 /* withdrawViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8EAA058E1FD57D58003A3C14 /* withdrawViewController.xib */; };
-		8EAA05941FD58AA1003A3C14 /* completeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8EAA05931FD58AA1003A3C14 /* completeInfoViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,16 +128,11 @@
 		8E1EF0E81FBA80C1004C8023 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8E4F8C321FD6C59100E412B5 /* Userplist.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Userplist.plist; sourceTree = "<group>"; };
 		8E543BC91FBC31AC00C63671 /* CircleLoopView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CircleLoopView.swift; sourceTree = "<group>"; };
-		8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = identifyCodeViewController.swift; sourceTree = "<group>"; };
-		8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = identifyCodeViewController.xib; sourceTree = "<group>"; };
 		8EA8BAC51FD81FE5005581A9 /* SwiftNotice.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwiftNotice.swift; sourceTree = "<group>"; };
-		8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneRegisterViewController.swift; sourceTree = "<group>"; };
-		8EAA05851FD57558003A3C14 /* PhoneRegisterViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhoneRegisterViewController.xib; sourceTree = "<group>"; };
 		8EAA05891FD57D49003A3C14 /* chargeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = chargeViewController.swift; sourceTree = "<group>"; };
 		8EAA058A1FD57D49003A3C14 /* chargeViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = chargeViewController.xib; sourceTree = "<group>"; };
 		8EAA058D1FD57D58003A3C14 /* withdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = withdrawViewController.swift; sourceTree = "<group>"; };
 		8EAA058E1FD57D58003A3C14 /* withdrawViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = withdrawViewController.xib; sourceTree = "<group>"; };
-		8EAA05931FD58AA1003A3C14 /* completeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = completeInfoViewController.swift; sourceTree = "<group>"; };
 		AEC45B8C582AB75B2299FE1E /* Pods-LittleBrother.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LittleBrother.release.xcconfig"; path = "Pods/Target Support Files/Pods-LittleBrother/Pods-LittleBrother.release.xcconfig"; sourceTree = "<group>"; };
 		BCAE7E068819485B0561AAC4 /* Pods_LittleBrother.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LittleBrother.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -463,11 +453,6 @@
 			children = (
 				07E928CC1FD958E90019D65F /* 注册 */,
 				07E928CB1FD958DB0019D65F /* 将来会用的登陆 */,
-				8EAA05841FD57558003A3C14 /* PhoneRegisterViewController.swift */,
-				8EAA05851FD57558003A3C14 /* PhoneRegisterViewController.xib */,
-				8EAA05931FD58AA1003A3C14 /* completeInfoViewController.swift */,
-				8E58BA111FD694F6008F04C6 /* identifyCodeViewController.swift */,
-				8E58BA121FD694F6008F04C6 /* identifyCodeViewController.xib */,
 			);
 			path = "登陆注册";
 			sourceTree = "<group>";
@@ -546,11 +531,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				8E1EF0E71FBA80C1004C8023 /* LaunchScreen.storyboard in Resources */,
-				8E58BA141FD694F6008F04C6 /* identifyCodeViewController.xib in Resources */,
 				8E1EF0E41FBA80C1004C8023 /* Assets.xcassets in Resources */,
 				8EAA058C1FD57D49003A3C14 /* chargeViewController.xib in Resources */,
 				8E4F8C331FD6C59100E412B5 /* Userplist.plist in Resources */,
-				8EAA05871FD57558003A3C14 /* PhoneRegisterViewController.xib in Resources */,
 				8EAA05901FD57D58003A3C14 /* withdrawViewController.xib in Resources */,
 				8E1EF0E21FBA80C1004C8023 /* Main.storyboard in Resources */,
 			);
@@ -584,6 +567,7 @@
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/MJCSegmentInterface/MJCSegmentInterface.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
+				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SVProgressHUD/SVProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftyJSON/SwiftyJSON.framework",
@@ -595,6 +579,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJCSegmentInterface.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SVProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftyJSON.framework",
@@ -642,11 +627,9 @@
 				070CE50C1FBC5F68004DD912 /* UserProtocolController.swift in Sources */,
 				076F88091FDD7B6100CDA6E5 /* School.swift in Sources */,
 				07831CDF1FD1930F0067DF7E /* DetailViewController.swift in Sources */,
-				8E58BA131FD694F6008F04C6 /* identifyCodeViewController.swift in Sources */,
 				070CE4F41FBC1C2C004DD912 /* ContactUsController.swift in Sources */,
 				07E928C71FD958C80019D65F /* SignUpBaseController.swift in Sources */,
 				8EAA058B1FD57D49003A3C14 /* chargeViewController.swift in Sources */,
-				8EAA05941FD58AA1003A3C14 /* completeInfoViewController.swift in Sources */,
 				8EAA058F1FD57D58003A3C14 /* withdrawViewController.swift in Sources */,
 				07CF217A1FD8E93B00EF7411 /* Person.swift in Sources */,
 				07CF217E1FD9066800EF7411 /* ConstVariables.swift in Sources */,
@@ -681,7 +664,6 @@
 				070CE5041FBC4579004DD912 /* ItemsController.swift in Sources */,
 				0708259C1FD2D09500775C1F /* SelectSchoolController.swift in Sources */,
 				07831CDB1FD184FA0067DF7E /* CardView.swift in Sources */,
-				8EAA05861FD57558003A3C14 /* PhoneRegisterViewController.swift in Sources */,
 				07047F861FBB173900A5B266 /* WalletView.swift in Sources */,
 				07CF21751FD8E64F00EF7411 /* SwiftyJSON.swift in Sources */,
 				07AFFF351FDA366100F3B2AA /* PhoneNumberView.swift in Sources */,
