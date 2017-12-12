@@ -13,3 +13,4 @@ pod 'YBAttributeTextTapAction'
 pod 'SDWebImage', '~> 4.0' #//'4.2.2'
 pod 'NIMSDK'
 end
+
